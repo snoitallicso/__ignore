@@ -1,4 +1,5 @@
 //templ0 = document.getElementsByClassName("templ")[0].innerHTML;
+schema_templ = document.getElementsByClassName("schema-templ")[0]
 elpretempl1 = document.getElementsByClassName("templ")[0] //.children[0];
 li = document.createElement("li");
 li.setAttribute("onclick", "addC([])")
@@ -25,6 +26,13 @@ elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusi
 list = [1,2,3]
 two = list[1]
 list.indexOf(two)
+
+//COLORS ARRAY FOR ICONS
+/*colorrs = ["red", "orange", "yellow", "green", "blue", "violet"]
+icons = document.getElementsByClassName("socnets")[0].getElementsByTagName("a")
+for (i=0; i<colorrs.length;i++){
+	icons[i].style.backgroundColor = colorrs[i];
+}*/
 
 //FUCKING HACK: I dont know how to copy object faster
 var copyObj = function(obj){
@@ -122,12 +130,13 @@ var lay = new Vue({
 		childrens: layObj.layout.childrens,
 		styleObject: layObj.styleObject,
 		fullwidth: page_settings.fullwidth,
-		active_dom_el: null
+		active_dom_el: null,
+		likera: 42
 	},
 	props: ['shortcode', 'isfheight'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth'],
+			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth', 'cl', 'likes', 'likera'],
 			name: 'templ',
 			methods: {
 				classish: function (params){
@@ -215,6 +224,32 @@ var lay = new Vue({
 					}
 					//GENERAL OPTIONS GROUP
 					if(params.groups.General){
+						if(params.groups.General.icon_position){
+							classobj.push(
+								{'bottom': params.groups.General.icon_position.default == 'Bottom'}
+							)
+						}
+						if(params.groups.General.social_icon_tooltip){
+							classobj.push(
+								{'tltp-bottom': params.groups.General.social_icon_tooltip.default == 'Bottom'},
+								{'tltp-left': params.groups.General.social_icon_tooltip.default == 'Left'},
+								{'tltp-right': params.groups.General.social_icon_tooltip.default == 'Right'}
+							)
+						}
+						if(params.groups.General.social_icon_boxed){
+							classobj.push(
+								{'boxed-icons': params.groups.General.social_icon_boxed.default == 'Yes'}
+							)
+						}	
+						//Alert Type (only?)
+						if(params.groups.General.type){
+							classobj.push(
+								/*{'gen': params.groups.General.type.default == 'General' },*/
+						  	{'err': params.groups.General.type.default == 'Error' },
+						  	{'succ': params.groups.General.type.default == 'Success' },
+						  	{'notc': params.groups.General.type.default == 'Notice' }
+							);
+						}
 						//Alignment
 						if(params.groups.General.alignment){
 							classobj.push(params.groups.General.alignment.default);
@@ -234,9 +269,16 @@ var lay = new Vue({
 						//Hover Type
 						if(params.groups.General.hover_type){
 							classobj.push(
-								{'zoomin': params.groups.General.hover_type.default == 'Zoom In' },
-						  	{'zoomout': params.groups.General.hover_type.default == 'Zoom Out' },
-						  	{'liftup': params.groups.General.hover_type.default == 'Lift Up' }
+								{'izoomin': params.groups.General.hover_type.default == 'Zoom In' },
+						  	{'izoomout': params.groups.General.hover_type.default == 'Zoom Out' },
+						  	{'iliftup': params.groups.General.hover_type.default == 'Lift Up' }
+							)
+						}
+						if(params.groups.General.pic_style){
+							classobj.push(
+								{'glow': params.groups.General.pic_style.default == 'Glow' },
+								{'dropshadow': params.groups.General.pic_style.default == 'Drop Shadow' },
+								{'bshdw': params.groups.General.pic_style.default == 'Bottom Shadow' }
 							)
 						}
 						if(params.groups.General.align){
@@ -244,6 +286,71 @@ var lay = new Vue({
 								{'left': params.groups.General.align.default == 'Left' },
 						  	{'right': params.groups.General.align.default == 'Right' },
 						  	{'center': params.groups.General.align.default == 'Center' }
+							)
+						}
+						if(params.groups.General.content_alignment){
+							classobj.push(
+								{'left': params.groups.General.content_alignment.default == 'Left' },
+								{'right': params.groups.General.content_alignment.default == 'Right'},
+								{'center': params.groups.General.content_alignment.default == 'Center'}
+							)
+						}
+						if(params.groups.General.box_shadow){
+							classobj.push(
+								{'shdw': params.groups.General.box_shadow.default == 'Yes' }
+							)
+						}
+						if(params.groups.General.shadow){
+							classobj.push(
+								{'bshdw': params.groups.General.shadow.default == 'Yes'}								
+							)
+						}
+						if(params.groups.General.highlightposition){
+							classobj.push(
+								{'lbrd': params.groups.General.highlightposition.default == 'Left'},
+								{'rbrd': params.groups.General.highlightposition.default == 'Right'},
+								{'tbrd': params.groups.General.highlightposition.default == 'Top'},
+								{'bbrd': params.groups.General.highlightposition.default == 'Bottom'}
+							)
+						}
+						if(params.groups.General.content_alignment){
+							classobj.push(
+								{'left': params.groups.General.content_alignment.default == 'Left' },
+								{'right': params.groups.General.content_alignment.default == 'Right'},
+								{'center': params.groups.General.content_alignment.default == 'Center'}
+							)
+						}
+						if(params.groups.General.button_size){
+							classobj.push(
+								{'smallb': params.groups.General.button_size.default == 'Small'},
+								{'mediumb': params.groups.General.button_size.default == 'Medium'},
+								{'largeb': params.groups.General.button_size.default == 'Large'},
+								{'x-largeb': params.groups.General.button_size.default == 'XLarge'}
+							)
+						}
+						if(params.groups.General.button_shape){
+							classobj.push(
+								{'b-3d': params.groups.General.button_type.default == '3D'},
+						  	{'b-flat': params.groups.General.button_type.default == 'Flat'}
+							)
+						}
+						if(params.groups.General.button_shape){
+							classobj.push(
+						  	{'square': params.groups.General.button_shape.default == 'Square'},
+							  {'pill': params.groups.General.button_shape.default == 'Pill'},
+							  {'round': params.groups.General.button_shape.default == 'Round'}
+							)
+						}
+						if(params.groups.General.buttoncolor){
+							classobj.push(
+								{'orange': params.groups.General.buttoncolor.default == 'Orange'},
+								{'darkgreen': params.groups.General.buttoncolor.default == 'Dark Green'},
+								{'green': params.groups.General.buttoncolor.default == 'Green'},
+								{'blue': params.groups.General.buttoncolor.default == 'Blue'},
+								{'red': params.groups.General.buttoncolor.default == 'Red'},
+								{'pink': params.groups.General.buttoncolor.default == 'Pink'},
+								{'lightgray': params.groups.General.buttoncolor.default == 'Light Gray'},
+								{'darkgray': params.groups.General.buttoncolor.default == 'Dark Gray'}
 							)
 						}
 						/*if(params.groups.General.one){
@@ -324,6 +431,11 @@ var lay = new Vue({
 							borderColor: children.params.groups.Design.border_color.value*/
 						}
 					}
+					if(element_type === 'Person'){
+						var style_object = {
+							backgroundColor: children.params.groups.General.background_color.value
+						};
+					}
 					if(element_type === 'Youtube'){
 						var style_object = {
 							maxWidth: children.params.groups.General.dimensions.value.width,
@@ -348,6 +460,21 @@ var lay = new Vue({
 							borderRadius: children.params.groups.General.borderradius.value + 'px'
 						};
 					}
+					if(element_type === 'Alert'){
+						var style_object = {
+							borderWidth: children.params.groups.General.border_size.value,
+							backgroundColor: children.params.groups.General.background_color.value
+						}
+					}
+					if(element_type === 'Tagline Box'){
+						var style_object = {
+							borderWidth: children.params.groups.General.border.value,
+							borderColor: children.params.groups.General.bordercolor.value,
+							backgroundColor: children.params.groups.General.backgroundcolor.value,
+							marginTop: children.params.groups.General.dimensions.value.margin_top,
+							marginBottom: children.params.groups.General.dimensions.value.margin_bottom
+						}
+					}
 
 					/*else {
 						var style_object = {
@@ -355,6 +482,19 @@ var lay = new Vue({
 						}
 					}*/
 					return style_object;
+				},
+				socialnets: function (){
+					return [
+						['facebook','blogger', 'deviantart', 'digg', 'dribbble', 'dropbox',  'flickr', 'forrst', 'googleplus', 'instagram', 'linkedin', 'myspace', 'paypal', 'pinterest', 'reddit', 'rss', 'skype', 'soundcloud', 'spotify', 'tumblr', 'twitter', 'vimeo', 'vk', 'xing', 'yahoo', 'yelp', 'youtube', 'email'],
+						['red','blue','green']
+					]
+				},
+				//return filtered socialnets
+				clac: function (){
+					return [
+						['facebook','blogger', 'deviantart', 'digg', 'dribbble', 'dropbox',  'flickr', 'forrst', 'googleplus', 'instagram', 'linkedin', 'myspace', 'paypal', 'pinterest', 'reddit', 'rss', 'skype', 'soundcloud', 'spotify', 'tumblr', 'twitter', 'vimeo', 'vk', 'xing', 'yahoo', 'yelp', 'youtube', 'email'],
+						['red','blue','green']
+					]
 				},
 				clickedE: function(children, index){
 					
@@ -384,6 +524,31 @@ var lay = new Vue({
 					//todo: perf (input rerendering redundancy after native rendering by typing)
 					//maybe <keep-alive> ?
 					this.params.groups.General.element_content.value = e.target.innerText;
+				}
+			},
+			computed: {
+			    selectedBoxes: function(){
+
+			      /*return Object.values(this.elements)
+			        .filter(el => el.value)
+			        .map((el, ndx) => ({value: el.value, color: this.colors[ndx]}))*/
+
+					var els = this.elements
+					var values = Object.keys(this.elements).map( function(e){ return els[e] } )
+
+					filteredvals = values.filter(function(el){ return el.value }) //filter for with values
+					//.map((el, ndx) => ({value: el.value, color: this.colors[ndx]}))
+
+					color_values = []
+					for(i=0; i<filteredvals.length; i++){
+						color_values.push({value: filteredvals[i].value, color: this.colors[i]})
+					}
+
+					return color_values
+
+			    },
+			    colors: function() {
+			    	return this.colorInput.split(',')
 				}
 			},
 			template: templ5
@@ -566,6 +731,7 @@ var secondSideContent = new Vue({
 			insertModal_content.columnsContent();
 			insertModal_content.seen = true;
 		},
+		//AVAILABLE ELEMENTS WNDOW AND MENU OPTIONS TO SEEN
 		openElementsModal: function(){
 			gridTabs.seen = true;
 			gridTabs.setElementsMenu();
@@ -580,8 +746,29 @@ var secondSideContent = new Vue({
 			gridContentLibrary.seen = true;
 			gridMainTabs.titles[0].isActive = false;
 			gridMainTabs.titles[1].isActive = true;
+		},
+
+		//MODAL WINDOW FOR EDITING PRICING TABLE, TABLE AND INSERT ITEMS
+		openSchemaEditor: function(){
+			/*this.seen = false;
+			gridTabs.seen = true;
+			gridContentLibrary.seen = true;
+			gridMainTabs.titles[0].isActive = false;
+			gridMainTabs.titles[1].isActive = true;*/
+
 		}
 	}
+});
+
+//schemaEditorState.activeElHaveSchema = true;
+var schemaEditorState = new Vue({
+	data: {
+		activeElHaveSchema: false,
+		pricingTableGrid: false
+	},
+	el: '.schema-editor',
+	name: 'schemaed',
+	template: schema_templ
 });
 
 var gridState = new Vue({
@@ -702,6 +889,7 @@ var gridState = new Vue({
 					this.$props.childrens.push(this.$props.childrens[0]);
 				},
 				openModalAddElmnt: function(e){
+					//WINDOW WITH AVAILABLE ELEMENTS TO INSERT
 					secondSideContent.openElementsModal();
 					//just set refer to column for pushing element
 					elementsSlot.activecolumn = this.$props.childrens;
@@ -819,8 +1007,10 @@ var elementsSlot = new Vue({
 	methods: {
 		//this click pushed elements into column
 		//(only elements: because click method inside modal of elements)
+		//THIS FUNCTION RUNS BY CLICK ON ELEMENT FROM WINDOW WITH ELEMENTS TO INSERT
+		//LOOK openElementsModal AND grid-content-modal_insert INSIDE INDEX.HTML
 		clickor: function(tag, title){
-			//HERE WE CLOSE ELEMENTS MODAL
+			//CLOSE ELEMENTS MODAL
 			this.seen = false;
 
 			elobj = copyObj(fusionAllElements[tag]);
@@ -841,6 +1031,12 @@ var elementsSlot = new Vue({
 			contextWindow.subtitle = this.activeobject.name;
 			//FIX bug with remembering default tab name - highlight only last selected name
 			//contextWindow.selectedtabx = "General"
+
+			//OPEN SCHEMA EDITOR MODAL FOR ELEMENT WITH RICH EDITABLE STRUCTURE
+			if( ['Table', 'Pricing Table'].indexOf(title) !== -1 ){
+				schemaEditorState.activeElHaveSchema = true;
+				schemaEditorState.pricingTableGrid = true;
+			}
 		}
 	}
 })

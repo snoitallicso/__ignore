@@ -3,6 +3,10 @@
 		<title>VUE</title>
 		<script src="../src/vue.js"></script>
 		<link rel="stylesheet" href="editor.css"/>
+
+<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-main.css">
+<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-icons.css">
+
 		<link href="color-picker.min.css" rel="stylesheet">
 		<link rel='stylesheet' href='http://127.0.0.1/wp_avada542/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.4.2' type='text/css' media='all' />
   <link rel='stylesheet' href='buttons/leftrighicon.css' type='text/css' media='all' />
@@ -72,6 +76,9 @@
 							<div v-if="seen" class="grid_content_area_grider">
 								<child-component :childrens="childrens" :shortcode="childrens.shortcode" :tag="childrens.shortcode"></child-component>
 							</div>
+							<div class="schema-editor">
+								<schemaed></schemaed>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -89,6 +96,33 @@
 			<div class="layout-container">
 				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" :fullwidth="fullwidth"></childrens-component></div>
 		</div-->
+<div class="schema-templ">
+	<div class="sch-modal" v-if="activeElHaveSchema">
+		<div class="sch-lay"></div>
+		<div class="sch-pop">
+			<h1>THIS IS SPARTA</h1>
+			<div v-if="pricingTableGrid">
+					<table width="100%">
+						<thead>
+						<tr>
+						<th align="left">
+							<input type="text" value="Column 0">
+						</th>
+						<th align="left">Column 1</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+						<td align="left">Column 0 Value</td>
+						<td align="left">Column 1 Value</td>
+						</tr>
+						</tbody>
+					</table>
+			</div>
+		</div>
+	</div>
+</div>
+
 <div class="templ">
 	<ul class="builder-col-lay">
 		<h1>TEST</h1>
@@ -205,10 +239,11 @@
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
 		<!--THIS TEMPLATE INSIDE COLUMN IS FOR ELEMENTS-->
-		<templ ref="ele_ref" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children, index)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
+		<templ  v-bind:likes="likera" ref="ele_ref" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children, index)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
 	</div>
 	<!--BUTTON TEMPLATE-->
 	<button
+		class="ebutton"
 		:style="{'animation-duration': params.groups.Animation.animation_speed.value +'s'}" 
 		:title="params.groups.General.title.value"
 		:target="params.groups.General.target.default"
@@ -222,6 +257,37 @@
 		:id="[params.groups.General.id.value]"
 	>
 		<h3 contenteditable="true" v-on:keyup="editle">{{params.groups.General.element_content.value}}</h3>
+	</div>
+	<!--TITLE TEMPLATE-->
+	<div 
+		v-else-if="shortcode == `fusion_alert`"
+		:class="classish(params)"
+		:id="[params.groups.General.id.value]"
+		class="alrt"
+	>
+		<button class="close">&times;</button>
+		<span 
+			:class="[
+				{'fa-info-circle': params.groups.General.type.default == 'error' },
+				{'fa-info-circle': params.groups.General.type.default == 'General' },
+				{'fa-exclamation-triangle': params.groups.General.type.default == 'Error' },
+		  	{'fa-check-circle': params.groups.General.type.default == 'Success' },
+		  	{'fa-cog': params.groups.General.type.default == 'Notice' }
+			]" 
+			class="fa fa-lg">{{params.groups.General.element_content.value}}</span>
+	</div>
+	<!--TAGLINE TEMPLATE-->
+	<div 
+		v-else-if="shortcode == `fusion_tagline_box`"
+		:class="classish(params)"
+		:id="[params.groups.General.id.value]"
+		class="tagline"
+	>
+		<!--button>{{params.groups.General.button.value}}</button-->
+		<h2>{{params.groups.General.title.value}}</h2>
+		<div class="tgl-dscr">{{params.groups.General.description.value}}</div>
+		<div class="tgl-addtnl">{{params.groups.General.element_content.value}}</div>
+		<a :href="params.groups.General.link.value" class="btn">{{params.groups.General.button.value}}</a>
 	</div>
 	<!--IMAGE TEMPLATE-->
 	<img
@@ -243,6 +309,76 @@
 	>
 		<iframe :src="['https://www.youtube.com/embed/' + params.groups.General.id.value + '?autoplay=' + params.groups.General.autoplay.default + params.groups.General.api_params.value]"></iframe>
 	</div>
+	<!--PERSON TEMPLATE-->
+	<!--PERSON TEMPLATE-->
+	<div
+		v-else-if="shortcode == `fusion_person`"
+		class="e-person"
+		:class="classish(params)"
+	>
+		<div class="image-wrap">
+			<div class="image">
+				<a :href="params.groups.General.pic_link.value == '' ? '#' : params.groups.General.pic_link.value">
+					<img
+						:src="params.groups.General.picture.value"
+						:style="[
+							{'borderWidth': params.groups.General.pic_bordersize.value },
+							{'borderColor': params.groups.General.pic_bordercolor.value },
+							{borderRadius: params.groups.General.pic_borderradius.value + 'px' }
+						]"
+					></img>
+				</a>
+			</div>
+		</div>
+		<div class="info">
+			<span class="author">
+				<span>{{params.groups.General.name.value}}</span>
+				<span class="title">{{params.groups.General.title.value}}</span>
+			</span>
+	    <div class="socnets">
+	    	<div>
+	    		<h1>{{likes}}</h1>
+		    	<!--a v-for="(net, index) in socialnets()[0]" v-if="params.groups.General[net].value !== ''" :key="index" :style="{'color': socialnets()[1][index]}" :href="params.groups.General[net].value" :class="'t' + net"><span>{{ net }}<i></i></span></a-->
+		    	<!--a v-for="(net, index) in socialnets()[0]" v-if="params.groups.General[net].value !== ''" :style="{'color': socialnets()[1][index]}" :href="params.groups.General[net].value" :class="'t' + net"><span>{{ net }}<i></i></span></a-->
+		    	<a v-for="net, index in socialnets()[0]" :style="{'color': socialnets()[1][index]}" :href="params.groups.General[net].value" :class="'t' + net"><span>{{ net }}<i></i></span></a>
+				</div>
+			</div>
+	    <div class="content"><span>{{params.groups.General.element_content.value}}</span></div>
+	  </div>
+	</div>
+	<!--div
+		v-else-if="shortcode == `fusion_person`"
+		class="person-frame" e-person
+		:class="classish(params)"
+	>
+		<div class="person-image"
+				:style="[
+					{'borderWidth': params.groups.General.pic_bordersize.value },
+					{'borderColor': params.groups.General.pic_bordercolor.value },
+					{borderRadius: params.groups.General.pic_borderradius.value + 'px' }
+				]"
+		>
+			<a :href="params.groups.General.pic_link.value">
+				<img :src="params.groups.General.picture.value"></img>
+			</a>
+		</div>
+		<div class="person-descr"
+		>
+			<div class="person-about">
+				<span class="person-name">Steve Jobs</span>
+				<span class="person-title">Title of person</span>
+			</div>
+			<div class="person-more">
+				<div class="social-nets">
+					<a v-for="net in socialnets()" v-if="params.groups.General[net].value !== ''" :href="params.groups.General[net].value" class="fa fa-lg" :class="'fa-' + net"><span>{{ net }}</span>
+						</a>
+				</div>
+				<div class="person-content">CEO and Apple company co-founder</div>
+			</div>
+		</div>
+	</div-->
+
+
 	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
 	<div v-else-if="isEl(shortcode)" class="builder-column-element">
 		<h4>{{title}}</h4>
@@ -301,6 +437,22 @@
 	        					<input v-model="option.value" type="text" value="option.value">
 	        				</div>
 	        			</div>
+	        			<div v-if="option.type == `link_selector`">
+	        					<b style="color:red;">Link Selector</b>
+	        					<input v-model="option.value" type="text" value="option.value">
+        				</div>
+	        			<div v-if="option.type == `upload`">
+	        					<b style="color:red;">UPLOAD</b>
+	        					<input v-model="option.value" type="text" value="option.value">
+        				</div>
+        				<div v-if="option.type == `textarea`">
+	        					<b style="color:red;">Textarea</b>
+	        					<input v-model="option.value" type="text" value="option.value">
+        				</div>
+	        			<div v-if="option.type == `raw_textarea`">
+	        					<b style="color:red;">Raw Textarea</b>
+	        					<input v-model="option.value" type="text" value="option.value">
+        				</div>
         				<div v-if="option.type == `radio_button_set`">
         					<div style="background: pink" >
         						<b style="color:red;">Radio Button Set</b>
