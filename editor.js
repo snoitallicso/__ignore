@@ -737,6 +737,158 @@ var elementsSlot = new Vue({
 			{
 				title: "Flip Boxes",
 				label: "alert"
+			},
+			{
+				title: "Font Awesome Icon",
+				label: "alert"
+			},
+			{
+				title: "Gallery",
+				label: "alert"
+			},
+			{
+				title: "Google Map",
+				label: "alert"
+			},
+			{
+				title: "Image",
+				label: "alert"
+			},
+			{
+				title: "Image Carousel",
+				label: "alert"
+			},
+			{
+				title: "Layer Slider",
+				label: "alert"
+			},
+			{
+				title: "Lightbox",
+				label: "alert"
+			},
+			{
+				title: "Menu Anchor",
+				label: "alert"
+			},
+			{
+				title: "Modal",
+				label: "alert"
+			},
+			{
+				title: "Modal Text Link",
+				label: "alert"
+			},
+			{
+				title: "Person",
+				label: "alert"
+			},
+			{
+				title: "Post Slider",
+				label: "alert"
+			},
+			{
+				title: "Pricing Table",
+				label: "alert"
+			},
+			{
+				title: "Progress Bar",
+				label: "alert"
+			},
+			{
+				title: "Recent Posts",
+				label: "alert"
+			},
+			{
+				title: "Revolution Slider",
+				label: "alert"
+			},
+			{
+				title: "Section Separator",
+				label: "alert"
+			},
+			{
+				title: "Separator",
+				label: "alert"
+			},
+			{
+				title: "Sharing Box",
+				label: "alert"
+			},
+			{
+				title: "Slider",
+				label: "alert"
+			},
+			{
+				title: "Social Links",
+				label: "alert"
+			},
+			{
+				title: "Soundcloud",
+				label: "alert"
+			},
+			{
+				title: "Table",
+				label: "alert"
+			},
+			{
+				title: "Tabs",
+				label: "alert"
+			},
+			{
+				title: "Tagline Box",
+				label: "alert"
+			},
+			{
+				title: "Testimonials",
+				label: "alert"
+			},
+			{
+				title: "Text Block",
+				label: "alert"
+			},
+			{
+				title: "Title",
+				label: "alert"
+			},
+			{
+				title: "Toggles",
+				label: "alert"
+			},
+			{
+				title: "User Login",
+				label: "alert"
+			},
+			{
+				title: "User Lost Password",
+				label: "alert"
+			},
+			{
+				title: "User Register",
+				label: "alert"
+			},
+			{
+				title: "Vimeo",
+				label: "alert"
+			},
+			{
+				title: "Widget Area",
+				label: "alert"
+			},
+			{
+				title: "Woo Carousel",
+				label: "alert"
+			},
+			{
+				title: "Woo Featured",
+				label: "alert"
+			},
+			{
+				title: "Woo Shortcodes",
+				label: "alert"
+			},
+			{
+				title: "Youtube",
+				label: "alert"
 			}
 		]
 	},
