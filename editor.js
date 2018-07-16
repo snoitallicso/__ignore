@@ -691,3 +691,51 @@ var insertModal_content = new Vue({
 		}
 	}
 });
+
+var elementsSlot = new Vue({
+	el: "#elements_pseudoslot",
+	data: {
+		elements: [
+			{
+				title: "Alert",
+				label: "alert"
+			},
+			{
+				title: "Blog",
+				label: "alert"
+			},
+			{
+				title: "Button",
+				label: "alert"
+			},
+			{
+				title: "Checklist",
+				label: "alert"
+			},
+			{
+				title: "Code Block",
+				label: "alert"
+			},
+			{
+				title: "Content Boxes",
+				label: "alert"
+			},
+			{
+				title: "Countdown",
+				label: "alert"
+			},
+			{
+				title: "Counter Boxes",
+				label: "alert"
+			},
+			{
+				title: "Counter Circles",
+				label: "alert"
+			},
+			{
+				title: "Flip Boxes",
+				label: "alert"
+			}
+		]
+	}
+})

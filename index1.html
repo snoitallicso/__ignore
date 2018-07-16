@@ -137,9 +137,14 @@
 							</div>
 						</div>
 						<!--div id="grid-content-modal_insert" v-if="seen" v-html="content">{{content}}</div-->
-						<div v-if="seen" v-html="content" id="grid-content-modal_insert">
+						<div v-if="seen" v-html="content" id="grid-content-modal_insert" class="grid-content-modal_insert">
 							<h3>{{title}}</h3>
 							{{content}}
+						</div>
+						<div id="elements_pseudoslot" class="grid-content-modal_insert">
+							<ul>
+								<li v-for="element in elements"><h3>{{element.title}}</h3></li>
+							</ul>
 						</div>
 						<div v-if="seen" class="grid_content_area_grider">
 							<child-component :childrens="childrens" :ltype="childrens.ltype" :tag="childrens.tag"></child-component>
