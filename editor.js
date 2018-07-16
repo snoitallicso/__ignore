@@ -704,191 +704,191 @@ var elementsSlot = new Vue({
 			},
 			{
 				title: "Blog",
-				label: "alert"
+				label: "blog"
 			},
 			{
 				title: "Button",
-				label: "alert"
+				label: "button"
 			},
 			{
 				title: "Checklist",
-				label: "alert"
+				label: "checklist"
 			},
 			{
 				title: "Code Block",
-				label: "alert"
+				label: "code_block"
 			},
 			{
 				title: "Content Boxes",
-				label: "alert"
+				label: "content_boxes"
 			},
 			{
 				title: "Countdown",
-				label: "alert"
+				label: "countdown"
 			},
 			{
 				title: "Counter Boxes",
-				label: "alert"
+				label: "counter_boxes"
 			},
 			{
 				title: "Counter Circles",
-				label: "alert"
+				label: "counter_circles"
 			},
 			{
 				title: "Flip Boxes",
-				label: "alert"
+				label: "flip_boxes"
 			},
 			{
 				title: "Font Awesome Icon",
-				label: "alert"
+				label: "font_awesome_icon"
 			},
 			{
 				title: "Gallery",
-				label: "alert"
+				label: "gallery"
 			},
 			{
 				title: "Google Map",
-				label: "alert"
+				label: "google_map"
 			},
 			{
 				title: "Image",
-				label: "alert"
+				label: "image"
 			},
 			{
 				title: "Image Carousel",
-				label: "alert"
+				label: "image_carousel"
 			},
 			{
 				title: "Layer Slider",
-				label: "alert"
+				label: "layer_slider"
 			},
 			{
 				title: "Lightbox",
-				label: "alert"
+				label: "lightbox"
 			},
 			{
 				title: "Menu Anchor",
-				label: "alert"
+				label: "menu_anchor"
 			},
 			{
 				title: "Modal",
-				label: "alert"
+				label: "modal"
 			},
 			{
 				title: "Modal Text Link",
-				label: "alert"
+				label: "modal_text_link"
 			},
 			{
 				title: "Person",
-				label: "alert"
+				label: "person"
 			},
 			{
 				title: "Post Slider",
-				label: "alert"
+				label: "post_slider"
 			},
 			{
 				title: "Pricing Table",
-				label: "alert"
+				label: "pricing_table"
 			},
 			{
 				title: "Progress Bar",
-				label: "alert"
+				label: "progress_bar"
 			},
 			{
 				title: "Recent Posts",
-				label: "alert"
+				label: "recent_posts"
 			},
 			{
 				title: "Revolution Slider",
-				label: "alert"
+				label: "revolution_slider"
 			},
 			{
 				title: "Section Separator",
-				label: "alert"
+				label: "section_separator"
 			},
 			{
 				title: "Separator",
-				label: "alert"
+				label: "separator"
 			},
 			{
 				title: "Sharing Box",
-				label: "alert"
+				label: "sharing_box"
 			},
 			{
 				title: "Slider",
-				label: "alert"
+				label: "slider"
 			},
 			{
 				title: "Social Links",
-				label: "alert"
+				label: "social_link"
 			},
 			{
 				title: "Soundcloud",
-				label: "alert"
+				label: "soundcloud"
 			},
 			{
 				title: "Table",
-				label: "alert"
+				label: "table"
 			},
 			{
 				title: "Tabs",
-				label: "alert"
+				label: "tabs"
 			},
 			{
 				title: "Tagline Box",
-				label: "alert"
+				label: "tagline_box"
 			},
 			{
 				title: "Testimonials",
-				label: "alert"
+				label: "testimonials"
 			},
 			{
 				title: "Text Block",
-				label: "alert"
+				label: "text_block"
 			},
 			{
 				title: "Title",
-				label: "alert"
+				label: "title"
 			},
 			{
 				title: "Toggles",
-				label: "alert"
+				label: "toggles"
 			},
 			{
 				title: "User Login",
-				label: "alert"
+				label: "user_login"
 			},
 			{
 				title: "User Lost Password",
-				label: "alert"
+				label: "user_lost_password"
 			},
 			{
 				title: "User Register",
-				label: "alert"
+				label: "user_register"
 			},
 			{
 				title: "Vimeo",
-				label: "alert"
+				label: "vimeo"
 			},
 			{
 				title: "Widget Area",
-				label: "alert"
+				label: "widget_area"
 			},
 			{
 				title: "Woo Carousel",
-				label: "alert"
+				label: "woo_carousel"
 			},
 			{
 				title: "Woo Featured",
-				label: "alert"
+				label: "woo_featured"
 			},
 			{
 				title: "Woo Shortcodes",
-				label: "alert"
+				label: "woo_shortcodes"
 			},
 			{
 				title: "Youtube",
-				label: "alert"
+				label: "youtube"
 			}
 		]
 	},
