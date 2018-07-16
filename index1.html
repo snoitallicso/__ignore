@@ -144,7 +144,7 @@
 						<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
 							<input v-model="query">
 							<ul>
-								<li v-on:click="click()" v-for="element in computedList"><h3>{{element.title}}</h3></li>
+								<li v-on:click="click(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
 							</ul>
 						</div>
 						<div v-if="seen" class="grid_content_area_grider">
@@ -229,7 +229,7 @@
 			<li>5</li>
 		</ul>
 	</div>
-	<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ltype="children.ltype" :tag="children.tag"></templ>
+	<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ltype="children.ltype" :title="children.title" :tag="children.tag"></templ>
 	<button v-on:click="openModalAddElmnt()" class="add-el">+ Element</button>
 </div>
 <div v-else-if="ltype == `el`" class="builder-column-element">
@@ -245,7 +245,7 @@
 		</div>
 	</div>
 	<div class="el-preview">
-		<span>{{tag}}</span>
+		<h4>{{title}}</h4>
 		<!--templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ltype="children.ltype"></templ-->
 	</div>
 </div>

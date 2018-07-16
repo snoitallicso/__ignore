@@ -322,7 +322,9 @@ padding: 10px;
 	padding: 0px 10px;
 	font-size: 12px;
 }
-
+.el-preview h4 {
+    margin: 0;
+}
 
 
 

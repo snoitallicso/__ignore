@@ -139,7 +139,8 @@ layObj = {
 									id: null,
 									link: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Gallery'
 								},
 								{
 									ltype: 'el',
@@ -149,7 +150,8 @@ layObj = {
 									id: null,
 									link: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Modal'
 								},
 								{
 									ltype: 'el',
@@ -159,7 +161,8 @@ layObj = {
 									id: null,
 									link: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Counter'
 								}
 							]
 						},
@@ -181,7 +184,8 @@ layObj = {
 									id: null,
 									address: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Map'
 								},
 								{
 									ltype: 'el',
@@ -191,7 +195,8 @@ layObj = {
 									id: null,
 									address: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Slider'
 								},
 							]
 						}
@@ -234,7 +239,8 @@ layObj = {
 									id: null,
 									link: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Title'
 								}
 							]
 						},
@@ -256,7 +262,8 @@ layObj = {
 									id: null,
 									address: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Map'
 								},
 								{
 									ltype: 'el',
@@ -266,7 +273,8 @@ layObj = {
 									id: null,
 									address: null,
 									backgroundColor: null,
-									paddingTop: null
+									paddingTop: null,
+									title: 'Map'
 								},
 							]
 						}
@@ -594,7 +602,7 @@ var gridState = new Vue({
 	},
 	components: {
 		'child-component': {
-			props: ['childrens', 'ltype', 'tag', 'ind', 'newel'],
+			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title'],
 			name: 'templ',
 			mounted: function(){
 				//GRIDSTATE OBJECT CHECKING BECAUSE WE NOT NEED TO HIGHLIGHT
@@ -901,12 +909,22 @@ var elementsSlot = new Vue({
 		}
 	},
 	methods: {
-		click: function(){
+		click: function(tag, title){
 			//HERE WE CLOSE ELEMENTS MODAL
 			this.seen = false;
 
-			console.log(this.activecolumn)
-			this.activecolumn.push(this.activecolumn[0])
+			//this.activecolumn.push(this.activecolumn[0])
+			this.activecolumn.push({
+				ltype: 'el',
+				isActive: false,
+				tag: tag,
+				className: null,
+				id: null,
+				link: null,
+				backgroundColor: null,
+				paddingTop: null,
+				title: title
+			});
 		}
 	}
 })
