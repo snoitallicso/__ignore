@@ -142,8 +142,9 @@
 							{{content}}
 						</div>
 						<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
+							<input v-model="query">
 							<ul>
-								<li v-for="element in elements"><h3>{{element.title}}</h3></li>
+								<li v-for="element in computedList"><h3>{{element.title}}</h3></li>
 							</ul>
 						</div>
 						<div v-if="seen" class="grid_content_area_grider">

@@ -696,6 +696,7 @@ var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
 		seen: false,
+		query: '',
 		elements: [
 			{
 				title: "Alert",
@@ -738,5 +739,13 @@ var elementsSlot = new Vue({
 				label: "alert"
 			}
 		]
+	},
+	computed: {
+		computedList: function () {
+			var vm = this
+			return this.elements.filter(function (element) {
+				return element.title.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
+			})
+		}
 	}
 })
