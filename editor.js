@@ -639,9 +639,8 @@ var gridState = new Vue({
 				},
 				openModalAddElmnt: function(e){
 					secondSideContent.openElementsModal()
-
-					//TEST!!! HERE WE INSERT DOUBLE ELEMENT BELOW
-					this.$props.childrens.push(this.$props.childrens[0])
+					elementsSlot.activecolumn = this.$props.childrens
+					console.log(this.$props.childrens)
 				},
 				click: function(index){
 					//alert()
@@ -695,6 +694,7 @@ var insertModal_content = new Vue({
 var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
+		activecolumn: null,
 		seen: false,
 		query: '',
 		elements: [
@@ -898,6 +898,15 @@ var elementsSlot = new Vue({
 			return this.elements.filter(function (element) {
 				return element.title.toLowerCase().indexOf(vm.query.toLowerCase()) !== -1
 			})
+		}
+	},
+	methods: {
+		click: function(){
+			//HERE WE CLOSE ELEMENTS MODAL
+			this.seen = false;
+
+			console.log(this.activecolumn)
+			this.activecolumn.push(this.activecolumn[0])
 		}
 	}
 })
