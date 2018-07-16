@@ -33,8 +33,6 @@ var addC = function(array){
 	} else {
 		return console.error("Object must be a flat array!")
 	}
-
-	//gridState.$options.components["child-component"].methods.insertContent()
 }
 
 var menubar = new Vue({
@@ -514,18 +512,7 @@ var gridState = new Vue({
 			this.cnstrctr = function(elType, array){
 				if(elType === 'container'){
 					var columns = [];
-					/*var column = {
-						ltype: 'col',
-						isActive: false,
-						tag: 'fusion_builder_column',	
-						className: null,
-						id: null,
-						backgroundColor: "pink",
-						paddingTop: null,
-						type: null,
-						childrens: []
-					};*/
-
+					
 					var column = function (type) {
 						return {
 							ltype: 'col',
@@ -542,149 +529,13 @@ var gridState = new Vue({
 					
 					if(array[0] !== undefined){
 						for(i=0; i<array.length; i++){
-							//var icol = Object.create(column);
-							var icol = column(array[i].toString())
-							console.log(icol)
-							//var icol = column
-							//icol.type = array[i].toString();
+							var icol = column(array[i].toString());
 							columns.push(icol);
 						}
 					} else {
 						//if [] i.e. (for blank container)
 						//nothing
 					}
-
-					//TEST, BUG SEARCHING
-/*					columns = [
-						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_4',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_title',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null
-								}
-							]
-						},{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_4',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_title',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null
-								}
-							]
-						},						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_4',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_title',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null
-								}
-							]
-						},{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '2_4',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_title',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null
-								}
-							]
-						}
-					]*/
-					/*columns = [
-						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_4',
-							childrens: []
-						},{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_4',
-							childrens: []
-						},{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_4',
-							childrens: []
-						},{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '2_4',
-							childrens: []
-						}
-					]*/
 
 					var container = {
 						ltype: 'container',
@@ -707,13 +558,7 @@ var gridState = new Vue({
 							}
 						]
 					};
-
-					/*for(i=0; i<array.length; i++){
-						container.childrens[0].childrens.push(columns[i]);
-					}*/
 					
-					//container.childrens[0].childrens.push(columns)
-
 					return container;
 				}
 			};
