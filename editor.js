@@ -484,8 +484,7 @@ var secondSideContent = new Vue({
 				
 			secondSideContent.seen = false;
 			
-			insertModal_content.elementsContent();
-			insertModal_content.seen = true;
+			elementsSlot.seen = true;
 		},
 		openPreBuiltPage: function(){
 			this.seen = false;
@@ -640,7 +639,8 @@ var gridState = new Vue({
 				},
 				openModalAddElmnt: function(e){
 					secondSideContent.openElementsModal()
-					console.log(this, this.$children, this.$data)
+
+					//TEST!!! HERE WE INSERT DOUBLE ELEMENT BELOW
 					this.$props.childrens.push(this.$props.childrens[0])
 				},
 				click: function(index){
@@ -695,6 +695,7 @@ var insertModal_content = new Vue({
 var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
+		seen: false,
 		elements: [
 			{
 				title: "Alert",

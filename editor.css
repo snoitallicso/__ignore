@@ -312,10 +312,15 @@ padding: 10px;
 }
 
 #elements_pseudoslot li {
-	padding: 0 10px;
+	width: 20%;
+	hei;
 	float: left;
+	margin-right: 1%;
+	margin-bottom: 1%;
+	border: 1px solid lightgray;
 	background-color: white;
-	margin: 5px;
+	padding: 0px 10px;
+	font-size: 12px;
 }
 
 

@@ -141,7 +141,7 @@
 							<h3>{{title}}</h3>
 							{{content}}
 						</div>
-						<div id="elements_pseudoslot" class="grid-content-modal_insert">
+						<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
 							<ul>
 								<li v-for="element in elements"><h3>{{element.title}}</h3></li>
 							</ul>
