@@ -54,7 +54,7 @@ ul{
 .abar_a.active {
 	background-color: white;
 }
-#complex_menu_bar {
+.complex_menu_bar {
 	width: 25px;
 	height: 100%;
 	background-color: gray;
@@ -76,13 +76,13 @@ ul{
 	position: fixed;
 	z-index: 999999999;
 }
-#sidebar_content {	
+.sidebar_content {	
 	float: left;
 }
-#sidebar_title h1  {
+.sidebar_title h1  {
 	margin: 0;
 }
-#sidebar_title, #sidebar_tabs{
+.sidebar_title, .sidebar_tabs{
 	width: 250px;
 }
 .side_tab {
@@ -99,7 +99,7 @@ ul{
 	background: white;
 	border-bottom: 0px solid white;
 }
-#content_area {
+.content_area {
 	width: 238px;
 	height: 85%;
 	margin: 0 auto;

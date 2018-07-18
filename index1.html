@@ -8,9 +8,9 @@
 		<div id="sidebar">
 			<div id="contextside">
 				<div id="admin_bar">
-					<button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['abar_a', { 'active': currentTab === tab }]" v-on:click="currentTab = tab"></button>
+					<button v-for="tab in tabs" v-bind:key="tab" v-bind:title="tab" v-bind:class="['abar_a', { 'active': currentTab === tab }]" v-on:click="currentTab = tab"></button>
 				</div>
-				<div id="complex_menu_bar">
+				<div class="complex_menu_bar">
 					<div class="mbar"></div>
 					<div class="mbar"></div>
 					<div class="mbar"></div>
@@ -18,17 +18,18 @@
 					<div class="mbar"></div>
 					<div class="mbar"></div>
 				</div>
-				<div id="sidebar_content">
-					<div id="sidebar_title">
+				<keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive>
+				<!--div class="sidebar_content">
+					<div class="sidebar_title">
 						<h1>Sidebar Title</h1>
 					</div>
-					<div id="sidebar_tabs">
+					<div class="sidebar_tabs">
 						<div class="side_tab active" id="sidebar_general">General</div>
 						<div class="side_tab" id="sidebar_background">Background</div>
 						<div class="side_tab" id="sidebar_Design">Design</div>
 					</div>
-					<div id="content_area">
-						<div id="element_style_context">
+					<div class="content_area">
+						<div class="element_style_context">
 							<div class="side_content_option">
 								<h3>One Option</h3>
 								<span>Some text of first option</span>
@@ -36,119 +37,119 @@
 							<div class="side_content_option">
 								<h3>Color Picker</h3>
 								<span>Some text of option at number 2</span>
-								<!--div id="colorpicker">
+								<div id="colorpicker">
 									<div v-for="color in colors" v-on:click="clicked(color)" v-bind:style="color" class="cpick"></div>
-								</div-->
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="grid">
-				<div id="grid_content">
-					<div id="grid_title">
-						<h2>{{title}}</h2>
-					</div>
-					<div v-if="seen" id="grid_main_tabs">
-						<ul>
-							<li class="grid_tab /*active*/" v-for="title in titles" v-on:click="clicked(title)" v-bind:class="{active: title.isActive}">{{title.title}}</li>
-						</ul>
-					</div>
-					<div v-if="seen" id="grid_tabs">
-						<ul>
-							<li class="grid_tab /*active*/" v-for="title in titles" v-on:click="clicked(title)" v-bind:class="{active: title.isActive}">{{title.title}}</li>
-						</ul>
-					</div>
-					<div id="grid_content_area">
-						<div id="grid_content_area_builder">
-							<div v-if="false" /*seen*/ class="builder-blank-page">
-								<h3 class="title">To get started, add a Container, or add a pre-built page.</h3>
-								<h4 class="subtitle">The building process always starts with a container, then columns, then elements.</h4>
-								<a href="#" class="button" v-on:click="openContainer">Container</a>
-								<a href="#" class="button" v-on:click="openPreBuiltPage">Pre-Built Page</a>
-							</div>
-						</div>
-						<div v-if="seen" id="grid_content_area_library">
-							<div v-if="header.isActive" v-for="header in headers" id="element_style_context">
-								<div class="builder-lays-header-info">
-									<h2>{{header.title}}</h2>
-									<span class="builder-lay-info" v-html="header.info"></span>
 								</div>
 							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
 						</div>
-						<!--div id="grid-content-modal_insert" v-if="seen" v-html="content">{{content}}</div-->
-						<div v-if="seen" v-html="content" id="grid-content-modal_insert" class="grid-content-modal_insert">
-							<h3>{{title}}</h3>
-							{{content}}
+					</div-->
+				</div>
+				<div id="grid">
+					<div id="grid_content">
+						<div id="grid_title">
+							<h2>{{title}}</h2>
 						</div>
-						<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
-							<input v-model="query">
+						<div v-if="seen" id="grid_main_tabs">
 							<ul>
-								<li v-on:click="click(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
+								<li class="grid_tab /*active*/" v-for="title in titles" v-on:click="clicked(title)" v-bind:class="{active: title.isActive}">{{title.title}}</li>
 							</ul>
 						</div>
-						<div v-if="seen" class="grid_content_area_grider">
-							<child-component :childrens="childrens" :ltype="childrens.ltype" :tag="childrens.tag"></child-component>
+						<div v-if="seen" id="grid_tabs">
+							<ul>
+								<li class="grid_tab /*active*/" v-for="title in titles" v-on:click="clicked(title)" v-bind:class="{active: title.isActive}">{{title.title}}</li>
+							</ul>
+						</div>
+						<div id="grid_content_area">
+							<div id="grid_content_area_builder">
+								<div v-if="false" /*seen*/ class="builder-blank-page">
+									<h3 class="title">To get started, add a Container, or add a pre-built page.</h3>
+									<h4 class="subtitle">The building process always starts with a container, then columns, then elements.</h4>
+									<a href="#" class="button" v-on:click="openContainer">Container</a>
+									<a href="#" class="button" v-on:click="openPreBuiltPage">Pre-Built Page</a>
+								</div>
+							</div>
+							<div v-if="seen" id="grid_content_area_library">
+								<div v-if="header.isActive" v-for="header in headers" id="element_style_context">
+									<div class="builder-lays-header-info">
+										<h2>{{header.title}}</h2>
+										<span class="builder-lay-info" v-html="header.info"></span>
+									</div>
+								</div>
+							</div>
+							<!--div id="grid-content-modal_insert" v-if="seen" v-html="content">{{content}}</div-->
+							<div v-if="seen" v-html="content" id="grid-content-modal_insert" class="grid-content-modal_insert">
+								<h3>{{title}}</h3>
+								{{content}}
+							</div>
+							<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
+								<input v-model="query">
+								<ul>
+									<li v-on:click="click(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
+								</ul>
+							</div>
+							<div v-if="seen" class="grid_content_area_grider">
+								<child-component :childrens="childrens" :ltype="childrens.ltype" :tag="childrens.tag"></child-component>
+							</div>
 						</div>
 					</div>
 				</div>
