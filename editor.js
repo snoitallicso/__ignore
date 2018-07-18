@@ -928,3 +928,7 @@ var elementsSlot = new Vue({
 		}
 	}
 })
+
+/*new Vue({
+	el: "#contextside"
+})*/

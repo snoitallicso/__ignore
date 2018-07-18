@@ -6,100 +6,102 @@
 	</head>
 	<body>
 		<div id="sidebar">
-			<div id="admin_bar">
-				<div class="abar_a"></div>				
-				<div class="abar_b"></div>				
-				<div v-on:click="openFusionOptions" class="abar_c"></div>			
-			</div>
-			<div v-if="seen" id="complex_menu_bar">
-				<div class="mbar"></div>
-				<div class="mbar"></div>
-				<div class="mbar"></div>
-				<div class="mbar"></div>
-				<div class="mbar"></div>
-				<div class="mbar"></div>
-			</div>
-			<div id="sidebar_content">
-				<div id="sidebar_title">
-					<h1>{{title}}</h1>
+			<div id="contextside">
+				<div id="admin_bar">
+					<div class="abar_a"></div>				
+					<div class="abar_b"></div>				
+					<div v-on:click="openFusionOptions" class="abar_c"></div>			
 				</div>
-				<div v-if="seen" id="sidebar_tabs">
-					<div class="side_tab active" id="sidebar_general">General</div>
-					<div class="side_tab" id="sidebar_background">Background</div>
-					<div class="side_tab" id="sidebar_Design">Design</div>
+				<div v-if="seen" id="complex_menu_bar">
+					<div class="mbar"></div>
+					<div class="mbar"></div>
+					<div class="mbar"></div>
+					<div class="mbar"></div>
+					<div class="mbar"></div>
+					<div class="mbar"></div>
 				</div>
-				<div id="content_area">
-					<div v-if="active" id="element_style_context">
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>Color Picker</h3>
-							<span>Some text of option at number 2</span>
-							<div id="colorpicker">
-								<div v-for="color in colors" v-on:click="clicked(color)" v-bind:style="color" class="cpick"></div>
+				<div id="sidebar_content">
+					<div id="sidebar_title">
+						<h1>{{title}}</h1>
+					</div>
+					<div v-if="seen" id="sidebar_tabs">
+						<div class="side_tab active" id="sidebar_general">General</div>
+						<div class="side_tab" id="sidebar_background">Background</div>
+						<div class="side_tab" id="sidebar_Design">Design</div>
+					</div>
+					<div id="content_area">
+						<div v-if="active" id="element_style_context">
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
 							</div>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
-						</div>
-						<div class="side_content_option">
-							<h3>One Option</h3>
-							<span>Some text of first option</span>
+							<div class="side_content_option">
+								<h3>Color Picker</h3>
+								<span>Some text of option at number 2</span>
+								<div id="colorpicker">
+									<div v-for="color in colors" v-on:click="clicked(color)" v-bind:style="color" class="cpick"></div>
+								</div>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
+							<div class="side_content_option">
+								<h3>One Option</h3>
+								<span>Some text of first option</span>
+							</div>
 						</div>
 					</div>
 				</div>

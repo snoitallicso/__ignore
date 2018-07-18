@@ -156,7 +156,9 @@ ul{
 }
 #grid_content {
 }
-
+#contextside {
+	float: left;
+}
 
 .grid-content-modal_insert {
 	background-color: #cfe7ea;
