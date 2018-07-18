@@ -35,71 +35,71 @@ var addC = function(array){
 	}
 }
 
-var menubar = new Vue({
-	el: "#complex_menu_bar",
-	data: {
-		seen: false,
-	}
-});
+// var menubar = new Vue({
+// 	el: "#complex_menu_bar",
+// 	data: {
+// 		seen: false,
+// 	}
+// });
 
-var sidebarTabs = new Vue({
-	el: "#sidebar_tabs",
-	data: {
-		seen: true,
-	}
-});
+// var sidebarTabs = new Vue({
+// 	el: "#sidebar_tabs",
+// 	data: {
+// 		seen: true,
+// 	}
+// });
 
-var sidebarTitle = new Vue({
-	el: "#sidebar_title",
-	data: {
-		title: "Element"
-	}
-});
+// var sidebarTitle = new Vue({
+// 	el: "#sidebar_title",
+// 	data: {
+// 		title: "Element"
+// 	}
+// });
 
-var adminBar = new Vue({
-	el: "#admin_bar",
-	methods: {
-		openFusionOptions: function(){
-			menubar.seen = true;
-			sidebarTabs.seen = false;
-			sidebarTitle.title = "Theme Options";
-		}
-	}
-});
+// var adminBar = new Vue({
+// 	el: "#admin_bar",
+// 	methods: {
+// 		openFusionOptions: function(){
+// 			menubar.seen = true;
+// 			sidebarTabs.seen = false;
+// 			sidebarTitle.title = "Theme Options";
+// 		}
+// 	}
+// });
 
-var colorPicker = new Vue({
-	el: "#colorpicker",
-	data: {
-		colors: [
-			{backgroundColor: "#F44336"},
-			{backgroundColor: "#E91E63"},
-			{backgroundColor: "#9C27B0"},
-			{backgroundColor: "#673AB7"},
-			{backgroundColor: "#3F51B5"},
-			{backgroundColor: "#2196f3"},
-			{backgroundColor: "#03a9f4"},
-			{backgroundColor: "#00bcd4"},
-			{backgroundColor: "#009688"},
-			{backgroundColor: "#4caf50"},
-			{backgroundColor: "#8bc34a"},
-			{backgroundColor: "#cddc39"},
-			{backgroundColor: "#ffeb3b"},
-			{backgroundColor: "#ffc107"},
-			{backgroundColor: "#ff9800"},
-			{backgroundColor: "#ff5722"}
-		]
-	},
-	methods: {
-		clicked: function(color){
-			/*if (layout.todo != undefined){
-				layout.recolor(color.backgroundColor, layout.todo)
-			}*/
-			console.log(lay)
-			lay.recolor(color.backgroundColor, lay.children)
+// var colorPicker = new Vue({
+// 	el: "#colorpicker",
+// 	data: {
+// 		colors: [
+// 			{backgroundColor: "#F44336"},
+// 			{backgroundColor: "#E91E63"},
+// 			{backgroundColor: "#9C27B0"},
+// 			{backgroundColor: "#673AB7"},
+// 			{backgroundColor: "#3F51B5"},
+// 			{backgroundColor: "#2196f3"},
+// 			{backgroundColor: "#03a9f4"},
+// 			{backgroundColor: "#00bcd4"},
+// 			{backgroundColor: "#009688"},
+// 			{backgroundColor: "#4caf50"},
+// 			{backgroundColor: "#8bc34a"},
+// 			{backgroundColor: "#cddc39"},
+// 			{backgroundColor: "#ffeb3b"},
+// 			{backgroundColor: "#ffc107"},
+// 			{backgroundColor: "#ff9800"},
+// 			{backgroundColor: "#ff5722"}
+// 		]
+// 	},
+// 	methods: {
+// 		clicked: function(color){
+// 			/*if (layout.todo != undefined){
+// 				layout.recolor(color.backgroundColor, layout.todo)
+// 			}*/
+// 			console.log(lay)
+// 			lay.recolor(color.backgroundColor, lay.children)
 			
-		}
-	}
-});
+// 		}
+// 	}
+// });
 
 layObj = {
 	childrens: [
@@ -929,6 +929,16 @@ var elementsSlot = new Vue({
 	}
 })
 
-/*new Vue({
-	el: "#contextside"
-})*/
+new Vue({
+	el: "#contextside",
+	data: {
+    currentTab: 'Posts',
+    tabs: ['Posts', 'Archive']
+  },
+  computed: {
+    // currentTabComponent: function () {
+    //   console.log('tab-' + this.currentTab.toLowerCase())
+    //   return 'tab-' + this.currentTab.toLowerCase()
+    // }
+  }
+})

@@ -43,12 +43,16 @@ ul{
 	background-color: #E91E63;
 	float: left;
 }
-.abar_a,.abar_b,.abar_c{
+.abar_a {
 	width: 18px;
 	height: 18px;
-	background-color: white;
+	background-color: #F8BBD0;
 	float: left;
 	margin: 10px 0px 6px 6px;
+	border: none;
+}
+.abar_a.active {
+	background-color: white;
 }
 #complex_menu_bar {
 	width: 25px;
