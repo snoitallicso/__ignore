@@ -486,7 +486,7 @@ layObj = {
               "shortcode": "fusion_builder_column",
               "hide_from_builder": true,
               "params": {
-                "type": null,
+                "type": "1_2",
                 "spacing": {
                   "type": "textfield",
                   "heading": "Column Spacing",
@@ -1898,7 +1898,7 @@ layObj = {
               "shortcode": "fusion_builder_column",
               "hide_from_builder": true,
               "params": {
-                "type": null,
+                "type": "1_2",
                 "spacing": {
                   "type": "textfield",
                   "heading": "Column Spacing",

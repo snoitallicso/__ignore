@@ -64,7 +64,7 @@
 								</ul>
 							</div>
 							<div v-if="seen" class="grid_content_area_grider">
-								<child-component :childrens="childrens" :ltype="childrens.ltype" :tag="childrens.tag"></child-component>
+								<child-component :childrens="childrens" :shortcode="childrens.shortcode" :tag="childrens.tag"></child-component>
 							</div>
 						</div>
 					</div>
@@ -114,7 +114,7 @@
 	</ul>
 </div>
 <div class="templ">
-<div v-if="ltype == `container`" class="builder-container">
+<div v-if="shortcode == `fusion_builder_container`" class="builder-container">
 	<div class="builder-container-header">
 		<input type="text" class="container-name" value="Container">
 		<div class="builder-column-controls">
@@ -127,16 +127,16 @@
 			</ul>
 		</div>
 	</div>
-	<templ v-for="(children, index) in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ltype="children.ltype" v-on:click.native.stop="clickedE(children)"></templ>
+	<templ v-for="(children, index) in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :shortcode="children.shortcode" v-on:click.native.stop="clickedE(children)"></templ>
 	<div class="builder-container-addctrls">
 		<button v-on:click="openModalAddContnr(ind)" class="add-container">+ Container</button>
 		<button v-on:click="openModalAddCols(ind)" class="add-col">+ Columns</button>
 	</div>
 </div>
-<div v-else-if="ltype == `row`" class="builder-container-content">
-	<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[`column-`+children.type, {active: children.isActive}]" :ltype="children.ltype"></templ>
+<div v-else-if="shortcode == `fusion_builder_row`" class="builder-container-content">
+	<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[`column-`+children.params.type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
 </div>
-<div v-else-if="ltype == `col`" class="builder-column">
+<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
 	<div class="builder-column-controls">
 		<ul>
 			<li>1</li>
@@ -146,10 +146,10 @@
 			<li>5</li>
 		</ul>
 	</div>
-	<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ltype="children.ltype" :title="children.title" :tag="children.tag"></templ>
+	<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.title" :tag="children.tag"></templ>
 	<button v-on:click="openModalAddElmnt()" class="add-el">+ Element</button>
 </div>
-<div v-else-if="ltype == `el`" class="builder-column-element">
+<div v-else-if="shortcode in [`fusion_builder_container`,`fusion_builder_row`,`fusion_builder_column`] === false" class="builder-column-element">
 	<div class="el-ctrls">
 		<div class="builder-column-controls">
 			<ul>
@@ -163,11 +163,11 @@
 	</div>
 	<div class="el-preview">
 		<h4>{{title}}</h4>
-		<!--templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ltype="children.ltype"></templ-->
+		<!--templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :shortcode="children.shortcode"></templ-->
 	</div>
 </div>
 <div v-else class="builder-common-container">
-	<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ind="index" :ltype="children.ltype"></templ>
+	<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 </div>
 </div>
 		<script src="layobj.js"></script>

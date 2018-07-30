@@ -602,7 +602,7 @@ var gridState = new Vue({
 	},
 	components: {
 		'child-component': {
-			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title'],
+			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title', 'shortcode'],
 			name: 'templ',
 			mounted: function(){
 				//GRIDSTATE OBJECT CHECKING BECAUSE WE NOT NEED TO HIGHLIGHT
