@@ -19,90 +19,6 @@
 					<div class="mbar"></div>
 				</div>
 				<keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive>
-				<!--div class="sidebar_content">
-					<div class="sidebar_title">
-						<h1>Sidebar Title</h1>
-					</div>
-					<div class="sidebar_tabs">
-						<div class="side_tab active" id="sidebar_general">General</div>
-						<div class="side_tab" id="sidebar_background">Background</div>
-						<div class="side_tab" id="sidebar_Design">Design</div>
-					</div>
-					<div class="content_area">
-						<div class="element_style_context">
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>Color Picker</h3>
-								<span>Some text of option at number 2</span>
-								<div id="colorpicker">
-									<div v-for="color in colors" v-on:click="clicked(color)" v-bind:style="color" class="cpick"></div>
-								</div>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-							<div class="side_content_option">
-								<h3>One Option</h3>
-								<span>Some text of first option</span>
-							</div>
-						</div>
-					</div-->
 				</div>
 				<div id="grid">
 					<div id="grid_content">
@@ -157,7 +73,7 @@
 		</div>
 		</div>
 		<div id="layout">
-			<div class="layout-container">{{ltype}}<childrens-component :key="true" :childrens="childrens" :ltype="childrens.ltype" :class="childrens.ltype" v-bind:class="ltype"></childrens-component></div>
+			<div class="layout-container">{{shortcode}}<childrens-component :key="true" :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" v-bind:class="shortcode"></childrens-component></div>
 		</div>
 <div class="templ">
 	<ul class="builder-col-lay">
@@ -254,6 +170,7 @@
 	<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="{active: children.isActive}" :ind="index" :ltype="children.ltype"></templ>
 </div>
 </div>
+		<script src="layobj.js"></script>
 		<script src="editor.js"></script>
 	</body>
 </html>

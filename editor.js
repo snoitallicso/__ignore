@@ -101,196 +101,196 @@ var addC = function(array){
 // 	}
 // });
 
-layObj = {
-	childrens: [
-		{
-			ltype: 'container',
-			isActive: false,
-			tag: 'fusion_builder_container',
-			className: null,
-			id: null,
-			backgroundColor: null,
-			paddingTop: null,
-			childrens: [
-				{
-					ltype: 'row',
-					isActive: false,
-					tag: 'fusion_builder_row',	
-					className: null,
-					id: null,
-					backgroundColor: null,
-					paddingTop: null,
-					childrens: [
-						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_2',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_gallery',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Gallery'
-								},
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_modal',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Modal'
-								},
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_counter',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Counter'
-								}
-							]
-						},
-						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: null,
-							paddingTop: null,
-							type: '1_2',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_map',
-									className: null,
-									id: null,
-									address: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Map'
-								},
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_slider',
-									className: null,
-									id: null,
-									address: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Slider'
-								},
-							]
-						}
-					]
-				}
-			]
-		},{
-			ltype: 'container',
-			isActive: false,
-			tag: 'fusion_builder_container',
-			className: null,
-			id: null,
-			backgroundColor: null,
-			paddingTop: null,
-			childrens: [
-				{
-					ltype: 'row',
-					isActive: false,
-					tag: 'fusion_builder_row',	
-					className: null,
-					id: null,
-					backgroundColor: null,
-					paddingTop: null,
-					childrens: [
-						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: '1_2',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_title',
-									className: null,
-									id: null,
-									link: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Title'
-								}
-							]
-						},
-						{
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: null,
-							paddingTop: null,
-							type: '1_2',
-							childrens: [
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_map',
-									className: null,
-									id: null,
-									address: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Map'
-								},
-								{
-									ltype: 'el',
-									isActive: false,
-									tag: 'fusion_map',
-									className: null,
-									id: null,
-									address: null,
-									backgroundColor: null,
-									paddingTop: null,
-									title: 'Map'
-								},
-							]
-						}
-					]
-				}
-			]
-		}
-	]
-};
+// layObj = {
+// 	childrens: [
+// 		{
+// 			ltype: 'container',
+// 			isActive: false,
+// 			tag: 'fusion_builder_container',
+// 			className: null,
+// 			id: null,
+// 			backgroundColor: null,
+// 			paddingTop: null,
+// 			childrens: [
+// 				{
+// 					ltype: 'row',
+// 					isActive: false,
+// 					tag: 'fusion_builder_row',	
+// 					className: null,
+// 					id: null,
+// 					backgroundColor: null,
+// 					paddingTop: null,
+// 					childrens: [
+// 						{
+// 							ltype: 'col',
+// 							isActive: false,
+// 							tag: 'fusion_builder_column',	
+// 							className: null,
+// 							id: null,
+// 							backgroundColor: "pink",
+// 							paddingTop: null,
+// 							type: '1_2',
+// 							childrens: [
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_gallery',
+// 									className: null,
+// 									id: null,
+// 									link: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Gallery'
+// 								},
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_modal',
+// 									className: null,
+// 									id: null,
+// 									link: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Modal'
+// 								},
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_counter',
+// 									className: null,
+// 									id: null,
+// 									link: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Counter'
+// 								}
+// 							]
+// 						},
+// 						{
+// 							ltype: 'col',
+// 							isActive: false,
+// 							tag: 'fusion_builder_column',	
+// 							className: null,
+// 							id: null,
+// 							backgroundColor: null,
+// 							paddingTop: null,
+// 							type: '1_2',
+// 							childrens: [
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_map',
+// 									className: null,
+// 									id: null,
+// 									address: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Map'
+// 								},
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_slider',
+// 									className: null,
+// 									id: null,
+// 									address: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Slider'
+// 								},
+// 							]
+// 						}
+// 					]
+// 				}
+// 			]
+// 		},{
+// 			ltype: 'container',
+// 			isActive: false,
+// 			tag: 'fusion_builder_container',
+// 			className: null,
+// 			id: null,
+// 			backgroundColor: null,
+// 			paddingTop: null,
+// 			childrens: [
+// 				{
+// 					ltype: 'row',
+// 					isActive: false,
+// 					tag: 'fusion_builder_row',	
+// 					className: null,
+// 					id: null,
+// 					backgroundColor: null,
+// 					paddingTop: null,
+// 					childrens: [
+// 						{
+// 							ltype: 'col',
+// 							isActive: false,
+// 							tag: 'fusion_builder_column',	
+// 							className: null,
+// 							id: null,
+// 							backgroundColor: "pink",
+// 							paddingTop: null,
+// 							type: '1_2',
+// 							childrens: [
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_title',
+// 									className: null,
+// 									id: null,
+// 									link: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Title'
+// 								}
+// 							]
+// 						},
+// 						{
+// 							ltype: 'col',
+// 							isActive: false,
+// 							tag: 'fusion_builder_column',	
+// 							className: null,
+// 							id: null,
+// 							backgroundColor: null,
+// 							paddingTop: null,
+// 							type: '1_2',
+// 							childrens: [
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_map',
+// 									className: null,
+// 									id: null,
+// 									address: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Map'
+// 								},
+// 								{
+// 									ltype: 'el',
+// 									isActive: false,
+// 									tag: 'fusion_map',
+// 									className: null,
+// 									id: null,
+// 									address: null,
+// 									backgroundColor: null,
+// 									paddingTop: null,
+// 									title: 'Map'
+// 								},
+// 							]
+// 						}
+// 					]
+// 				}
+// 			]
+// 		}
+// 	]
+// };
 
 var lay = new Vue({
 	el: '.layout-container',
 	data: layObj,
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'ltype'],
+			props: ['childrens', 'shortcode'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
@@ -306,7 +306,7 @@ var lay = new Vue({
 					lay.children = children
 				}
 			},
-			template: '<div class="pretempl">{{ltype}}<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.ltype, {active: children.isActive}]" :ltype="children.ltype" v-bind:style="children"></templ></div>'
+			template: '<div class="pretempl">{{shortcode}}<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" v-bind:style="children"></templ></div>'
 		}
 	},
 	methods: {
