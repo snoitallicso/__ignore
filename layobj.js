@@ -1898,7 +1898,7 @@ layObj = {
               "shortcode": "fusion_builder_column",
               "hide_from_builder": true,
               "params": {
-                "type": "1_2",
+                "type": "1_4",
                 "spacing": {
                   "type": "textfield",
                   "heading": "Column Spacing",
