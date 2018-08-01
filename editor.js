@@ -16,6 +16,7 @@ Array.prototype.insert = function(index, item){
 var arr = [1,2,3,4,5,6,7,8,9]
 arr.insert(2,10)
 
+elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
 
 list = [1,2,3]
 two = list[1]
@@ -456,7 +457,7 @@ var gridState = new Vue({
 				},
 				isEl: function(shortcode){
 					//list = ["fusion_builder_blank_page","fusion_li_item","fusion_builder_column_inner","fusion_builder_column","fusion_builder_container","fusion_content_box","fusion_counter_box","fusion_counter_circle","fusion_flip_box","fusion_image","fusion_builder_next_page","fusion_builder_row_inner","fusion_builder_row","fusion_slide","fusion_tab","fusion_testimonial","fusion_toggle"];
-					list = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
+					list = elsList;
 
 					return list.indexOf(shortcode) !== -1
 				}
@@ -503,206 +504,41 @@ var insertModal_content = new Vue({
 	}
 });
 
+
+for (var propname in fusionAllElements)
+{
+  if(!fusionAllElements[propname].hide_from_builder){
+    propvalue = fusionAllElements[propname];
+    console.log(propname, propvalue.name);
+  }
+}
+
+//returns [{title: "Alert", label: "alert"}, ... ]
+var listElemnts = function(){
+	var obj = [];
+
+	for (var propname in fusionAllElements){
+	  if(!fusionAllElements[propname].hide_from_builder){
+	    propvalue = fusionAllElements[propname];
+	    //console.log(propname, propvalue.name);
+	    var el = {title: propvalue.name, label: propname};
+	    obj.push(el);
+	  };
+	};
+
+	return obj;
+}
+
+listElements = listElemnts();
+
 var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
 		activecolumn: null,
 		seen: false,
 		query: '',
-		elements: [
-			{
-				title: "Alert",
-				label: "alert"
-			},
-			{
-				title: "Blog",
-				label: "blog"
-			},
-			{
-				title: "Button",
-				label: "button"
-			},
-			{
-				title: "Checklist",
-				label: "checklist"
-			},
-			{
-				title: "Code Block",
-				label: "code_block"
-			},
-			{
-				title: "Content Boxes",
-				label: "content_boxes"
-			},
-			{
-				title: "Countdown",
-				label: "countdown"
-			},
-			{
-				title: "Counter Boxes",
-				label: "counter_boxes"
-			},
-			{
-				title: "Counter Circles",
-				label: "counter_circles"
-			},
-			{
-				title: "Flip Boxes",
-				label: "flip_boxes"
-			},
-			{
-				title: "Font Awesome Icon",
-				label: "font_awesome_icon"
-			},
-			{
-				title: "Gallery",
-				label: "gallery"
-			},
-			{
-				title: "Google Map",
-				label: "google_map"
-			},
-			{
-				title: "Image",
-				label: "image"
-			},
-			{
-				title: "Image Carousel",
-				label: "image_carousel"
-			},
-			{
-				title: "Layer Slider",
-				label: "layer_slider"
-			},
-			{
-				title: "Lightbox",
-				label: "lightbox"
-			},
-			{
-				title: "Menu Anchor",
-				label: "menu_anchor"
-			},
-			{
-				title: "Modal",
-				label: "modal"
-			},
-			{
-				title: "Modal Text Link",
-				label: "modal_text_link"
-			},
-			{
-				title: "Person",
-				label: "person"
-			},
-			{
-				title: "Post Slider",
-				label: "post_slider"
-			},
-			{
-				title: "Pricing Table",
-				label: "pricing_table"
-			},
-			{
-				title: "Progress Bar",
-				label: "progress_bar"
-			},
-			{
-				title: "Recent Posts",
-				label: "recent_posts"
-			},
-			{
-				title: "Revolution Slider",
-				label: "revolution_slider"
-			},
-			{
-				title: "Section Separator",
-				label: "section_separator"
-			},
-			{
-				title: "Separator",
-				label: "separator"
-			},
-			{
-				title: "Sharing Box",
-				label: "sharing_box"
-			},
-			{
-				title: "Slider",
-				label: "slider"
-			},
-			{
-				title: "Social Links",
-				label: "social_link"
-			},
-			{
-				title: "Soundcloud",
-				label: "soundcloud"
-			},
-			{
-				title: "Table",
-				label: "table"
-			},
-			{
-				title: "Tabs",
-				label: "tabs"
-			},
-			{
-				title: "Tagline Box",
-				label: "tagline_box"
-			},
-			{
-				title: "Testimonials",
-				label: "testimonials"
-			},
-			{
-				title: "Text Block",
-				label: "text_block"
-			},
-			{
-				title: "Title",
-				label: "title"
-			},
-			{
-				title: "Toggles",
-				label: "toggles"
-			},
-			{
-				title: "User Login",
-				label: "user_login"
-			},
-			{
-				title: "User Lost Password",
-				label: "user_lost_password"
-			},
-			{
-				title: "User Register",
-				label: "user_register"
-			},
-			{
-				title: "Vimeo",
-				label: "vimeo"
-			},
-			{
-				title: "Widget Area",
-				label: "widget_area"
-			},
-			{
-				title: "Woo Carousel",
-				label: "woo_carousel"
-			},
-			{
-				title: "Woo Featured",
-				label: "woo_featured"
-			},
-			{
-				title: "Woo Shortcodes",
-				label: "woo_shortcodes"
-			},
-			{
-				title: "Youtube",
-				label: "youtube"
-			}
-		]
+		//compile light list of elements for modal rendering
+		elements: listElements,
 	},
 	computed: {
 		computedList: function () {
@@ -718,6 +554,14 @@ var elementsSlot = new Vue({
 			this.seen = false;
 
 			//this.activecolumn.push(this.activecolumn[0])
+
+			var copyObj = function(obj){
+				return JSON.parse(JSON.stringify(obj));
+			};
+
+			console.log(tag, title)
+			//elObj = copyObj
+
 			this.activecolumn.push({
 				ltype: 'el',
 				isActive: false,
