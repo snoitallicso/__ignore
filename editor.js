@@ -22,6 +22,11 @@ list = [1,2,3]
 two = list[1]
 list.indexOf(two)
 
+//FUCKING HACK: I dont know how to copy object faster
+var copyObj = function(obj){
+	return JSON.parse(JSON.stringify(obj));
+};
+
 //ONCLICK FUNCTION FOR CONTAINER AND COLUMNS MODAL TEMPLATE
 var addC = function(array){
 	//onclick dom funct that calls changing model method of ...
@@ -339,14 +344,10 @@ var gridState = new Vue({
 
 					//OPTIMIZE FOR ONE CALL!!!!!!!!!!!!!!!!!! (+ LOOP)
 
-					//FUCKING HACK: I dont know how to copy object faster
-					var copyObj = function(obj){
-						return JSON.parse(JSON.stringify(obj));
-					};
-
 					var column = function(type){
 						var colobj = copyObj(fusionAllElements.fusion_builder_column);
 						colobj.params.type = type;
+						colobj.childrens = [];
 						return colobj;
 					}
 					
@@ -440,26 +441,25 @@ var gridState = new Vue({
 					secondSideContent.openContainerModal()
 				},
 				openModalAddCols: function(index){
-					secondSideContent.openColumnsModal()
-					console.log(this.$props)
-					this.$props.childrens.push(this.$props.childrens[0])
+					secondSideContent.openColumnsModal();
+					console.log(this.$props);
+					this.$props.childrens.push(this.$props.childrens[0]);
 				},
 				openModalAddElmnt: function(e){
 					secondSideContent.openElementsModal()
-					elementsSlot.activecolumn = this.$props.childrens
-					console.log(this.$props.childrens)
+					elementsSlot.activecolumn = this.$props.childrens;
 				},
 				click: function(index){
 					//alert()
 				},
 				alert: function(){
-					console.log("ALEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEERT!")
+					console.log("ALEET!")
 				},
 				isEl: function(shortcode){
 					//list = ["fusion_builder_blank_page","fusion_li_item","fusion_builder_column_inner","fusion_builder_column","fusion_builder_container","fusion_content_box","fusion_counter_box","fusion_counter_circle","fusion_flip_box","fusion_image","fusion_builder_next_page","fusion_builder_row_inner","fusion_builder_row","fusion_slide","fusion_tab","fusion_testimonial","fusion_toggle"];
 					list = elsList;
 
-					return list.indexOf(shortcode) !== -1
+					return list.indexOf(shortcode) !== -1;
 				}
 			},
 			template: templ1
@@ -525,6 +525,7 @@ listElements = listElemnts();
 var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
+		//REFERENCE of column model for pushing objects (of elements like button etc)
 		activecolumn: null,
 		seen: false,
 		query: '',
@@ -544,26 +545,11 @@ var elementsSlot = new Vue({
 			//HERE WE CLOSE ELEMENTS MODAL
 			this.seen = false;
 
-			//this.activecolumn.push(this.activecolumn[0])
+			var elobj = copyObj(fusionAllElements[tag]);
+			elobj.name = title;
+			//elobj.isActive = false;
 
-			var copyObj = function(obj){
-				return JSON.parse(JSON.stringify(obj));
-			};
-
-			console.log(tag, title)
-			//elObj = copyObj
-
-			this.activecolumn.push({
-				ltype: 'el',
-				isActive: false,
-				tag: tag,
-				className: null,
-				id: null,
-				link: null,
-				backgroundColor: null,
-				paddingTop: null,
-				title: title
-			});
+			this.activecolumn.push(elobj);
 		}
 	}
 })

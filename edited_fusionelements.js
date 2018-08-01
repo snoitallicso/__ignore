@@ -1,5 +1,6 @@
 var fusionAllElements = {
     "fusion_alert": {
+        "isActive": false,
         "name": "Alert",
         "shortcode": "fusion_alert",
         "icon": "fa fa-lg fa-exclamation-triangle",
@@ -197,6 +198,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_builder_blank_page": {
+        "isActive": false,
         "name": "Blank Page",
         "shortcode": "fusion_builder_blank_page",
         "hide_from_builder": true,
@@ -212,6 +214,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_blog": {
+        "isActive": false,
         "name": "Blog",
         "shortcode": "fusion_blog",
         "icon": "fusiona-blog",
@@ -828,6 +831,7 @@ var fusionAllElements = {
         "remove_from_atts": ["blog_grid_padding"]
     },
     "fusion_button": {
+        "isActive": false,
         "name": "Button",
         "shortcode": "fusion_button",
         "icon": "fusiona-check-empty",
@@ -1236,6 +1240,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_checklist": {
+        "isActive": false,
         "name": "Checklist",
         "shortcode": "fusion_checklist",
         "multi": "multi_element_parent",
@@ -1330,6 +1335,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_li_item": {
+        "isActive": false,
         "name": "List Item",
         "description": "Enter some content for this textblock",
         "shortcode": "fusion_li_item",
@@ -1355,6 +1361,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_code": {
+        "isActive": false,
         "name": "Code Block",
         "shortcode": "fusion_code",
         "icon": "fusiona-code",
@@ -1371,6 +1378,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_builder_column_inner": {
+        "isActive": false,
         "name": "Nested Column",
         "shortcode": "fusion_builder_column_inner",
         "hide_from_builder": true,
@@ -1659,6 +1667,7 @@ var fusionAllElements = {
         "remove_from_atts": ["padding", "dimension_margin"]
     },
     "fusion_builder_column": {
+        "isActive": false,
         "name": "Column",
         "shortcode": "fusion_builder_column",
         "hide_from_builder": true,
@@ -1981,6 +1990,7 @@ var fusionAllElements = {
         "remove_from_atts": ["padding", "dimension_margin"]
     },
     "fusion_builder_container": {
+        "isActive": false,
         "name": "Container",
         "shortcode": "fusion_builder_container",
         "hide_from_builder": true,
@@ -2455,6 +2465,7 @@ var fusionAllElements = {
         "remove_from_atts": ["spacing", "dimensions"]
     },
     "fusion_content_boxes": {
+        "isActive": false,
         "name": "Content Boxes",
         "shortcode": "fusion_content_boxes",
         "multi": "multi_element_parent",
@@ -2971,6 +2982,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_content_box": {
+        "isActive": false,
         "name": "Content Box",
         "description": "Enter some content for this textblock",
         "shortcode": "fusion_content_box",
@@ -3370,6 +3382,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_countdown": {
+        "isActive": false,
         "name": "Countdown",
         "shortcode": "fusion_countdown",
         "icon": "fusiona-calendar-check-o",
@@ -3608,6 +3621,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_counters_box": {
+        "isActive": false,
         "name": "Counter Boxes",
         "shortcode": "fusion_counters_box",
         "multi": "multi_element_parent",
@@ -3742,6 +3756,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_counter_box": {
+        "isActive": false,
         "name": "Counter Box",
         "description": "Enter some content for this block.",
         "shortcode": "fusion_counter_box",
@@ -3809,6 +3824,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_counters_circle": {
+        "isActive": false,
         "name": "Counter Circles",
         "shortcode": "fusion_counters_circle",
         "multi": "multi_element_parent",
@@ -3867,6 +3883,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_counter_circle": {
+        "isActive": false,
         "name": "Counter Circle",
         "description": "Enter some content for this block.",
         "shortcode": "fusion_counter_circle",
@@ -3943,6 +3960,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_dropcap": {
+        "isActive": false,
         "name": "Dropcap",
         "shortcode": "fusion_dropcap",
         "generator_only": true,
@@ -4005,6 +4023,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_flip_boxes": {
+        "isActive": false,
         "name": "Flip Boxes",
         "shortcode": "fusion_flip_boxes",
         "multi": "multi_element_parent",
@@ -4169,6 +4188,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_flip_box": {
+        "isActive": false,
         "name": "Flip Box",
         "description": "Enter some content for this textblock",
         "shortcode": "fusion_flip_box",
@@ -4528,6 +4548,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_fontawesome": {
+        "isActive": false,
         "name": "Font Awesome Icon",
         "shortcode": "fusion_fontawesome",
         "icon": "fusiona-flag",
@@ -4772,6 +4793,7 @@ var fusionAllElements = {
         "remove_from_atts": ["margin"]
     },
     "fusion_gallery": {
+        "isActive": false,
         "name": "Gallery",
         "shortcode": "fusion_gallery",
         "icon": "fusiona-dashboard",
@@ -4918,6 +4940,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_map": {
+        "isActive": false,
         "name": "Google Map",
         "shortcode": "fusion_map",
         "icon": "fusiona-map",
@@ -5148,6 +5171,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_highlight": {
+        "isActive": false,
         "name": "Highlight",
         "shortcode": "fusion_highlight",
         "icon": "fusiona-H",
@@ -5196,6 +5220,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_images": {
+        "isActive": false,
         "name": "Image Carousel",
         "shortcode": "fusion_images",
         "multi": "multi_element_parent",
@@ -5358,6 +5383,7 @@ var fusionAllElements = {
         "remove_from_atts": ["multiple_upload"]
     },
     "fusion_image": {
+        "isActive": false,
         "name": "Image",
         "description": "Enter some content for this textblock.",
         "shortcode": "fusion_image",
@@ -5407,6 +5433,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_imageframe": {
+        "isActive": false,
         "name": "Image",
         "shortcode": "fusion_imageframe",
         "icon": "fusiona-image",
@@ -5699,6 +5726,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "layerslider": {
+        "isActive": false,
         "name": "Layer Slider",
         "shortcode": "layerslider",
         "icon": "fusiona-stack",
@@ -5716,6 +5744,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_lightbox": {
+        "isActive": false,
         "name": "Lightbox",
         "shortcode": "fusion_lightbox",
         "icon": "fusiona-uniF602",
@@ -5796,6 +5825,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_menu_anchor": {
+        "isActive": false,
         "name": "Menu Anchor",
         "shortcode": "fusion_menu_anchor",
         "icon": "fusiona-anchor",
@@ -5820,6 +5850,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_modal": {
+        "isActive": false,
         "name": "Modal",
         "shortcode": "fusion_modal",
         "icon": "fusiona-external-link",
@@ -5908,6 +5939,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_modal_text_link": {
+        "isActive": false,
         "name": "Modal Text Link",
         "shortcode": "fusion_modal_text_link",
         "icon": "fusiona-external-link",
@@ -5944,6 +5976,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_builder_next_page": {
+        "isActive": false,
         "name": "Next Page",
         "shortcode": "fusion_builder_next_page",
         "hide_from_builder": true,
@@ -5959,6 +5992,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_one_page_text_link": {
+        "isActive": false,
         "name": "One Page Text Link",
         "shortcode": "fusion_one_page_text_link",
         "generator_only": true,
@@ -5996,6 +6030,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_person": {
+        "isActive": false,
         "name": "Person",
         "shortcode": "fusion_person",
         "icon": "fusiona-user",
@@ -6512,6 +6547,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_popover": {
+        "isActive": false,
         "name": "Popover",
         "shortcode": "fusion_popover",
         "generator_only": true,
@@ -6617,6 +6653,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_postslider": {
+        "isActive": false,
         "name": "Post Slider",
         "shortcode": "fusion_postslider",
         "icon": "fusiona-layers-alt",
@@ -6729,6 +6766,7 @@ var fusionAllElements = {
         "remove_from_atts": ["upload_attachments"]
     },
     "fusion_pricing_table": {
+        "isActive": false,
         "name": "Pricing Table",
         "shortcode": "fusion_pricing_table",
         "icon": "fusiona-dollar",
@@ -6865,6 +6903,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_progress": {
+        "isActive": false,
         "name": "Progress Bar",
         "shortcode": "fusion_progress",
         "icon": "fusiona-tasks",
@@ -7043,6 +7082,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_recent_posts": {
+        "isActive": false,
         "name": "Recent Posts",
         "shortcode": "fusion_recent_posts",
         "icon": "fusiona-feather",
@@ -7437,6 +7477,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "rev_slider": {
+        "isActive": false,
         "name": "Revolution Slider",
         "shortcode": "rev_slider",
         "icon": "fusiona-air",
@@ -7457,16 +7498,19 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_builder_row_inner": {
+        "isActive": false,
         "name": "Nested Columns",
         "shortcode": "fusion_builder_row_inner",
         "hide_from_builder": true
     },
     "fusion_builder_row": {
+        "isActive": false,
         "name": "Row",
         "shortcode": "fusion_builder_row",
         "hide_from_builder": true
     },
     "fusion_section_separator": {
+        "isActive": false,
         "name": "Section Separator",
         "shortcode": "fusion_section_separator",
         "icon": "fusiona-ellipsis",
@@ -7633,6 +7677,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_separator": {
+        "isActive": false,
         "name": "Separator",
         "shortcode": "fusion_separator",
         "icon": "fusiona-minus",
@@ -7788,6 +7833,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions", "dimensions_width"]
     },
     "fusion_sharing": {
+        "isActive": false,
         "name": "Sharing Box",
         "shortcode": "fusion_sharing",
         "icon": "fusiona-share2",
@@ -7973,6 +8019,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_slider": {
+        "isActive": false,
         "name": "Slider",
         "shortcode": "fusion_slider",
         "multi": "multi_element_parent",
@@ -8051,6 +8098,7 @@ var fusionAllElements = {
         "remove_from_atts": ["multiple_upload", "dimensions"]
     },
     "fusion_slide": {
+        "isActive": false,
         "name": "Slide",
         "description": "Enter some content for this textblock.",
         "shortcode": "fusion_slide",
@@ -8162,6 +8210,7 @@ var fusionAllElements = {
         "remove_from_atts": ["image", "video"]
     },
     "fusion_social_links": {
+        "isActive": false,
         "name": "Social Links",
         "shortcode": "fusion_social_links",
         "icon": "fusiona-link",
@@ -8502,6 +8551,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_soundcloud": {
+        "isActive": false,
         "name": "Soundcloud",
         "shortcode": "fusion_soundcloud",
         "icon": "fusiona-soundcloud",
@@ -8620,6 +8670,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_table": {
+        "isActive": false,
         "name": "Table",
         "shortcode": "fusion_table",
         "icon": "fusiona-table",
@@ -8665,6 +8716,7 @@ var fusionAllElements = {
         "remove_from_atts": ["fusion_table_type", "fusion_table_columns"]
     },
     "fusion_tabs": {
+        "isActive": false,
         "name": "Tabs",
         "shortcode": "fusion_tabs",
         "multi": "multi_element_parent",
@@ -8804,6 +8856,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_tab": {
+        "isActive": false,
         "name": "Tab",
         "shortcode": "fusion_tab",
         "hide_from_builder": true,
@@ -8836,6 +8889,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_tagline_box": {
+        "isActive": false,
         "name": "Tagline Box",
         "shortcode": "fusion_tagline_box",
         "icon": "fusiona-list-alt",
@@ -9205,6 +9259,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_testimonials": {
+        "isActive": false,
         "name": "Testimonials",
         "shortcode": "fusion_testimonials",
         "multi": "multi_element_parent",
@@ -9291,6 +9346,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_testimonial": {
+        "isActive": false,
         "name": "Testimonial",
         "shortcode": "fusion_testimonial",
         "hide_from_builder": true,
@@ -9384,6 +9440,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_text": {
+        "isActive": false,
         "name": "Text Block",
         "shortcode": "fusion_text",
         "icon": "fusiona-font",
@@ -9403,6 +9460,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_title": {
+        "isActive": false,
         "name": "Title",
         "shortcode": "fusion_title",
         "icon": "fusiona-H",
@@ -9523,6 +9581,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_accordion": {
+        "isActive": false,
         "name": "Toggles",
         "shortcode": "fusion_accordion",
         "multi": "multi_element_parent",
@@ -9728,6 +9787,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_toggle": {
+        "isActive": false,
         "name": "Toggle",
         "shortcode": "fusion_toggle",
         "hide_from_builder": true,
@@ -9764,6 +9824,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_tooltip": {
+        "isActive": false,
         "name": "Tooltip",
         "shortcode": "fusion_tooltip",
         "icon": "fusiona-exclamation-sign",
@@ -9827,6 +9888,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_login": {
+        "isActive": false,
         "name": "User Login",
         "description": "Enter some content for this block",
         "shortcode": "fusion_login",
@@ -9965,6 +10027,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_lost_password": {
+        "isActive": false,
         "name": "User Lost Password",
         "shortcode": "fusion_lost_password",
         "icon": "fusiona-calendar-check-o",
@@ -10088,6 +10151,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_register": {
+        "isActive": false,
         "name": "User Register",
         "shortcode": "fusion_register",
         "icon": "fusiona-calendar-check-o",
@@ -10211,6 +10275,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_vimeo": {
+        "isActive": false,
         "name": "Vimeo",
         "shortcode": "fusion_vimeo",
         "icon": "fusiona-vimeo2",
@@ -10289,6 +10354,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_featured_products_slider": {
+        "isActive": false,
         "name": "Woo Featured",
         "shortcode": "fusion_featured_products_slider",
         "icon": "fusiona-star-empty",
@@ -10437,6 +10503,7 @@ var fusionAllElements = {
         "remove_from_atts": []
     },
     "fusion_woo_shortcodes": {
+        "isActive": false,
         "name": "Woo Shortcodes",
         "shortcode": "fusion_woo_shortcodes",
         "icon": "fusiona-tag",
@@ -10472,6 +10539,7 @@ var fusionAllElements = {
         "remove_from_atts": ["fusion_woo_shortcode"]
     },
     "fusion_youtube": {
+        "isActive": false,
         "name": "Youtube",
         "shortcode": "fusion_youtube",
         "icon": "fusiona-youtube",
@@ -10550,6 +10618,7 @@ var fusionAllElements = {
         "remove_from_atts": ["dimensions"]
     },
     "fusion_widget_area": {
+        "isActive": false,
         "name": "Widget Area",
         "shortcode": "fusion_widget_area",
         "icon": "fusiona-sidebar",
@@ -10634,6 +10703,7 @@ var fusionAllElements = {
         "remove_from_atts": ["padding"]
     },
     "fusion_products_slider": {
+        "isActive": false,
         "name": "Woo Carousel",
         "shortcode": "fusion_products_slider",
         "icon": "fusiona-tag",
