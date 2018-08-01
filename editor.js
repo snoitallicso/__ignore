@@ -504,15 +504,6 @@ var insertModal_content = new Vue({
 	}
 });
 
-
-for (var propname in fusionAllElements)
-{
-  if(!fusionAllElements[propname].hide_from_builder){
-    propvalue = fusionAllElements[propname];
-    console.log(propname, propvalue.name);
-  }
-}
-
 //returns [{title: "Alert", label: "alert"}, ... ]
 var listElemnts = function(){
 	var obj = [];
