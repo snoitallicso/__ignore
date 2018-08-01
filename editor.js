@@ -101,190 +101,6 @@ var addC = function(array){
 // 	}
 // });
 
-// layObj = {
-// 	childrens: [
-// 		{
-// 			ltype: 'container',
-// 			isActive: false,
-// 			tag: 'fusion_builder_container',
-// 			className: null,
-// 			id: null,
-// 			backgroundColor: null,
-// 			paddingTop: null,
-// 			childrens: [
-// 				{
-// 					ltype: 'row',
-// 					isActive: false,
-// 					tag: 'fusion_builder_row',	
-// 					className: null,
-// 					id: null,
-// 					backgroundColor: null,
-// 					paddingTop: null,
-// 					childrens: [
-// 						{
-// 							ltype: 'col',
-// 							isActive: false,
-// 							tag: 'fusion_builder_column',	
-// 							className: null,
-// 							id: null,
-// 							backgroundColor: "pink",
-// 							paddingTop: null,
-// 							type: '1_2',
-// 							childrens: [
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_gallery',
-// 									className: null,
-// 									id: null,
-// 									link: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Gallery'
-// 								},
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_modal',
-// 									className: null,
-// 									id: null,
-// 									link: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Modal'
-// 								},
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_counter',
-// 									className: null,
-// 									id: null,
-// 									link: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Counter'
-// 								}
-// 							]
-// 						},
-// 						{
-// 							ltype: 'col',
-// 							isActive: false,
-// 							tag: 'fusion_builder_column',	
-// 							className: null,
-// 							id: null,
-// 							backgroundColor: null,
-// 							paddingTop: null,
-// 							type: '1_2',
-// 							childrens: [
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_map',
-// 									className: null,
-// 									id: null,
-// 									address: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Map'
-// 								},
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_slider',
-// 									className: null,
-// 									id: null,
-// 									address: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Slider'
-// 								},
-// 							]
-// 						}
-// 					]
-// 				}
-// 			]
-// 		},{
-// 			ltype: 'container',
-// 			isActive: false,
-// 			tag: 'fusion_builder_container',
-// 			className: null,
-// 			id: null,
-// 			backgroundColor: null,
-// 			paddingTop: null,
-// 			childrens: [
-// 				{
-// 					ltype: 'row',
-// 					isActive: false,
-// 					tag: 'fusion_builder_row',	
-// 					className: null,
-// 					id: null,
-// 					backgroundColor: null,
-// 					paddingTop: null,
-// 					childrens: [
-// 						{
-// 							ltype: 'col',
-// 							isActive: false,
-// 							tag: 'fusion_builder_column',	
-// 							className: null,
-// 							id: null,
-// 							backgroundColor: "pink",
-// 							paddingTop: null,
-// 							type: '1_2',
-// 							childrens: [
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_title',
-// 									className: null,
-// 									id: null,
-// 									link: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Title'
-// 								}
-// 							]
-// 						},
-// 						{
-// 							ltype: 'col',
-// 							isActive: false,
-// 							tag: 'fusion_builder_column',	
-// 							className: null,
-// 							id: null,
-// 							backgroundColor: null,
-// 							paddingTop: null,
-// 							type: '1_2',
-// 							childrens: [
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_map',
-// 									className: null,
-// 									id: null,
-// 									address: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Map'
-// 								},
-// 								{
-// 									ltype: 'el',
-// 									isActive: false,
-// 									tag: 'fusion_map',
-// 									className: null,
-// 									id: null,
-// 									address: null,
-// 									backgroundColor: null,
-// 									paddingTop: null,
-// 									title: 'Map'
-// 								},
-// 							]
-// 						}
-// 					]
-// 				}
-// 			]
-// 		}
-// 	]
-// };
-
 var lay = new Vue({
 	el: '.layout-container',
 	data: layObj,
@@ -519,20 +335,19 @@ var gridState = new Vue({
 			this.cnstrctr = function(elType, array){
 				if(elType === 'container'){
 					var columns = [];
-					
-					var column = function (type) {
-						return {
-							ltype: 'col',
-							isActive: false,
-							tag: 'fusion_builder_column',	
-							className: null,
-							id: null,
-							backgroundColor: "pink",
-							paddingTop: null,
-							type: type,
-							childrens: []
-						};
+
+					//OPTIMIZE FOR ONE CALL!!!!!!!!!!!!!!!!!! (+ LOOP)
+
+					//FUCKING HACK: I dont know how to copy object faster
+					var copyObj = function(obj){
+						return JSON.parse(JSON.stringify(obj));
 					};
+
+					var column = function(type){
+						var colobj = copyObj(fusionAllElements.fusion_builder_column);
+						colobj.params.type = type;
+						return colobj;
+					}
 					
 					if(array[0] !== undefined){
 						for(i=0; i<array.length; i++){
@@ -544,27 +359,10 @@ var gridState = new Vue({
 						//nothing
 					}
 
-					var container = {
-						ltype: 'container',
-						isActive: false,
-						tag: 'fusion_builder_container',
-						className: null,
-						id: null,
-						backgroundColor: null,
-						paddingTop: null,
-						childrens: [
-							{
-								ltype: 'row',
-								isActive: false,
-								tag: 'fusion_builder_row',	
-								className: null,
-								id: null,
-								backgroundColor: null,
-								paddingTop: null,
-								childrens: columns
-							}
-						]
-					};
+					var container = copyObj(fusionAllElements.fusion_builder_container);
+					var row = copyObj(fusionAllElements.fusion_builder_row);
+					row.childrens = columns;
+					container.childrens = [row];
 					
 					return container;
 				}
