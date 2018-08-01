@@ -152,8 +152,8 @@
 		<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
 		<button v-on:click="openModalAddElmnt()" class="add-el">+ Element</button>
 	</div>
-	<!--maybe here need to strict checking by including in array of all elements shortcodes-->
-	<div v-else-if="['fusion_button', 'fusion_alert'].indexOf(shortcode) !== -1" class="builder-column-element">
+	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
+	<div v-else-if="isEl(shortcode)" class="builder-column-element">
 	<!--div v-else-if="shortcode == `fusion_button`" class="builder-column-element"-->
 		<div class="el-ctrls">
 			<div class="builder-column-controls">
