@@ -509,7 +509,7 @@ var listElemnts = function(){
 	var obj = [];
 
 	for (var propname in fusionAllElements){
-	  if(!fusionAllElements[propname].hide_from_builder){
+	  if(!fusionAllElements[propname].hide_from_builder && !fusionAllElements[propname].generator_only){
 	    propvalue = fusionAllElements[propname];
 	    //console.log(propname, propvalue.name);
 	    var el = {title: propvalue.name, label: propname};
