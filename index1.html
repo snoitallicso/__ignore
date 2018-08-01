@@ -176,6 +176,34 @@
 </div>
 
 
+<div class="templ_three">
+	<div class="sidebar_content">
+      <div class="sidebar_title"><h1>Sidebar Title</h1></div>
+      <div class="sidebar_tabs"><ul>
+        <li
+          v-for="post in posts"
+          v-bind:key="post.id"
+          v-bind:class="['side_tab', { 'active': post === selectedPost }]"
+          v-on:click="selectedPost = post"
+        >
+          {{ post.title }}
+        </li>
+      </ul></div>
+      <div class="content_area">
+        <div 
+          v-if="selectedPost"
+          class="dynamic-component-demo-post"
+        >
+          <h3>{{ selectedPost.title }}</h3>
+          <div v-html="selectedPost.content"></div>
+        </div>
+        <strong v-else>
+          Click on a blog title to the left to view it.
+        </strong>
+      </div>
+    </div>
+</div>
+
 		<script src="edited_fusionelements.js"></script>
 		<script src="layobj.js"></script>
 		<script src="editor.js"></script>
