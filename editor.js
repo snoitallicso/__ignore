@@ -575,12 +575,12 @@ var elementsSlot = new Vue({
 ];*/
 
 //centralized state for context of selected element
-var contextTabs = copyObj(fusionAllElements.fusion_button)
+var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups)
 //for(prop in options.params){console.log(prop)}
 Vue.component('tab-customization', {
   data: function () {
     return {
-      options: contextTabs,
+      groups: contextTabs,
       selectedTab: null
     }
   },
@@ -594,7 +594,7 @@ Vue.component('tab-customization', {
     	x = this
     	console.log(this)
     }
-  }
+  },
 })
 
 Vue.component('tab-pages', {
