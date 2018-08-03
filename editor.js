@@ -555,8 +555,8 @@ var elementsSlot = new Vue({
 	}
 })
 
-//centralized state for context of selected element
-var contextTabs = [
+
+/*var contextTabs = [
   {
     id: 1,
     title: 'General',
@@ -572,13 +572,16 @@ var contextTabs = [
     title: 'Design',
     content: '<p>Icing dessert soufflé lollipop chocolate bar sweet tart cake chupa chups. Soufflé marzipan jelly beans croissant toffee marzipan cupcake icing fruitcake. Muffin cake pudding soufflé wafer jelly bear claw sesame snaps marshmallow. Marzipan soufflé croissant lemon drops gingerbread sugar plum lemon drops apple pie gummies. Sweet roll donut oat cake toffee cake. Liquorice candy macaroon toffee cookie marzipan.</p>'
   }
-];
+];*/
 
+//centralized state for context of selected element
+var contextTabs = copyObj(fusionAllElements.fusion_button)
+//for(prop in options.params){console.log(prop)}
 Vue.component('tab-customization', {
   data: function () {
     return {
-      posts: contextTabs,
-      selectedPost: null
+      options: contextTabs,
+      selectedTab: null
     }
   },
   template: templ3,

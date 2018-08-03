@@ -179,7 +179,14 @@
 <div class="templ_three">
 	<div class="sidebar_content">
       <div class="sidebar_title"><h1>Sidebar Title</h1></div>
-      <div class="sidebar_tabs"><ul>
+      <ul>
+      	<div v-for="prop in options.params">
+	      	<li class="Design"  v-if="prop.group == `Design`">Design: {{prop.param_name}}</li>
+	      	<li class="Animation" v-else-if="prop.group == `Animation`">Animation: {{prop.param_name}}</li>
+	      	<li class="General" v-else>General: {{prop.param_name}}</li>
+	      </div>
+      </ul>
+      <!--div class="sidebar_tabs"><ul>
         <li
           v-for="post in posts"
           v-bind:key="post.id"
@@ -188,14 +195,14 @@
         >
           {{ post.title }}
         </li>
-      </ul></div>
+      </ul></div-->
       <div class="content_area">
         <div 
           v-if="selectedPost"
           class="dynamic-component-demo-post"
         >
-          <h3>{{ selectedPost.title }}</h3>
-          <div v-html="selectedPost.content"></div>
+          <h3>{{ selectedTab.title }}</h3>
+          <div v-html="selectedTab.content"></div>
         </div>
         <strong v-else>
           Click on a blog title to the left to view it.
@@ -204,7 +211,7 @@
     </div>
 </div>
 
-		<script src="edited_fusionelements.js"></script>
+		<script src="fusionelements.js"></script>
 		<script src="layobj.js"></script>
 		<script src="editor.js"></script>
 	</body>
