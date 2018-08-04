@@ -17,6 +17,7 @@ Array.prototype.insert = function(index, item){
 var arr = [1,2,3,4,5,6,7,8,9]
 arr.insert(2,10)
 
+//нужно написать скрипт для автоматической генерации списка
 elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
 
 list = [1,2,3]
@@ -339,7 +340,7 @@ var gridState = new Vue({
 	},
 	methods: {
 		insertContent: function(array){
-			this.cnstrctr = function(elType, array){
+			this.constrctr = function(elType, array){
 				if(elType === 'container'){
 					var columns = [];
 
@@ -373,7 +374,9 @@ var gridState = new Vue({
 
 			//HERE WE INSERT OBJECTS TO CREATED LINK IN PREVIOUS
 			var indx = gridState.actIndexChildren+1;
-			gridState.activeModelChildrens.insert(indx, this.cnstrctr('container', array));
+			gridState.activeModelChildrens.insert(indx, this.constrctr('container', array));
+
+			//HERE WE CALL SIDEBAR CONTEXT COMPONENT (tab-customization) METHOD ()
 
 			//HERE WE NEED TO CHECK ARRAY CHANGE BEFORE NEXT
 
@@ -447,8 +450,10 @@ var gridState = new Vue({
 					this.$props.childrens.push(this.$props.childrens[0]);
 				},
 				openModalAddElmnt: function(e){
-					secondSideContent.openElementsModal()
+					secondSideContent.openElementsModal();
+					//just set refer to column for pushing element
 					elementsSlot.activecolumn = this.$props.childrens;
+					console.log(this.$props.childrens);
 				},
 				click: function(index){
 					//alert()
@@ -534,6 +539,7 @@ var elementsSlot = new Vue({
 		elements: listElements,
 	},
 	computed: {
+		//search inside elements modal
 		computedList: function () {
 			var vm = this
 			return this.elements.filter(function (element) {
@@ -542,40 +548,29 @@ var elementsSlot = new Vue({
 		}
 	},
 	methods: {
+		//this click pushed elements into column
+		//(only elements: because click method inside modal of elements)
 		click: function(tag, title){
 			//HERE WE CLOSE ELEMENTS MODAL
 			this.seen = false;
 
-			var elobj = copyObj(fusionAllElements[tag]);
+			elobj = copyObj(fusionAllElements[tag]);
 			elobj.name = title;
 			//elobj.isActive = false;
 
+			//here we insert element into column
 			this.activecolumn.push(elobj);
+
+			//problem: context will not work for container, row and columns
+			console.log(elobj)
+			contextTabs = elobj.params.groups;
 		}
 	}
 })
 
-
-/*var contextTabs = [
-  {
-    id: 1,
-    title: 'General',
-    content: '<p>Dont wait for the storm to pass, dance in the rain kick up litter decide to want nothing to do with my owner today demand to be let outside at once, and expect owner to wait for me as i think about it cat cat moo moo lick ears lick paws so make meme, make cute face but lick the other cats. Kitty poochy chase imaginary bugs, but stand in front of the computer screen. Sweet beast cat dog hate mouse eat string barf pillow no baths hate everything stare at guinea pigs. My left donut is missing, as is my right loved it, hated it, loved it, hated it scoot butt on the rug cat not kitten around</p>'
-  },
-  {
-    id: 2,
-    title: 'Background',
-    content: '<p>Bushwick blue bottle scenester helvetica ugh, meh four loko. Put a bird on it lumbersexual franzen shabby chic, street art knausgaard trust fund shaman scenester live-edge mixtape taxidermy viral yuccie succulents. Keytar poke bicycle rights, crucifix street art neutra air plant PBR&B hoodie plaid venmo. Tilde swag art party fanny pack vinyl letterpress venmo jean shorts offal mumblecore. Vice blog gentrify mlkshk tattooed occupy snackwave, hoodie craft beer next level migas 8-bit chartreuse. Trust fund food truck drinking vinegar gochujang.</p>'
-  },
-  {
-    id: 3,
-    title: 'Design',
-    content: '<p>Icing dessert soufflé lollipop chocolate bar sweet tart cake chupa chups. Soufflé marzipan jelly beans croissant toffee marzipan cupcake icing fruitcake. Muffin cake pudding soufflé wafer jelly bear claw sesame snaps marshmallow. Marzipan soufflé croissant lemon drops gingerbread sugar plum lemon drops apple pie gummies. Sweet roll donut oat cake toffee cake. Liquorice candy macaroon toffee cookie marzipan.</p>'
-  }
-];*/
-
-//centralized state for context of selected element
+//CENTRALIZED STATE FOR CONTEXT OF SELECTED ELEMENT
 var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups)
+
 //for(prop in options.params){console.log(prop)}
 Vue.component('tab-customization', {
   data: function () {
