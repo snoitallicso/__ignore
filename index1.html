@@ -179,22 +179,33 @@
 <div class="templ_three">
 	<div class="sidebar_content">
       <div class="sidebar_title"><h1>Sidebar Title</h1></div>
-      <div class="sidebar_tabs"><ul>
-        <li
-          v-for="(group, index) in groups"
-          v-bind:class="['side_tab', { 'active': group === selectedPost }]"
-          v-on:click="selectedPost = group"
-        >
-          {{index}}
-        </li>
-      </ul></div>
+      <div class="sidebar_tabs">
+      	<ul>
+	        <li
+	          v-for="(group, index) in groups"
+	          v-bind:class="['side_tab', { 'active': index === selectedTab }]"
+	          v-on:click="selectedTab = index"
+	        >
+	          {{index}}
+	        </li>
+      	</ul>
+      </div>
       <div class="content_area">
         <div 
-          v-if="selectedPost"
+          v-if="selectedTab"
           class="dynamic-component-demo-post"
-        >
+        >	
+        	<!--
           <h3>{{ selectedTab.title }}</h3>
           <div v-html="selectedTab.content"></div>
+        	-->
+        	<ul>
+        		<li v-for="(option, index) in groups[selectedTab]">
+        			<h3>{{option.heading}}</h3>
+        			<p class="description">{{option.description}}</p>
+        			<div>{{option}}</div>
+        		</li>
+        	</ul>
         </div>
         <strong v-else>
           Click on a blog title to the left to view it.

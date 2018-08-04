@@ -91,6 +91,7 @@ ul{
 	border-left: 1px solid lightgray;
 	border-bottom: 1px solid lightgray;
 	background: #ececec;
+	cursor: pointer;
 }
 .side_tab:hover {
 	background: white;
