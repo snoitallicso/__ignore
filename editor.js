@@ -348,7 +348,8 @@ var gridState = new Vue({
 
 					var column = function(type){
 						var colobj = copyObj(fusionAllElements.fusion_builder_column);
-						colobj.params.type = type;
+						//colobj.params.type = type;
+						colobj.params.groups["General"].type = type;
 						colobj.childrens = [];
 						return colobj;
 					}
@@ -442,18 +443,19 @@ var gridState = new Vue({
 					gridState.activeModelChildrens = this.$parent.$parent.childrens;
 
 					//HERE WE OPEN MODAL
-					secondSideContent.openContainerModal()
+					secondSideContent.openContainerModal();
 				},
 				openModalAddCols: function(index){
 					secondSideContent.openColumnsModal();
-					console.log(this.$props);
+					//console.log(this.$props);
 					this.$props.childrens.push(this.$props.childrens[0]);
 				},
 				openModalAddElmnt: function(e){
 					secondSideContent.openElementsModal();
 					//just set refer to column for pushing element
 					elementsSlot.activecolumn = this.$props.childrens;
-					console.log(this.$props.childrens);
+					//console.log(this.$props.childrens);
+					//console.info(this)
 				},
 				click: function(index){
 					//alert()
@@ -532,6 +534,7 @@ var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
 		//REFERENCE of column model for pushing objects (of elements like button etc)
+		activeobject: null,
 		activecolumn: null,
 		seen: false,
 		query: '',
@@ -562,20 +565,22 @@ var elementsSlot = new Vue({
 			this.activecolumn.push(elobj);
 
 			//problem: context will not work for container, row and columns
-			console.log(elobj)
 			contextTabs = elobj.params.groups;
+
+			this.activeobject = elobj;
 		}
 	}
 })
 
 //CENTRALIZED STATE FOR CONTEXT OF SELECTED ELEMENT
-var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups)
+//var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups)
 
 //for(prop in options.params){console.log(prop)}
 Vue.component('tab-customization', {
   data: function () {
     return {
-      groups: contextTabs,
+      //groups: contextTabs,
+      groups: elementsSlot.activeobject.params.groups,
       selectedTab: null
     }
   },
