@@ -568,6 +568,9 @@ var elementsSlot = new Vue({
 			contextTabs = elobj.params.groups;
 
 			this.activeobject = elobj;
+
+			//(INSERT) SET REF TO NEWLY ADDED __ELEMENT__
+			contextWindow.$data.groups = this.activeobject.params.groups;
 		}
 	}
 })
@@ -578,10 +581,9 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 /** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
+	props: ['groups'],
   data: function (){
   	return {
-      //DEFAULT WHILE NOT SELECTED
-      groups: contextTabs,
       selectedTab: null
     }
   },
@@ -603,7 +605,8 @@ var contextWindow = new Vue({
     'tab-options': tab_options
   },
 	data: {
-		//groups: contextTabs,
+		groups: contextTabs,
+		//selectedTab: null,
 		//default active button and state (further we call component for template binding)
 		currentTab: 'Customization',
 		//list of buttons of menu
@@ -611,6 +614,7 @@ var contextWindow = new Vue({
 	},
 	computed: {
 		currentTabComponent: function () {
+			console.log(this)
 			//create name of component 'tab-' + 'pages' = 'tab-pages' for calling bind component
 			//<keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive>
 		  return 'tab-' + this.currentTab.toLowerCase();
