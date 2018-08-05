@@ -584,7 +584,7 @@ var tab_cust = {
 	props: ['groups'],
   data: function (){
   	return {
-      selectedTab: null
+      selectedTab: "General"
     }
   },
   template: templ3
