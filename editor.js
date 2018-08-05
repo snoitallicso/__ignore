@@ -571,6 +571,8 @@ var elementsSlot = new Vue({
 
 			//(INSERT) SET REF TO NEWLY ADDED __ELEMENT__
 			contextWindow.$data.groups = this.activeobject.params.groups;
+			//AND SET SUB TITLE WITH ELEMENT NAME IN THE "SIDEBAR MDOAL"
+			contextWindow.subtitle = this.activeobject.name;
 		}
 	}
 })
@@ -581,7 +583,7 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 /** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
-	props: ['groups'],
+	props: ['groups', 'subtitle'],
   data: function (){
   	if(this.selectedTab === undefined){
   		this.selectedTab = "General"
@@ -608,6 +610,8 @@ var contextWindow = new Vue({
     'tab-options': tab_options
   },
 	data: {
+		//element title above options and under main title
+		subtitle: "Sidebar subtitle",
 		groups: contextTabs,
 		selectedTab: null,
 		//default active button and state (further we call component for template binding)
