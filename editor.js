@@ -583,8 +583,11 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 var tab_cust = {
 	props: ['groups'],
   data: function (){
+  	if(this.selectedTab === undefined){
+  		this.selectedTab = "General"
+  	}
   	return {
-      selectedTab: "General"
+      selectedTab: this.selectedTab
     }
   },
   template: templ3
@@ -606,7 +609,7 @@ var contextWindow = new Vue({
   },
 	data: {
 		groups: contextTabs,
-		//selectedTab: null,
+		selectedTab: null,
 		//default active button and state (further we call component for template binding)
 		currentTab: 'Customization',
 		//list of buttons of menu
