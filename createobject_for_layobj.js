@@ -1,3 +1,5 @@
+//этот файл создан для создания объекта верстки, запускать в консоли Google Chrome
+//требуется сконвертированный файл с объектом fusionAllElements, в Google Chrome Pretty print
 var copyObj = function(obj){
   return JSON.parse(JSON.stringify(obj));
 };
@@ -33,3 +35,4 @@ secondContainer.childrens = [secondContainer_row];
 
 var hui = {};
 hui.childrens = [firstContainer, secondContainer];
+console.log(JSON.stringify(hui));

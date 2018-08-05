@@ -39,7 +39,7 @@ var addC = function(array){
 		gridState.insertContent(array)
 
 	} else {
-		return console.error("Object must be a flat array!")
+		return console.error("Object must be a flat array!");
 	}
 }
 
@@ -573,50 +573,48 @@ var elementsSlot = new Vue({
 })
 
 //CENTRALIZED STATE FOR CONTEXT OF SELECTED ELEMENT
-//var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups)
+var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 
-//for(prop in options.params){console.log(prop)}
-Vue.component('tab-customization', {
-  data: function () {
-    return {
-      //groups: contextTabs,
-      groups: elementsSlot.activeobject.params.groups,
+/** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
+//OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
+var tab_cust = {
+  data: function (){
+  	return {
+      //DEFAULT WHILE NOT SELECTED
+      groups: contextTabs,
       selectedTab: null
     }
   },
-  template: templ3,
-  methods: {
-    alert: function(message){
-      alert(message)
-    },
-    setData: function(dataobject){
-    	console.log(dataobject)
-    	x = this
-    	console.log(this)
-    }
-  },
-})
-
-Vue.component('tab-pages', {
+  template: templ3
+};
+var tab_pages = {
   template: '<div>Pages component</div>'
-})
-Vue.component('tab-options', {
-  template: '<div>Options component</div>'
-})
+};
+var tab_options = {
+  template: '<h4 style="color: hotpink;">Options component</h4>'
+}
 
-new Vue({
+//MANAGEMENT OF SIDEBAR COMPONENT LIVES HERE
+var contextWindow = new Vue({
 	el: "#contextside",
+	components: {
+    'tab-customization': tab_cust,
+    'tab-pages': tab_pages,
+    'tab-options': tab_options
+  },
 	data: {
+		//groups: contextTabs,
+		//default active button and state (further we call component for template binding)
 		currentTab: 'Customization',
+		//list of buttons of menu
 		tabs: ['Customization', 'Pages', 'Options']
 	},
 	computed: {
 		currentTabComponent: function () {
-		  console.log('tab-' + this.currentTab.toLowerCase())
-		  return 'tab-' + this.currentTab.toLowerCase()
+			//create name of component 'tab-' + 'pages' = 'tab-pages' for calling bind component
+			//<keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive>
+		  return 'tab-' + this.currentTab.toLowerCase();
 		}
 	}
-})
-
-tabcust = Vue.component("tab-customization");
-tabcust.options.methods.setData("yeah!")
+});
+/** ^^^ CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> ^^^ **/
