@@ -643,6 +643,5 @@ var contextWindow = new Vue({
 
 //todo (1635 6.8.18): clone container, column, element by click at el option
 //todo (1637 6.8.18): delete container, column, element by click at el option
-//todo (1637 6.8.18): rename container
 //todo (1906 6.8.18): connect click on lay and element in grid HL + context in sidebar
 //todo (2218 6.8.18): correct bug with 1_2 inside context for columns

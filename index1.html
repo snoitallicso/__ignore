@@ -118,7 +118,7 @@
 <div class="templ">
 	<div v-if="shortcode == `fusion_builder_container`" class="builder-container">
 		<div class="builder-container-header">
-			<input type="text" class="container-name" value="Container">
+			<input v-model="children.name" type="text" class="container-name" value="children.name">
 			<div class="builder-column-controls">
 				<ul>
 					<li v-on:click="editElement(children)">E</li>
