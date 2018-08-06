@@ -574,7 +574,7 @@ var elementsSlot = new Vue({
 			//AND SET SUB TITLE WITH ELEMENT NAME IN THE "SIDEBAR MDOAL"
 			contextWindow.subtitle = this.activeobject.name;
 			//FIX bug with remembering default tab name - highlight only last selected name
-			contextWindow.xtestdatax = "General"
+			//contextWindow.selectedtabx = "General"
 		}
 	}
 })
@@ -585,7 +585,7 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 /** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
-	props: ['groups', 'subtitle', 'xtestdatax'],
+	props: ['groups', 'subtitle', 'selectedtabx'],
   template: templ3
 };
 var tab_pages = {
@@ -595,6 +595,7 @@ var tab_options = {
   template: '<h4 style="color: hotpink;">Options component</h4>'
 }
 
+//todo: bug 1) new object but membered tab name 2) another state of editor change last tab
 //MANAGEMENT OF SIDEBAR COMPONENT LIVES HERE
 var contextWindow = new Vue({
 	el: "#contextside",
@@ -604,11 +605,11 @@ var contextWindow = new Vue({
     'tab-options': tab_options
   },
 	data: {
-		xtestdatax: "General",
+		selectedtabx: "General",
 		//element title above options and under main title
 		subtitle: "Sidebar subtitle",
 		groups: contextTabs,
-		selectedTab: null,
+		//selectedTab: null,
 		//default active button and state (further we call component for template binding)
 		currentTab: 'Customization',
 		//list of buttons of menu
@@ -616,7 +617,6 @@ var contextWindow = new Vue({
 	},
 	computed: {
 		currentTabComponent: function () {
-			console.log(this)
 			//create name of component 'tab-' + 'pages' = 'tab-pages' for calling bind component
 			//<keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive>
 		  return 'tab-' + this.currentTab.toLowerCase();
@@ -624,3 +624,6 @@ var contextWindow = new Vue({
 	}
 });
 /** ^^^ CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> ^^^ **/
+
+//todo (1628 6.8.18): container, column, element context by click elements settings
+//todo (1635 6.8.18): clone container, column, element by click at el option
