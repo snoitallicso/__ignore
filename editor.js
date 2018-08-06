@@ -573,6 +573,8 @@ var elementsSlot = new Vue({
 			contextWindow.$data.groups = this.activeobject.params.groups;
 			//AND SET SUB TITLE WITH ELEMENT NAME IN THE "SIDEBAR MDOAL"
 			contextWindow.subtitle = this.activeobject.name;
+			//FIX bug with remembering default tab name - highlight only last selected name
+			contextWindow.selectedTab = "General"
 		}
 	}
 })
