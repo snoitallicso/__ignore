@@ -118,7 +118,6 @@ var lay = new Vue({
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
-					alert('clickedE')
 					console.log(children, this)
 					
 					if(lay.activeItem != undefined){
@@ -129,6 +128,9 @@ var lay = new Vue({
 					
 					children.isActive = true
 					lay.children = children
+
+					//(CONTEXT OF LAYOUT ELEMENT BY CLICK) SET REF TO __ELEMENT__
+					contextWindow.$data.groups = lay.children.params.groups;
 				}
 			},
 			template: '<div class="pretempl">{{shortcode}}<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" v-bind:style="children"></templ></div>'
@@ -644,3 +646,4 @@ var contextWindow = new Vue({
 //todo (1637 6.8.18): delete container, column, element by click at el option
 //todo (1637 6.8.18): rename container
 //todo (1906 6.8.18): connect click on lay and element in grid HL + context in sidebar
+//todo (2218 6.8.18): correct bug with 1_2 inside context for columns
