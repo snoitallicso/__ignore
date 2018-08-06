@@ -18,7 +18,7 @@
 					<div class="mbar"></div>
 					<div class="mbar"></div>
 				</div>
-				<keep-alive><depo :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
+				<keep-alive><depo :xtestdatax="xtestdatax" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
 			</div>
 			<div id="grid">
 					<div id="grid_content">
@@ -181,13 +181,14 @@
       <div class="sidebar_title">
       	<h1>Sidebar Title</h1>
       	<h3>{{subtitle}}</h3>
+      	{{xtestdatax}}
       </div>
       <div class="sidebar_tabs">
       	<ul>
 	        <li
 	          v-for="(group, index) in groups"
-	          v-bind:class="['side_tab', { 'active': index === selectedTab }]"
-	          v-on:click="selectedTab = index"
+	          v-bind:class="['side_tab', { 'active': index === xtestdatax }]"
+	          v-on:click="xtestdatax = index"
 	        >
 	          {{index}}
 	        </li>
@@ -195,7 +196,7 @@
       </div>
       <div class="content_area">
         <div 
-          v-if="selectedTab"
+          v-if="xtestdatax"
           class="dynamic-component-demo-post"
         >	
         	<!--
@@ -203,7 +204,7 @@
           <div v-html="selectedTab.content"></div>
         	-->
         	<ul>
-        		<li v-for="(option, index) in groups[selectedTab]">
+        		<li v-for="(option, index) in groups[xtestdatax]">
         			<h3>{{option.heading}}</h3>
         			<p class="description">{{option.description}}</p>
         			<div>{{option}}</div>

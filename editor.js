@@ -574,7 +574,7 @@ var elementsSlot = new Vue({
 			//AND SET SUB TITLE WITH ELEMENT NAME IN THE "SIDEBAR MDOAL"
 			contextWindow.subtitle = this.activeobject.name;
 			//FIX bug with remembering default tab name - highlight only last selected name
-			contextWindow.selectedTab = "General"
+			contextWindow.xtestdatax = "General"
 		}
 	}
 })
@@ -585,15 +585,7 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 /** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
-	props: ['groups', 'subtitle'],
-  data: function (){
-  	if(this.selectedTab === undefined){
-  		this.selectedTab = "General"
-  	}
-  	return {
-      selectedTab: this.selectedTab
-    }
-  },
+	props: ['groups', 'subtitle', 'xtestdatax'],
   template: templ3
 };
 var tab_pages = {
@@ -612,6 +604,7 @@ var contextWindow = new Vue({
     'tab-options': tab_options
   },
 	data: {
+		xtestdatax: "General",
 		//element title above options and under main title
 		subtitle: "Sidebar subtitle",
 		groups: contextTabs,
