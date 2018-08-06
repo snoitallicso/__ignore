@@ -138,13 +138,13 @@
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_row`" class="builder-container-content">
 		<!--THIS TEMPLATE INSIDE ROW IS FOR COLUMNS-->
-		<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+		<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
 		<div class="builder-column-controls">
 			<ul>
-				<li>1</li>
-				<li>2</li>
+				<li>R</li>
+				<li v-on:click="editElement(children)">E</li>
 				<li>3</li>
 				<li>4</li>
 				<li>5</li>
