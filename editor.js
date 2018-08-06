@@ -119,6 +119,7 @@ var lay = new Vue({
 			methods: {
 				clickedE: function(children){
 					alert('clickedE')
+					console.log(children, this)
 					
 					if(lay.activeItem != undefined){
 						lay.activeItem.isActive = false;
@@ -377,10 +378,6 @@ var gridState = new Vue({
 			var indx = gridState.actIndexChildren+1;
 			gridState.activeModelChildrens.insert(indx, this.constrctr('container', array));
 
-			//HERE WE CALL SIDEBAR CONTEXT COMPONENT (tab-customization) METHOD ()
-
-			//HERE WE NEED TO CHECK ARRAY CHANGE BEFORE NEXT
-
 			//HERE WE CLOSE INSERT MODAL
 			insertModal_content.close();
 
@@ -407,7 +404,7 @@ var gridState = new Vue({
 	},
 	components: {
 		'child-component': {
-			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title', 'shortcode'],
+			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title', 'shortcode', 'children'],
 			name: 'templ',
 			mounted: function(){
 				//GRIDSTATE OBJECT CHECKING BECAUSE WE NOT NEED TO HIGHLIGHT
@@ -468,6 +465,23 @@ var gridState = new Vue({
 					list = elsList;
 
 					return list.indexOf(shortcode) !== -1;
+				},
+
+				//BUTTONS OF ELEMENT INSIDE GRID
+				editElement: function(children){
+					console.warn(children);
+
+					//(EDIT) SET REF TO __ELEMENT__
+					contextWindow.$data.groups = children.params.groups;
+				},
+				cloneElement: function(){
+					alert();
+				},
+				saveElement: function(){
+					alert();
+				},
+				deleteElement: function(){
+					alert();
 				}
 			},
 			template: templ1
@@ -627,3 +641,6 @@ var contextWindow = new Vue({
 
 //todo (1628 6.8.18): container, column, element context by click elements settings
 //todo (1635 6.8.18): clone container, column, element by click at el option
+//todo (1637 6.8.18): delete container, column, element by click at el option
+//todo (1637 6.8.18): rename container
+//todo (1906 6.8.18): connect click on lay and element in grid HL + context in sidebar
