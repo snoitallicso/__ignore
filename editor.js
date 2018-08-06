@@ -641,7 +641,6 @@ var contextWindow = new Vue({
 });
 /** ^^^ CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> ^^^ **/
 
-//todo (1628 6.8.18): container, column, element context by click elements settings
 //todo (1635 6.8.18): clone container, column, element by click at el option
 //todo (1637 6.8.18): delete container, column, element by click at el option
 //todo (1637 6.8.18): rename container
