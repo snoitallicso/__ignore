@@ -122,10 +122,10 @@
 			<div class="builder-column-controls">
 				<ul>
 					<li v-on:click="editElement(children)">E</li>
-					<li>2</li>
+					<li v-on:click="cloneElement()">C</li>
 					<li>3</li>
 					<li>4</li>
-					<li>5</li>
+					<li v-on:click="deleteElement(index)">D</li>
 				</ul>
 			</div>
 		</div>
@@ -138,21 +138,21 @@
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_row`" class="builder-container-content">
 		<!--THIS TEMPLATE INSIDE ROW IS FOR COLUMNS-->
-		<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+		<templ v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
 		<div class="builder-column-controls">
 			<ul>
 				<li>R</li>
 				<li v-on:click="editElement(children)">E</li>
-				<li>3</li>
+				<li v-on:click="cloneElement()">C</li>
 				<li>4</li>
-				<li>5</li>
+				<li v-on:click="deleteElement(index)">D</li>
 			</ul>
 		</div>
 		<!--THIS TEMPLATE INSIDE COLUMN IS FOR ELEMENTS-->
 		<!--templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ-->
-		<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
+		<templ v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
 		<button v-on:click="openModalAddElmnt()" class="add-el">+ Element</button>
 	</div>
 	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
@@ -161,9 +161,9 @@
 			<div class="builder-column-controls">
 				<ul>
 					<li v-on:click="editElement(children)">E</li>
-					<li v-on:click="cloneElement()">0</li>
+					<li v-on:click="cloneElement()">C</li>
 					<li v-on:click="saveElement()">0</li>
-					<li v-on:click="deleteElement()">0</li>
+					<li v-on:click="deleteElement(index)">D</li>
 				</ul>
 			</div>
 		</div>
@@ -172,7 +172,8 @@
 		</div>
 	</div>
 	<div v-else class="builder-common-container">
-		<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
+		<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 

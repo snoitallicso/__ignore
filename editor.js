@@ -17,7 +17,7 @@ Array.prototype.insert = function(index, item){
 var arr = [1,2,3,4,5,6,7,8,9]
 arr.insert(2,10)
 
-//нужно написать скрипт для автоматической генерации списка
+//нужно напи�?ать �?крипт дл�? автоматиче�?кой генерации �?пи�?ка
 elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
 
 list = [1,2,3]
@@ -406,7 +406,7 @@ var gridState = new Vue({
 	},
 	components: {
 		'child-component': {
-			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title', 'shortcode', 'children'],
+			props: ['childrens', 'ltype', 'tag', 'ind', 'newel', 'title', 'shortcode', 'children','index'],
 			name: 'templ',
 			mounted: function(){
 				//GRIDSTATE OBJECT CHECKING BECAUSE WE NOT NEED TO HIGHLIGHT
@@ -477,13 +477,17 @@ var gridState = new Vue({
 					contextWindow.$data.groups = children.params.groups;
 				},
 				cloneElement: function(){
-					alert();
+					alert("CLONE");
 				},
 				saveElement: function(){
 					alert();
 				},
-				deleteElement: function(){
-					alert();
+				deleteElement: function(index){
+					//this.$parent.$children (are Vue Components, objects)
+					this.$options.parent.childrens.splice(index, 1)
+					//console.log(index, this.$parent.$children)
+					//this.$parent.$children.splice(index, index)
+					//this.$parent.$children[0] = null
 				}
 			},
 			template: templ1
@@ -642,6 +646,6 @@ var contextWindow = new Vue({
 /** ^^^ CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> ^^^ **/
 
 //todo (1635 6.8.18): clone container, column, element by click at el option
-//todo (1637 6.8.18): delete container, column, element by click at el option
 //todo (1906 6.8.18): connect click on lay and element in grid HL + context in sidebar
 //todo (2218 6.8.18): correct bug with 1_2 inside context for columns
+//todo (0034 6.8.18): change context to before or next element or column, container at removing actually edited element
