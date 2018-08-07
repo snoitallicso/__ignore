@@ -120,7 +120,6 @@ var lay = new Vue({
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
-					console.log(children, this)
 					
 					if(lay.activeItem != undefined){
 						lay.activeItem.isActive = false;
@@ -353,7 +352,6 @@ var gridState = new Vue({
 
 					var column = function(type){
 						var colobj = copyObj(fusionAllElements.fusion_builder_column);
-						//colobj.params.type = type;
 						colobj.params.groups["General"].type = type;
 						colobj.childrens = [];
 						return colobj;
@@ -479,7 +477,6 @@ var gridState = new Vue({
 					contextWindow.$data.groups = children.params.groups;
 				},
 				cloneElement: function(children, index){
-					//console.log(children)
 					var element = copyObj(children);
 					this.$parent.childrens.insert(index, element);
 				},
@@ -487,11 +484,7 @@ var gridState = new Vue({
 					alert();
 				},
 				deleteElement: function(index){
-					//this.$parent.$children (are Vue Components, objects)
-					this.$options.parent.childrens.splice(index, 1)
-					//console.log(index, this.$parent.$children)
-					//this.$parent.$children.splice(index, index)
-					//this.$parent.$children[0] = null
+					this.$options.parent.childrens.splice(index, 1);
 				}
 			},
 			template: templ1

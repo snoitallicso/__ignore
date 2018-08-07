@@ -214,7 +214,7 @@
         			<div class="omanage">
         				<div v-if="option.type == `textfield`">
         					<h4 style="color:red;">Textfield</h4>
-        					<input v-model="option.value" type="text" value="option.value">
+        					<input v-model="option.heading" type="text" value="option.heading">
         				</div>
         				{{option}}
         			</div>
@@ -240,7 +240,6 @@
 			<div>
 				<button>{{params.groups.General.element_content.heading}}</button>
 			</div>
-			<!--templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :childrens="children.childrens" :key="children.id" :class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" :style="children"></templ-->
 		</div>
 		<!--OTHER UNKNOWN TEMPLATES-->
 		<div v-else>
