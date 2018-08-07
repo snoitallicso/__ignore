@@ -207,9 +207,17 @@
         	-->
         	<ul>
         		<li v-for="(option, index) in groups[selectedtabx]">
-        			<h3>{{option.heading}}</h3>
-        			<p class="description">{{option.description}}</p>
-        			<div>{{option}}</div>
+        			<div class="odescription">
+        				<h3>{{option.heading}}</h3>
+        				<p>{{option.description}}</p>
+        			</div>
+        			<div class="omanage">
+        				<div v-if="option.type == `textfield`">
+        					<h4 style="color:red;">Textfield</h4>
+        					<input v-model="option.value" type="text" value="option.value">
+        				</div>
+        				{{option}}
+        			</div>
         		</li>
         	</ul>
         </div>
@@ -218,6 +226,28 @@
         </strong>
       </div>
     </div>
+</div>
+
+<div class="templ_four">
+	<div class="pretempl">
+		<!--COLLUMN TEMPLATE-->
+		<div v-if="shortcode == `fusion_builder_column`">
+			{{shortcode}}
+			<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :params="children.params" :shortcode="children.shortcode" v-bind:style="children"></templ>
+		</div>
+		<!--BUTTON TEMPLATE-->
+		<div v-else-if="shortcode == `fusion_button`">
+			<div>
+				<button>{{params.groups.General.element_content.heading}}</button>
+			</div>
+			<!--templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" :childrens="children.childrens" :key="children.id" :class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" :style="children"></templ-->
+		</div>
+		<!--OTHER UNKNOWN TEMPLATES-->
+		<div v-else>
+			{{shortcode}}
+			<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" v-bind:style="children"></templ>
+		</div>
+	</div>
 </div>
 
 		<script src="fusionelements.js"></script>

@@ -9,6 +9,7 @@ templ0 = elpretempl1.innerHTML
 templ1 = document.getElementsByClassName("templ")[1].innerHTML;
 templ2 = document.getElementsByClassName("templ")[0].innerHTML;
 templ3 = document.getElementsByClassName("templ_three")[0].innerHTML;
+templ4 = document.getElementsByClassName("templ_four")[0].innerHTML;
 
 Array.prototype.insert = function(index, item){
 	this.splice(index, 0, item)
@@ -112,9 +113,10 @@ var addC = function(array){
 var lay = new Vue({
 	el: '.layout-container',
 	data: layObj,
+	props: ['shortcode'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode'],
+			props: ['childrens', 'shortcode', 'params'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
@@ -133,7 +135,7 @@ var lay = new Vue({
 					contextWindow.$data.groups = lay.children.params.groups;
 				}
 			},
-			template: '<div class="pretempl">{{shortcode}}<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" v-bind:style="children"></templ></div>'
+			template: templ4
 		}
 	},
 	methods: {
@@ -650,3 +652,4 @@ var contextWindow = new Vue({
 //todo (1906 6.8.18): connect click on lay and element in grid HL + context in sidebar
 //todo (2218 6.8.18): correct bug with 1_2 inside context for columns
 //todo (0034 6.8.18): change context to before or next element or column, container at removing actually edited element
+//todo (1331 7.8.18): create first editing template for element in sidebar
