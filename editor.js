@@ -476,8 +476,10 @@ var gridState = new Vue({
 					//(EDIT) SET REF TO __ELEMENT__
 					contextWindow.$data.groups = children.params.groups;
 				},
-				cloneElement: function(){
-					alert("CLONE");
+				cloneElement: function(children, index){
+					//console.log(children)
+					var element = copyObj(children);
+					this.$parent.childrens.insert(index, element);
 				},
 				saveElement: function(){
 					alert();
@@ -645,7 +647,6 @@ var contextWindow = new Vue({
 });
 /** ^^^ CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> ^^^ **/
 
-//todo (1635 6.8.18): clone container, column, element by click at el option
 //todo (1906 6.8.18): connect click on lay and element in grid HL + context in sidebar
 //todo (2218 6.8.18): correct bug with 1_2 inside context for columns
 //todo (0034 6.8.18): change context to before or next element or column, container at removing actually edited element

@@ -122,7 +122,7 @@
 			<div class="builder-column-controls">
 				<ul>
 					<li v-on:click="editElement(children)">E</li>
-					<li v-on:click="cloneElement()">C</li>
+					<li v-on:click="cloneElement(children, index)">C</li>
 					<li>3</li>
 					<li>4</li>
 					<li v-on:click="deleteElement(index)">D</li>
@@ -145,7 +145,7 @@
 			<ul>
 				<li>R</li>
 				<li v-on:click="editElement(children)">E</li>
-				<li v-on:click="cloneElement()">C</li>
+				<li v-on:click="cloneElement(children, index)">C</li>
 				<li>4</li>
 				<li v-on:click="deleteElement(index)">D</li>
 			</ul>
@@ -161,7 +161,7 @@
 			<div class="builder-column-controls">
 				<ul>
 					<li v-on:click="editElement(children)">E</li>
-					<li v-on:click="cloneElement()">C</li>
+					<li v-on:click="cloneElement(children, index)">C</li>
 					<li v-on:click="saveElement()">0</li>
 					<li v-on:click="deleteElement(index)">D</li>
 				</ul>
