@@ -242,6 +242,12 @@
         						</select>
         					</div>
         				</div>
+        				<div v-if="option.type == `dimension`">
+        					<div style="background: #cfeaff" >
+        						<b style="color:red;">Dimension</b>
+        						<input v-for="(dim, index) in option.value" v-model="option.value[index]" type="text">{{dim}}</input>
+        					</div>
+        				</div>
         				{{option}}
         			</div>
         		</li>
@@ -263,9 +269,7 @@
 		</div>
 		<!--BUTTON TEMPLATE-->
 		<div v-else-if="shortcode == `fusion_button`">
-			<div>
-				<button>{{params.groups.General.element_content.heading}}</button>
-			</div>
+			<button>{{params.groups.General.element_content.heading}}</button>
 		</div>
 		<!--OTHER UNKNOWN TEMPLATES-->
 		<div v-else>
