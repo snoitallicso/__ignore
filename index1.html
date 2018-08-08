@@ -234,6 +234,14 @@
         						<input :class="{error: option.value > option.max || option.value < option.min}" v-model="option.value" :value="option.value" type="text" />
         					</div>
         				</div>
+        				<div v-if="option.type == `select`">
+        					<div style="background: #fff6a3" >
+        						<b style="color:red;">Select</b>
+        						<select v-model="option.default">
+        							<option v-for="title in option.value">{{title}}</option>
+        						</select>
+        					</div>
+        				</div>
         				{{option}}
         			</div>
         		</li>
