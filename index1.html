@@ -228,9 +228,10 @@
         				<div v-if="option.type == `range`">
         					<div style="background: lightblue" >
         						<b style="color:red;">Range</b>
-        						<!--input v-model="option.heading" type="text" value="option.heading"-->
         						<input type="range" :min="option.min" :max="option.max" :step="option.step" v-model="option.value" />
-        						<b style="color: lime">{{option.value}}</b>
+        						<!--//todo: perf (optimize - distinct method?)-->
+        						<p v-if="option.value > option.max || option.value < option.min" class="error_info">Values can be between {{option.min}} and {{option.max}}</p>
+        						<input :class="{error: option.value > option.max || option.value < option.min}" v-model="option.value" :value="option.value" type="text" />
         					</div>
         				</div>
         				{{option}}

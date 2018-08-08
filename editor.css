@@ -9,6 +9,16 @@ body {
 h2, h3 {
     font-size: 1.3em;
 }
+input.error {
+  color: red;
+  background: #ffdde9;
+  font-weight: bold;
+}
+p.error_info {
+    padding: 7px;
+    background-color: #FFEB3B;
+    border: 1px solid #4CAF50;
+}
 .templ > * {
 	display: none;
 }
