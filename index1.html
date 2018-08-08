@@ -212,15 +212,25 @@
         				<p>{{option.description}}</p>
         			</div>
         			<div class="omanage">
-        				<div v-if="option.type == `textfield`">
-        					<b style="color:red;">Textfield</b>
-        					<input v-model="option.heading" type="text" value="option.heading">
-        				</div>
+	        			<div style="background: lightgreen" >
+	        				<div v-if="option.type == `textfield`">
+	        					<b style="color:red;">Textfield</b>
+	        					<input v-model="option.heading" type="text" value="option.heading">
+	        				</div>
+	        			</div>
         				<div v-if="option.type == `radio_button_set`">
         					<div style="background: pink" >
         						<b style="color:red;">Radio Button Set</b>
         						<input v-for="val in option.value" :value="val" v-model="option.default" type="radio" />
         						<b style="color: lime">{{option.default}}</b>
+        					</div>
+        				</div>
+        				<div v-if="option.type == `range`">
+        					<div style="background: lightblue" >
+        						<b style="color:red;">Range</b>
+        						<!--input v-model="option.heading" type="text" value="option.heading"-->
+        						<input type="range" :min="option.min" :max="option.max" :step="option.step" v-model="option.value" />
+        						<b style="color: lime">{{option.value}}</b>
         					</div>
         				</div>
         				{{option}}
