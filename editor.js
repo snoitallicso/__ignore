@@ -115,7 +115,7 @@ var lay = new Vue({
 	//data: layObj.layout,
 	data: {
 		childrens: layObj.layout.childrens,
-		styleObject: {background: 'red'}
+		styleObject: layObj.styleObject
 	},
 	props: ['shortcode'],
 	components: {
@@ -136,6 +136,10 @@ var lay = new Vue({
 
 					//(CONTEXT OF LAYOUT ELEMENT BY CLICK) SET REF TO __ELEMENT__
 					contextWindow.$data.groups = lay.children.params.groups;
+				},
+				stylish: function(children, sto){
+					console.log("STYLISH", children, sto);
+					return this.sto;
 				}
 			},
 			template: templ4

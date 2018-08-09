@@ -281,7 +281,7 @@
 		<!--OTHER UNKNOWN TEMPLATES-->
 		<div v-else>
 			{{shortcode}}
-			<templ :style="sto" v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+			<templ :style="stylish(children, sto)" v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
 			<!-- :style="{paddingTop: children.params.groups.Design.padding.value.padding_top}" -->
 		</div>
 	</div>
