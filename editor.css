@@ -25,6 +25,9 @@ input.error {
   background: #ffdde9;
   font-weight: bold;
 }
+#layout .active, #grid_content_area .active {
+    border: 2px solid #FF5722;
+}
 p.error_info {
     padding: 7px;
     background-color: #FFEB3B;

@@ -112,11 +112,15 @@ var addC = function(array){
 
 var lay = new Vue({
 	el: '.layout-container',
-	data: layObj,
+	//data: layObj.layout,
+	data: {
+		childrens: layObj.layout.childrens,
+		styleObject: {background: 'red'}
+	},
 	props: ['shortcode'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'dim'],
+			props: ['childrens', 'shortcode', 'params', 'sto'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
@@ -336,7 +340,7 @@ var gridState = new Vue({
 	//there lives GRID editor (.grid_content_area_grider.builder-common-container)
 	el: ".grid_content_area_grider",
 	data: {
-		childrens: layObj.childrens,
+		childrens: layObj.layout.childrens,
 		seen: true,
 		activeModelChildrens: null,
 		actIndexChildren: null,

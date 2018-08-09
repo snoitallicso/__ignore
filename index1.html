@@ -73,7 +73,10 @@
 		</div>
 		</div>
 		<div id="layout">
-			<div class="layout-container">{{shortcode}}<childrens-component :key="true" :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" v-bind:class="shortcode"></childrens-component></div>
+			<div class="layout-container">
+				{{shortcode}}
+				<!--LAYOUT TEMPLATE-->
+				<childrens-component :key="true" :sto="styleObject" :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" v-bind:class="shortcode"></childrens-component></div>
 		</div>
 <div class="templ">
 	<ul class="builder-col-lay">
@@ -225,6 +228,7 @@
         						<b style="color: lime">{{option.default}}</b>
         					</div>
         				</div>
+        				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
         				<div v-if="option.type == `range`">
         					<div style="background: lightblue" >
         						<b style="color:red;">Range</b>
@@ -234,6 +238,7 @@
         						<input :class="{error: option.value > option.max || option.value < option.min}" v-model="option.value" :value="option.value" type="text" />
         					</div>
         				</div>
+        				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
         				<div v-if="option.type == `select`">
         					<div style="background: #fff6a3" >
         						<b style="color:red;">Select</b>
@@ -260,12 +265,14 @@
     </div>
 </div>
 
+<!--LAYOUT TEMPLATE-->
 <div class="templ_four">
 	<div class="pretempl">
 		<!--COLLUMN TEMPLATE-->
 		<div v-if="shortcode == `fusion_builder_column`">
 			{{shortcode}}
-			<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :params="children.params" :shortcode="children.shortcode" v-bind:style="children"></templ>
+			<!--//todo perf (:style through data object)-->
+			<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :params="children.params" :shortcode="children.shortcode"></templ>
 		</div>
 		<!--BUTTON TEMPLATE-->
 		<div v-else-if="shortcode == `fusion_button`">
@@ -274,7 +281,8 @@
 		<!--OTHER UNKNOWN TEMPLATES-->
 		<div v-else>
 			{{shortcode}}
-			<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode" v-bind:style="children"></templ>
+			<templ :style="sto" v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+			<!-- :style="{paddingTop: children.params.groups.Design.padding.value.padding_top}" -->
 		</div>
 	</div>
 </div>
