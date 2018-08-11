@@ -10,6 +10,8 @@ templ1 = document.getElementsByClassName("templ")[1].innerHTML;
 templ2 = document.getElementsByClassName("templ")[0].innerHTML;
 templ3 = document.getElementsByClassName("templ_three")[0].innerHTML;
 templ4 = document.getElementsByClassName("templ_four")[0].innerHTML;
+templ5 = document.getElementsByClassName("templ_five")[0].innerHTML;
+
 
 Array.prototype.insert = function(index, item){
 	this.splice(index, 0, item)
@@ -120,7 +122,7 @@ var lay = new Vue({
 	props: ['shortcode'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'sto'],
+			props: ['childrens', 'shortcode', 'params', 'sto', 'title'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
@@ -140,9 +142,15 @@ var lay = new Vue({
 				stylish: function(children, sto){
 					console.log("STYLISH", children, sto);
 					return this.sto;
+				},
+				isEl: function(shortcode){
+					//list = ["fusion_builder_blank_page","fusion_li_item","fusion_builder_column_inner","fusion_builder_column","fusion_builder_container","fusion_content_box","fusion_counter_box","fusion_counter_circle","fusion_flip_box","fusion_image","fusion_builder_next_page","fusion_builder_row_inner","fusion_builder_row","fusion_slide","fusion_tab","fusion_testimonial","fusion_toggle"];
+					list = elsList;
+
+					return list.indexOf(shortcode) !== -1;
 				}
 			},
-			template: templ4
+			template: templ5
 		}
 	},
 	methods: {

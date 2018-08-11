@@ -74,9 +74,8 @@
 		</div>
 		<div id="layout">
 			<div class="layout-container">
-				{{shortcode}}
 				<!--LAYOUT TEMPLATE-->
-				<childrens-component :key="true" :sto="styleObject" :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" v-bind:class="shortcode"></childrens-component></div>
+				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode"></childrens-component></div>
 		</div>
 <div class="templ">
 	<ul class="builder-col-lay">
@@ -173,6 +172,36 @@
 		<div class="el-preview">
 			<h4>{{title}}</h4>
 		</div>
+	</div>
+	<div v-else class="builder-common-container">
+		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
+		<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+	</div>
+</div>
+
+<!--THIS DIV IS USING AS TEMPLATE FOR gridState.'child-component'-->
+<div class="templ_five">
+	<div v-if="shortcode == `fusion_builder_container`" class="builder-container">
+		<h3>Container</h3>
+		<!--THIS TEMPLATE INSIDE CONTAINER IS FOR ROWS-->
+		<templ v-for="(children, index) in childrens" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" v-on:click.native.stop="clickedE(children)"></templ>
+	</div>
+	<div v-else-if="shortcode == `fusion_builder_row`" class="builder-container-content">
+		<!--THIS TEMPLATE INSIDE ROW IS FOR COLUMNS-->
+		<templ v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+	</div>
+	<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
+		<!--THIS TEMPLATE INSIDE COLUMN IS FOR ELEMENTS-->
+		<templ v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
+	</div>
+	<!--BUTTON TEMPLATE-->
+	<div v-else-if="shortcode == `fusion_button`">
+		<!--button>{{params.groups.General.element_content.heading}}</button-->
+		<button>Butten</button>
+	</div>
+	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
+	<div v-else-if="isEl(shortcode)" class="builder-column-element">
+		<h4>{{title}}</h4>
 	</div>
 	<div v-else class="builder-common-container">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
