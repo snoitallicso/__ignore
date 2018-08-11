@@ -75,7 +75,7 @@
 		<div id="layout">
 			<div class="layout-container">
 				<!--LAYOUT TEMPLATE-->
-				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :sto="styleObject" :class="childrens.shortcode"></childrens-component></div>
+				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode"></childrens-component></div>
 		</div>
 <div class="templ">
 	<ul class="builder-col-lay">
@@ -204,7 +204,7 @@
 	</div>
 	<div v-else class="builder-common-container">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
-		<templ :style="sto" :params="children.params" v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<templ :style="stylish(children)" :params="children.params" v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 

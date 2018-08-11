@@ -119,7 +119,7 @@ var lay = new Vue({
 		childrens: layObj.layout.childrens,
 		styleObject: layObj.styleObject
 	},
-	props: ['shortcode', 'dim', 'sto'],
+	props: ['shortcode'],
 	components: {
 		'childrens-component': {
 			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject'],
@@ -140,8 +140,26 @@ var lay = new Vue({
 					contextWindow.$data.groups = lay.children.params.groups;
 				},
 				stylish: function(children, sto){
-					console.log("STYLISH", children, sto);
-					return this.sto;
+					reka= children
+					//here we get type of element
+					var element_type = children.name;
+					//for elements we set object with links to prop
+					//returns styleobject for :style="stylish(children)"
+					//var style_object = layObj.styleObject;
+					if(element_type === 'Container'){
+						var style_object = {
+							backgroundColor: 'red',
+							paddingTop: children.params.groups.Design.dimensions.value.padding_top,
+							paddingBottom: children.params.groups.Design.dimensions.value.padding_bottom,
+							paddingLeft: children.params.groups.Design.dimensions.value.padding_left,
+							paddingRight: children.params.groups.Design.dimensions.value.padding_right,
+							marginTop: children.params.groups.Design.spacing.value.margin_top,
+							marginBottom: children.params.groups.Design.spacing.value.margin_bottom,
+							marginLeft: children.params.groups.Design.spacing.value.margin_left,
+							marginRight: children.params.groups.Design.spacing.value.margin_right
+						}
+					}
+					return style_object;
 				},
 				isEl: function(shortcode){
 					//list = ["fusion_builder_blank_page","fusion_li_item","fusion_builder_column_inner","fusion_builder_column","fusion_builder_container","fusion_content_box","fusion_counter_box","fusion_counter_circle","fusion_flip_box","fusion_image","fusion_builder_next_page","fusion_builder_row_inner","fusion_builder_row","fusion_slide","fusion_tab","fusion_testimonial","fusion_toggle"];
