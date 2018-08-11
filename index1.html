@@ -75,7 +75,7 @@
 		<div id="layout">
 			<div class="layout-container">
 				<!--LAYOUT TEMPLATE-->
-				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode"></childrens-component></div>
+				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :sto="styleObject" :class="childrens.shortcode"></childrens-component></div>
 		</div>
 <div class="templ">
 	<ul class="builder-col-lay">
@@ -188,7 +188,7 @@
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_row`" class="builder-container-content">
 		<!--THIS TEMPLATE INSIDE ROW IS FOR COLUMNS-->
-		<templ :params="children.params" v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+		<templ :style="{background: 'red'}" :params="children.params" v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
 		<!--THIS TEMPLATE INSIDE COLUMN IS FOR ELEMENTS-->

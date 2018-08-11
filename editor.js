@@ -119,10 +119,10 @@ var lay = new Vue({
 		childrens: layObj.layout.childrens,
 		styleObject: layObj.styleObject
 	},
-	props: ['shortcode'],
+	props: ['shortcode', 'dim', 'sto'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'sto', 'title'],
+			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
