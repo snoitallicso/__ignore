@@ -158,6 +158,10 @@ var lay = new Vue({
 							marginLeft: children.params.groups.Design.spacing.value.margin_left,
 							marginRight: children.params.groups.Design.spacing.value.margin_right
 						}
+					} else {
+						var style_object = {
+							backgroundColor: 'violet'
+						}
 					}
 					return style_object;
 				},

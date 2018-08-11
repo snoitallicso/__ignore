@@ -187,6 +187,14 @@ ul{
 }
 #contextside {
 	float: left;
+	background-color: white;
+	z-index: -1000;
+}
+
+#contextside:hover ~ #grid {
+	left: -260px;
+  position: absolute;
+  z-index: -1000;
 }
 
 .grid-content-modal_insert {
