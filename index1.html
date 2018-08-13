@@ -181,8 +181,8 @@
 
 <!--THIS DIV IS USING AS TEMPLATE FOR gridState.'child-component'-->
 <div class="templ_five">
-	<div v-if="shortcode == `fusion_builder_container`" class="builder-container">
-		<h3>Container</h3>
+	<div v-if="shortcode == `fusion_builder_container`" class="builder-container" :class="{'hundred-percent-height': isfheight}">
+		<h3>Container {{isfheight}}</h3>
 		<!--THIS TEMPLATE INSIDE CONTAINER IS FOR ROWS-->
 		<templ v-for="(children, index) in childrens" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" v-on:click.native.stop="clickedE(children)"></templ>
 	</div>
@@ -204,7 +204,7 @@
 	</div>
 	<div v-else class="builder-common-container">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
-		<templ :style="stylish(children)" :params="children.params" v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<templ :isfheight="children.params.groups.General.hundred_percent_height.default == 'Yes'" :style="stylish(children)" :params="children.params" v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 
@@ -264,6 +264,13 @@
         						<!--//todo: perf (optimize - distinct method?)-->
         						<p v-if="option.value > option.max || option.value < option.min" class="error_info">Values can be between {{option.min}} and {{option.max}}</p>
         						<input :class="{error: option.value > option.max || option.value < option.min}" v-model="option.value" :value="option.value" type="text" />
+        					</div>
+        				</div>
+        				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
+        				<div v-if="option.type == `colorpickeralpha`">
+        					<div style="background: gray" >
+        						<b style="color:red;">Color Picker</b>
+        						<input type="text" v-model="option.value"></div>
         					</div>
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->

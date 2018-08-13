@@ -20,7 +20,7 @@ Array.prototype.insert = function(index, item){
 var arr = [1,2,3,4,5,6,7,8,9]
 arr.insert(2,10)
 
-//нужно напи�?ать �?крипт дл�? автоматиче�?кой генерации �?пи�?ка
+//Ð½ÑƒÐ¶Ð½Ð¾ Ð½Ð°Ð¿Ð¸Ñ?Ð°Ñ‚ÑŒ Ñ?ÐºÑ€Ð¸Ð¿Ñ‚ Ð´Ð»Ñ? Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑ?ÐºÐ¾Ð¹ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ñ?Ð¿Ð¸Ñ?ÐºÐ°
 elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
 
 list = [1,2,3]
@@ -119,10 +119,10 @@ var lay = new Vue({
 		childrens: layObj.layout.childrens,
 		styleObject: layObj.styleObject
 	},
-	props: ['shortcode'],
+	props: ['shortcode', 'isfheight'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject'],
+			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
@@ -148,7 +148,8 @@ var lay = new Vue({
 					//var style_object = layObj.styleObject;
 					if(element_type === 'Container'){
 						var style_object = {
-							backgroundColor: 'red',
+							//backgroundColor: '#f5edf0',
+							backgroundColor: children.params.groups.Background.background_color.value,
 							paddingTop: children.params.groups.Design.dimensions.value.padding_top,
 							paddingBottom: children.params.groups.Design.dimensions.value.padding_bottom,
 							paddingLeft: children.params.groups.Design.dimensions.value.padding_left,
@@ -156,13 +157,40 @@ var lay = new Vue({
 							marginTop: children.params.groups.Design.spacing.value.margin_top,
 							marginBottom: children.params.groups.Design.spacing.value.margin_bottom,
 							marginLeft: children.params.groups.Design.spacing.value.margin_left,
-							marginRight: children.params.groups.Design.spacing.value.margin_right
+							marginRight: children.params.groups.Design.spacing.value.margin_right,
+							borderTopWidth: children.params.groups.Design.border_size.value,
+							borderBottomWidth: children.params.groups.Design.border_size.value,
+							borderTopStyle: children.params.groups.Design.border_style.default,
+							borderBottomStyle: children.params.groups.Design.border_style.default,
+							borderColor: children.params.groups.Design.border_color.value
 						}
-					} else {
+					} 
+					
+					if(element_type === 'Column'){
+						var style_object = {
+							backgroundColor: children.params.groups.Design.background_color.value,
+							paddingTop: children.params.groups.Design.padding.value.padding_top,
+							paddingBottom: children.params.groups.Design.padding.value.padding_bottom,
+							paddingLeft: children.params.groups.Design.padding.value.padding_left,
+							paddingRight: children.params.groups.Design.padding.value.padding_right,
+							marginTop: children.params.groups.Design.dimension_margin.value.margin_top,
+							marginBottom: children.params.groups.Design.dimension_margin.value.margin_bottom,
+							marginLeft: children.params.groups.Design.dimension_margin.value.margin_left,
+							marginRight: children.params.groups.Design.dimension_margin.value.margin_right,
+							
+							borderTopWidth: children.params.groups.Design.border_size.value,
+							borderBottomWidth: children.params.groups.Design.border_size.value,
+							borderTopStyle: children.params.groups.Design.border_style.default,
+							borderBottomStyle: children.params.groups.Design.border_style.default,
+							borderColor: children.params.groups.Design.border_color.value
+						}
+					} 
+
+					/*else {
 						var style_object = {
 							backgroundColor: 'violet'
 						}
-					}
+					}*/
 					return style_object;
 				},
 				isEl: function(shortcode){

@@ -25,6 +25,11 @@ input.error {
   background: #ffdde9;
   font-weight: bold;
 }
+.hundred-percent-height {
+    z-index: 1;
+    overflow: hidden;
+    height: 100vh;
+}
 #layout .active, #grid_content_area .active {
     border: 2px solid #FF5722;
 }
@@ -228,9 +233,6 @@ ul{
     height: 100%;
     width: 45%;
     background: white;
-}
-#layout:hover > #grid {
-	display: none!important;
 }
 
 .builder-container {
