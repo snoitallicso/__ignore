@@ -5,6 +5,11 @@
 		<link rel="stylesheet" href="editor.css"/>
 	</head>
 	<body>
+		<div id="layout">
+			<div class="layout-container">
+				<!--LAYOUT TEMPLATE-->
+				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" :fullwidth="fullwidth"></childrens-component></div>
+		</div>
 		<div id="sidebar">
 			<div id="contextside">
 				<div id="admin_bar">
@@ -72,11 +77,10 @@
 			</div>
 		</div>
 		</div>
-		<div id="layout">
+		<!--div id="layout">
 			<div class="layout-container">
-				<!--LAYOUT TEMPLATE-->
 				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" :fullwidth="fullwidth"></childrens-component></div>
-		</div>
+		</div-->
 <div class="templ">
 	<ul class="builder-col-lay">
 		<h1>TEST</h1>

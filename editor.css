@@ -204,10 +204,14 @@ ul{
 	z-index: -1000;
 }
 
-#contextside:hover ~ #grid {
+#contextside:hover ~ #grid, #layout:hover + #sidebar #grid {
 	left: -260px;
-  position: absolute;
-  z-index: -1000;
+	position: absolute;
+	z-index: -1000;
+}
+
+body #grid {
+	display: block;
 }
 
 .grid-content-modal_insert {
