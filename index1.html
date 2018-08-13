@@ -201,6 +201,10 @@
 	<!--BUTTON TEMPLATE-->
 	<div v-else-if="shortcode == `fusion_button`">
 		<button>{{params.groups.General.element_content.heading}}</button>
+	</div>	
+	<!--TITLE TEMPLATE-->
+	<div v-else-if="shortcode == `fusion_title`">
+		<h3 contenteditable="true" v-on:keyup="editle">{{params.groups.General.element_content.value}}</h3>
 	</div>
 	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
 	<div v-else-if="isEl(shortcode)" class="builder-column-element">

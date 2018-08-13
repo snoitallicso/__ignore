@@ -203,6 +203,9 @@ var lay = new Vue({
 					list = elsList;
 
 					return list.indexOf(shortcode) !== -1;
+				},
+				editle: function(e){
+					this.params.groups.General.element_content.value = e.target.innerText;
 				}
 			},
 			template: templ5
