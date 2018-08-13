@@ -112,17 +112,22 @@ var addC = function(array){
 // 	}
 // });
 
+var page_settings = {
+	fullwidth: true
+};
+
 var lay = new Vue({
 	el: '.layout-container',
 	//data: layObj.layout,
 	data: {
 		childrens: layObj.layout.childrens,
-		styleObject: layObj.styleObject
+		styleObject: layObj.styleObject,
+		fullwidth: page_settings.fullwidth
 	},
 	props: ['shortcode', 'isfheight'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight'],
+			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth'],
 			name: 'templ',
 			methods: {
 				clickedE: function(children){
