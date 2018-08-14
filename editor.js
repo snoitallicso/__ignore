@@ -12,7 +12,6 @@ templ3 = document.getElementsByClassName("templ_three")[0].innerHTML;
 templ4 = document.getElementsByClassName("templ_four")[0].innerHTML;
 templ5 = document.getElementsByClassName("templ_five")[0].innerHTML;
 
-
 Array.prototype.insert = function(index, item){
 	this.splice(index, 0, item)
 }
@@ -205,6 +204,8 @@ var lay = new Vue({
 					return list.indexOf(shortcode) !== -1;
 				},
 				editle: function(e){
+					//todo: perf (input rerendering redundancy after native rendering by typing)
+					//maybe <keep-alive> ?
 					this.params.groups.General.element_content.value = e.target.innerText;
 				}
 			},
@@ -677,7 +678,24 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
 	props: ['groups', 'subtitle', 'selectedtabx'],
-  template: templ3
+  template: templ3,
+  methods: {
+  	renderpicker: function(e){
+  		console.log(e, this)
+  		//SPECTRUM COLORPICKER*/
+	    /*$(".spectrum").spectrum({
+	        flat: true,
+	        move: function(color) {
+	            $("#admin_bar").css({
+	                'background-color': color.toRgbString()
+	            });
+	        },
+	        showInput: true,
+	        showPalette: true,
+	        palette: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722']
+	    });*/
+  	}
+  }
 };
 var tab_pages = {
   template: '<div>Pages component</div>'

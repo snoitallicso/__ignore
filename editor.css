@@ -26,6 +26,13 @@ input.error {
   background: #ffdde9;
   font-weight: bold;
 }
+
+/*colorpicker*/
+.sp-palette-container {
+    width: 100px;
+}
+/**/
+
 .hundred-percent-height {
     z-index: 1;
     overflow: hidden;

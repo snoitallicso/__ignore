@@ -3,6 +3,9 @@
 		<title>VUE</title>
 		<script src="../src/vue.js"></script>
 		<link rel="stylesheet" href="editor.css"/>
+		<script src='spectrum/jquery-1.9.1.min.js'></script>
+		<script src='spectrum/spectrum.js'></script>
+		<link rel='stylesheet' href='spectrum/spectrum.css' />
 	</head>
 	<body>
 		<div id="layout">
@@ -23,6 +26,7 @@
 					<div class="mbar"></div>
 					<div class="mbar"></div>
 				</div>
+				<!--depo :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo-->
 				<keep-alive><depo :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
 			</div>
 			<div id="grid">
@@ -276,10 +280,11 @@
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
         				<div v-if="option.type == `colorpickeralpha`">
-        					<div style="background: gray" >
-        						<b style="color:red;">Color Picker</b>
-        						<input type="text" v-model="option.value"></div>
-        					</div>
+        					<div style="background: blue" >
+        						<b style="color:hotpink;">Color Picker Alpha</b>
+        						<!--input type="text" v-model="option.value"></div-->
+        						<input v-on:click="renderpicker()" type='text' class="spectrum" />
+	        				</div>
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
         				<div v-if="option.type == `select`">
@@ -293,7 +298,7 @@
         				<div v-if="option.type == `dimension`">
         					<div style="background: #cfeaff" >
         						<b style="color:red;">Dimension</b>
-        						<input v-for="(dim, index) in option.value" v-model="option.value[index]" type="text">{{dim}}</input>
+        						<input v-for="(dim, index) in option.value" v-model="option.value[index]" type="number">{{dim}}</input>
         					</div>
         				</div>
         				{{option}}
