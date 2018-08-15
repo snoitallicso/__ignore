@@ -347,11 +347,11 @@
 
         // generate color picker pane ...
         picker.className = 'color-picker';
-        picker.innerHTML = '<div class="color-picker-container"><span class="color-picker-h"><i></i></span><span class="color-picker-sv"><i></i></span></div>';
+        picker.innerHTML = '<div class="color-picker-container"><span class="color-picker-sv"><i></i></span><span class="color-picker-h sec"><i></i></span></div>';
         var c = picker[first].children,
             HSV = get_data([0, 1, 1]), // default is red
-            H = c[0],
-            SV = c[1],
+            H = c[1],
+            SV = c[0],
             H_point = H[first],
             SV_point = SV[first],
             start_H = 0,
