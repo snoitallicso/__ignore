@@ -390,7 +390,7 @@
             P_H = size(picker).h;
             var SV_size = size(SV),
                 SV_point_size = size(SV_point),
-                H_H = size(H).h,
+                H_W = size(H).w,
                 SV_W = SV_size.w,
                 SV_H = SV_size.h,
                 H_point_H = size(H_point).h,
@@ -426,7 +426,7 @@
             }
             set = function() {
                 HSV = get_data(HSV), color();
-                H_point.style.top = (H_H - (H_point_H / 2) - (H_H * +HSV[0])) + 'px';
+                H_point.style.left = (H_W - (H_point_H / 2) - (H_W * +HSV[0])) + 'px';
                 SV_point.style.right = (SV_W - (SV_point_W / 2) - (SV_W * +HSV[1])) + 'px';
                 SV_point.style.top = (SV_H - (SV_point_H / 2) - (SV_H * +HSV[2])) + 'px';
             };
@@ -451,9 +451,9 @@
             };
             set();
             function do_H(e) {
-                var y = edge(point(H, e).y, 0, H_H);
-                HSV[0] = (H_H - y) / H_H;
-                H_point.style.top = (y - (H_point_H / 2)) + 'px';
+                var x = edge(point(H, e).x, 2, H_W);
+                HSV[0] = (H_W - x) / H_W;
+                H_point.style.left = (x - (H_point_H / 2)) + 'px';
                 color(e);
             }
             function do_SV(e) {
