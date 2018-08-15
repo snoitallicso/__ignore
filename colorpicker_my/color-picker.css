@@ -4,9 +4,10 @@
 .color-picker *,
 .color-picker *::before,
 .color-picker *::after {
-  -webkit-box-sizing:border-box;
+  /* -webkit-box-sizing:border-box; */
+  ox; */
   -moz-box-sizing:border-box;
-  box-sizing:border-box;
+  /* box-sizing:border-box; */
 }
 .color-picker {
   position:absolute;
@@ -15,8 +16,8 @@
   z-index:9999;
 }
 .color-picker-container {
-  background: #000;
-  color:#000;
+  background: #fff;
+  color: #333;
   padding:1px;
   -webkit-box-shadow:1px 5px 10px rgba(0,0,0,.5);
   -moz-box-shadow:1px 5px 10px rgba(0,0,0,.5);
@@ -25,7 +26,7 @@
 }
 .color-picker-container *,
 .color-picker-container *::before,
-.color-picker-container *::after {border-color:inherit}
+.color-picker-container *::after {/* border-color:inherit *//* border-color:inherit */rit */;}
 .color-picker-container::after {
   content:"";
   display:table;
@@ -38,10 +39,9 @@
 .color-picker-h {
   position:relative;
   width:1.5em;
-  height: 3em;
+  height: 13px;
   float:right;
-  cursor:ns-resize;
-  background:transparent url('color-picker-h.png') no-repeat 50% 50%;
+  background: transparent url('color-picker-h.png') no-repeat 50% 50%;
   background-image:-webkit-linear-gradient(to left,#f00 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,#f00 100%);
   background-image:-moz-linear-gradient(to left,#f00 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,#f00 100%);
   background-image:linear-gradient(to left,#f00 0%,#ff0 17%,#0f0 33%,#0ff 50%,#00f 67%,#f0f 83%,#f00 100%);
@@ -52,12 +52,15 @@
 }
 .color-picker-h i {
   position:absolute;
-  top:-.25em;
-  right:0;
-  left:0;
+  /* top: .25em; */
+  /* right:0; */
+  /* left:0; */
   z-index:3;
   display:block;
-  height:.5em;
+  /* height:.5em; */
+  border: 6px solid white;
+  border-radius: 6px;
+  cursor: pointer;
 }
 .color-picker-h i::before {
   content:"";
@@ -67,10 +70,10 @@
   bottom:0;
   left:0;
   display:block;
-  border:.25em solid;
-  border-color:inherit;
-  border-top-color:transparent;
-  border-bottom-color:transparent;
+  /* border:.25em solid; */
+  /* border-color:inherit; */
+  /* border-top-color:transparent; */
+  /* border-bottom-color:transparent; */
 }
 .color-picker-sv {
   position:relative;
