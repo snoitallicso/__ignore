@@ -18,11 +18,12 @@
 .color-picker-container {
   background: #fff;
   color: #333;
-  padding:1px;
+  /* padding:1px; */
   -webkit-box-shadow:1px 5px 10px rgba(0,0,0,.5);
   -moz-box-shadow:1px 5px 10px rgba(0,0,0,.5);
   box-shadow: 1px 5px 10px rgba(0,0,0,.5);
   width: calc(14em + 3px); /* TODO */
+  border-radius: 2px;
 }
 .color-picker-container *,
 .color-picker-container *::before,
@@ -58,9 +59,10 @@
   z-index:3;
   display:block;
   /* height:.5em; */
-  border: 6px solid white;
-  border-radius: 6px;
+  border: 8px solid white;
+  border-radius: 8px;
   cursor: pointer;
+  top: -1px;
 }
 .color-picker-h i::before {
   content:"";

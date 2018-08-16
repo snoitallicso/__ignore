@@ -355,6 +355,7 @@
                                     </div>
                                     <div class="color-picker-converter">  
                                         <p>converter div</p>
+                                        <input id="color-picker-value" type="text" value="100" />
                                     </div>
                                     <div class="color-picker-converter">  
                                         <p>pallete div</p>
