@@ -19,7 +19,7 @@ Array.prototype.insert = function(index, item){
 var arr = [1,2,3,4,5,6,7,8,9]
 arr.insert(2,10)
 
-//Ð½ÑƒÐ¶Ð½Ð¾ Ð½Ð°Ð¿Ð¸Ñ?Ð°Ñ‚ÑŒ Ñ?ÐºÑ€Ð¸Ð¿Ñ‚ Ð´Ð»Ñ? Ð°Ð²Ñ‚Ð¾Ð¼Ð°Ñ‚Ð¸Ñ‡ÐµÑ?ÐºÐ¾Ð¹ Ð³ÐµÐ½ÐµÑ€Ð°Ñ†Ð¸Ð¸ Ñ?Ð¿Ð¸Ñ?ÐºÐ°
+//�?½Ñƒ�?¶�?½�?¾ �?½�?°�?¿�?¸Ñ?�?°Ñ‚ÑŒ Ñ?�?ºÑ€�?¸�?¿Ñ‚ �?´�?»Ñ? �?°�?²Ñ‚�?¾�?¼�?°Ñ‚�?¸Ñ‡�?µÑ?�?º�?¾�?¹ �?³�?µ�?½�?µÑ€�?°Ñ†�?¸�?¸ Ñ?�?¿�?¸Ñ?�?º�?°
 elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
 
 list = [1,2,3]
@@ -135,7 +135,7 @@ var lay = new Vue({
 						lay.activeItem.isActive = false;
 					}
 						
-					lay.activeItem = children
+					lay.activeItem = children;
 					
 					children.isActive = true
 					lay.children = children
@@ -504,10 +504,10 @@ var gridState = new Vue({
 						lay.activeItem.isActive = false;
 					}
 						
-					lay.activeItem = children
+					lay.activeItem = children;
 					
-					children.isActive = true
-					lay.children = children
+					children.isActive = true;
+					lay.children = children;
 				},
 				openModalAddContnr: function(index){
 					//HERE WE CREATE INDEX OF OBJECT
@@ -530,9 +530,6 @@ var gridState = new Vue({
 					elementsSlot.activecolumn = this.$props.childrens;
 					//console.log(this.$props.childrens);
 					//console.info(this)
-				},
-				click: function(index){
-					//alert()
 				},
 				alert: function(){
 					console.log("ALEET!")
@@ -645,7 +642,7 @@ var elementsSlot = new Vue({
 	methods: {
 		//this click pushed elements into column
 		//(only elements: because click method inside modal of elements)
-		click: function(tag, title){
+		clickor: function(tag, title){
 			//HERE WE CLOSE ELEMENTS MODAL
 			this.seen = false;
 
@@ -679,22 +676,66 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 var tab_cust = {
 	props: ['groups', 'subtitle', 'selectedtabx'],
   template: templ3,
-  methods: {
-  	renderpicker: function(e){
-  		console.log(e, this)
-  		//SPECTRUM COLORPICKER*/
-	    /*$(".spectrum").spectrum({
-	        flat: true,
-	        move: function(color) {
-	            $("#admin_bar").css({
-	                'background-color': color.toRgbString()
-	            });
-	        },
-	        showInput: true,
-	        showPalette: true,
-	        palette: ['#F44336', '#E91E63', '#9C27B0', '#673AB7', '#3F51B5', '#2196f3', '#03a9f4', '#00bcd4', '#009688', '#4caf50', '#8bc34a', '#cddc39', '#ffeb3b', '#ffc107', '#ff9800', '#ff5722']
-	    });*/
-  	}
+  mounted: function() {
+  	setTimeout(function(){
+  		var target = document.querySelectorAll('input.spectrum');
+
+	    // set hooks for each target element
+	    for (var i = 0, len = target.length; i < len; ++i) {
+	    		var p = document.querySelectorAll('p.spectrum')[i];
+	    		var picker = new CP(target[i], false, p);
+	        picker.on("change", function(color) {
+	            this.target.value = '#' + color;
+	        });
+
+	        // ...
+			    picker.fit = function() { // do nothing ...
+			        this.picker.style.left = this.picker.style.top = "";
+			    };
+
+			    // add a `static` class to the color picker panel
+			    picker.picker.classList.add('static');
+
+			    // force to show the color picker panel
+			    picker.enter();
+
+	    }
+  	}, 5000)
+
+  	/*var p = document.querySelectorAll('p')[1], // put color picker panel in the second `<p>` element
+        picker = new CP(document.querySelector('input'), false, p);
+
+    picker.on("change", function(color) {
+        this.target.value = '#' + color;
+    });
+
+    // ...
+    picker.fit = function() { // do nothing ...
+        this.picker.style.left = this.picker.style.top = "";
+    };
+
+    // add a `static` class to the color picker panel
+    picker.picker.classList.add('static');
+
+    // force to show the color picker panel
+    picker.enter();*/
+
+  	/*picker_2.on("enter", function() {
+        this._initScrollPosition = {
+            x: this._scrollPane.scrollTop,
+            y: this._scrollPane.scrollLeft
+        };
+        this.picker.style.marginTop = '0px';
+        this.picker.style.marginLeft = '0px';
+    });
+
+    document.querySelector('#pane-2').addEventListener("scroll", function() {
+        if (!picker_2._initScrollPosition) return;
+        picker_2.picker.style.marginTop = picker_2._initScrollPosition.x - this.scrollTop + 'px';
+        picker_2.picker.style.marginLeft = picker_2._initScrollPosition.y - this.scrollLeft + 'px';
+    }, false);*/
+
+
   }
 };
 var tab_pages = {

@@ -27,6 +27,12 @@ input.error {
   font-weight: bold;
 }
 
+
+.color-picker.static {
+    position: relative;
+}
+
+
 /*colorpicker*/
 .sp-palette-container {
     width: 100px;
@@ -119,7 +125,7 @@ ul{
 	border-right: 1px solid #3F51B5;
 	float: left;
 	position: fixed;
-	z-index: 999999999;
+	z-index: 999;
 }
 .sidebar_content {	
 	float: left;
