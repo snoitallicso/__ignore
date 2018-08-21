@@ -3,9 +3,8 @@
 		<title>VUE</title>
 		<script src="../src/vue.js"></script>
 		<link rel="stylesheet" href="editor.css"/>
-		<script src='spectrum/jquery-1.9.1.min.js'></script>
-		<script src='spectrum/spectrum.js'></script>
-		<link rel='stylesheet' href='spectrum/spectrum.css' />
+		<link href="color-picker.min.css" rel="stylesheet">
+  	<script src="color-picker.min.js"></script>
 	</head>
 	<body>
 		<div id="layout">
@@ -183,7 +182,7 @@
 	</div>
 	<div v-else class="builder-common-container">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
-		<templ v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<templ v-on:click.native.stop="[clickedE(children), clickor(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 
@@ -216,7 +215,7 @@
 	</div>
 	<div v-else class="builder-common-container" :class="{'full-width': fullwidth}">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
-		<templ :isfullwcontainer="children.params.groups.General.hundred_percent.default == '100% Width'" :isfheight="children.params.groups.General.hundred_percent_height.default == 'Yes'" :style="stylish(children)" :params="children.params" v-on:click.native.stop="[clickedE(children), click(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<templ :isfullwcontainer="children.params.groups.General.hundred_percent.default == '100% Width'" :isfheight="children.params.groups.General.hundred_percent_height.default == 'Yes'" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 
@@ -275,7 +274,7 @@
         						<input type="range" :min="option.min" :max="option.max" :step="option.step" v-model="option.value" />
         						<!--//todo: perf (optimize - distinct method?)-->
         						<p v-if="option.value > option.max || option.value < option.min" class="error_info">Values can be between {{option.min}} and {{option.max}}</p>
-        						<input :class="{error: option.value > option.max || option.value < option.min}" v-model="option.value" :value="option.value" type="text" />
+        						<input :class="{error: option.value > option.max || option.value < option.min}" v-model="option.value" type="text" />
         					</div>
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
@@ -283,7 +282,8 @@
         					<div style="background: blue" >
         						<b style="color:hotpink;">Color Picker Alpha</b>
         						<!--input type="text" v-model="option.value"></div-->
-        						<input v-on:click="renderpicker()" type='text' class="spectrum" />
+        						<input type='text' v-model="option.value" class="spectrum" />
+        						<p class="spectrum"></p>
 	        				</div>
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
