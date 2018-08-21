@@ -121,7 +121,8 @@ var lay = new Vue({
 	data: {
 		childrens: layObj.layout.childrens,
 		styleObject: layObj.styleObject,
-		fullwidth: page_settings.fullwidth
+		fullwidth: page_settings.fullwidth,
+		active_dom_el: null
 	},
 	props: ['shortcode', 'isfheight'],
 	components: {
@@ -129,7 +130,11 @@ var lay = new Vue({
 			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth'],
 			name: 'templ',
 			methods: {
-				clickedE: function(children){
+				clickedE: function(children, index){
+					
+					//console.log(this.$refs.ele_ref[index].$el);
+					//THIS IS REF TO ELEMENT IN DOM
+					lay.active_dom_el = this.$refs.ele_ref[index].$el;
 					
 					if(lay.activeItem != undefined){
 						lay.activeItem.isActive = false;
@@ -686,6 +691,7 @@ var tab_cust = {
 	    		var picker = new CP(target[i], false, p);
 	        picker.on("change", function(color) {
 	            this.target.value = '#' + color;
+	            lay.active_dom_el.style.backgroundColor = '#' + color;
 	        });
 
 	        // ...

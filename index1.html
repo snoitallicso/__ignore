@@ -187,6 +187,7 @@
 </div>
 
 <!--THIS DIV IS USING AS TEMPLATE FOR gridState.'child-component'-->
+<!-- LAYOUT? -->
 <div class="templ_five">
 	<div v-if="shortcode == `fusion_builder_container`" class="builder-container" :class="[{'hundred-percent-height': isfheight},{'fullw': isfullwcontainer}]">
 		<h3>Container</h3>
@@ -195,11 +196,11 @@
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_row`" class="fusion-row">
 		<!--THIS TEMPLATE INSIDE ROW IS FOR COLUMNS-->
-		<templ :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
+		<templ ref="ele_ref" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children, index)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="[`column-`+children.params.groups[`General`].type, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
 	</div>
 	<div v-else-if="shortcode == `fusion_builder_column`" class="builder-column">
 		<!--THIS TEMPLATE INSIDE COLUMN IS FOR ELEMENTS-->
-		<templ :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
+		<templ ref="ele_ref" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children, index)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
 	</div>
 	<!--BUTTON TEMPLATE-->
 	<div v-else-if="shortcode == `fusion_button`">
@@ -215,7 +216,7 @@
 	</div>
 	<div v-else class="builder-common-container" :class="{'full-width': fullwidth}">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
-		<templ :isfullwcontainer="children.params.groups.General.hundred_percent.default == '100% Width'" :isfheight="children.params.groups.General.hundred_percent_height.default == 'Yes'" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<templ ref="ele_ref" :isfullwcontainer="children.params.groups.General.hundred_percent.default == '100% Width'" :isfheight="children.params.groups.General.hundred_percent_height.default == 'Yes'" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children, index)" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 
