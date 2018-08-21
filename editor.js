@@ -9,7 +9,7 @@ templ0 = elpretempl1.innerHTML
 templ1 = document.getElementsByClassName("templ")[1].innerHTML;
 templ2 = document.getElementsByClassName("templ")[0].innerHTML;
 templ3 = document.getElementsByClassName("templ_three")[0].innerHTML;
-templ4 = document.getElementsByClassName("templ_four")[0].innerHTML;
+//templ4 = document.getElementsByClassName("templ_four")[0].innerHTML;
 templ5 = document.getElementsByClassName("templ_five")[0].innerHTML;
 
 Array.prototype.insert = function(index, item){
@@ -19,7 +19,7 @@ Array.prototype.insert = function(index, item){
 var arr = [1,2,3,4,5,6,7,8,9]
 arr.insert(2,10)
 
-//�?½Ñƒ�?¶�?½�?¾ �?½�?°�?¿�?¸Ñ?�?°Ñ‚ÑŒ Ñ?�?ºÑ€�?¸�?¿Ñ‚ �?´�?»Ñ? �?°�?²Ñ‚�?¾�?¼�?°Ñ‚�?¸Ñ‡�?µÑ?�?º�?¾�?¹ �?³�?µ�?½�?µÑ€�?°Ñ†�?¸�?¸ Ñ?�?¿�?¸Ñ?�?º�?°
+//?½Ñƒ?¶?½?¾ ?½?°?¿?¸Ñ??°Ñ‚ÑŒ Ñ??ºÑ€?¸?¿Ñ‚ ?´?»Ñ? ?°?²Ñ‚?¾?¼?°Ñ‚?¸Ñ‡?µÑ??º?¾?¹ ?³?µ?½?µÑ€?°Ñ†?¸?¸ Ñ??¿?¸Ñ??º?°
 elsList = ["fusion_alert","fusion_blog","fusion_button","fusion_checklist","fusion_code","fusion_content_boxes","fusion_countdown","fusion_counters_box","fusion_counters_circle","fusion_dropcap","fusion_flip_boxes","fusion_fontawesome","fusion_gallery","fusion_map","fusion_highlight","fusion_images","fusion_imageframe","layerslider","fusion_lightbox","fusion_menu_anchor","fusion_modal","fusion_modal_text_link","fusion_one_page_text_link","fusion_person","fusion_popover","fusion_postslider","fusion_pricing_table","fusion_progress","fusion_recent_posts","rev_slider","fusion_section_separator","fusion_separator","fusion_sharing","fusion_slider","fusion_social_links","fusion_soundcloud","fusion_table","fusion_tabs","fusion_tagline_box","fusion_testimonials","fusion_text","fusion_title","fusion_accordion","fusion_tooltip","fusion_login","fusion_lost_password","fusion_register","fusion_vimeo","fusion_featured_products_slider","fusion_woo_shortcodes","fusion_youtube","fusion_widget_area","fusion_products_slider"];
 
 list = [1,2,3]

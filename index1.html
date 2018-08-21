@@ -68,7 +68,7 @@
 							<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
 								<input v-model="query">
 								<ul>
-									<li v-on:click="click(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
+									<li v-on:click="clickor(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
 								</ul>
 							</div>
 							<div v-if="seen" class="grid_content_area_grider">
@@ -204,7 +204,7 @@
 	<!--BUTTON TEMPLATE-->
 	<div v-else-if="shortcode == `fusion_button`">
 		<button>{{params.groups.General.element_content.heading}}</button>
-	</div>	
+	</div>
 	<!--TITLE TEMPLATE-->
 	<div v-else-if="shortcode == `fusion_title`">
 		<h3 contenteditable="true" v-on:keyup="editle">{{params.groups.General.element_content.value}}</h3>
@@ -314,26 +314,21 @@
 </div>
 
 <!--LAYOUT TEMPLATE-->
-<div class="templ_four">
+<!--div class="templ_four">
 	<div class="pretempl">
-		<!--COLLUMN TEMPLATE-->
 		<div v-if="shortcode == `fusion_builder_column`">
 			{{shortcode}}
-			<!--//todo perf (:style through data object)-->
 			<templ v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :params="children.params" :shortcode="children.shortcode"></templ>
 		</div>
-		<!--BUTTON TEMPLATE-->
 		<div v-else-if="shortcode == `fusion_button`">
 			<button>{{params.groups.General.element_content.heading}}</button>
 		</div>
-		<!--OTHER UNKNOWN TEMPLATES-->
 		<div v-else>
 			{{shortcode}}
 			<templ :style="stylish(children, sto)" v-on:click.native.stop="clickedE(children)" v-for="children in childrens" v-bind:childrens="children.childrens" v-bind:key="children.id" v-bind:class="[children.shortcode, {active: children.isActive}]" :shortcode="children.shortcode"></templ>
-			<!-- :style="{paddingTop: children.params.groups.Design.padding.value.padding_top}" -->
 		</div>
 	</div>
-</div>
+</div-->
 
 		<script src="fusionelements.js"></script>
 		<script src="layobj.js"></script>
