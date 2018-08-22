@@ -7,28 +7,24 @@
   	<script src="color-picker.min.js"></script>
 	</head>
 	<body>
-		<div id="layout">
-			<div class="layout-container">
-				<!--LAYOUT TEMPLATE-->
-				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" :fullwidth="fullwidth"></childrens-component></div>
-		</div>
-		<div id="sidebar">
-			<div id="contextside">
-				<div id="admin_bar">
-					<button v-for="tab in tabs" v-bind:key="tab" v-bind:title="tab" v-bind:class="['abar_a', { 'active': currentTab === tab }]" v-on:click="currentTab = tab"></button>
+		<div id="common">
+			<div id="editor">
+				<div id="contextside">
+					<div id="admin_bar">
+						<button v-for="tab in tabs" v-bind:key="tab" v-bind:title="tab" v-bind:class="['abar_a', { 'active': currentTab === tab }]" v-on:click="currentTab = tab"></button>
+					</div>
+					<div class="complex_menu_bar">
+						<div class="mbar"></div>
+						<div class="mbar"></div>
+						<div class="mbar"></div>
+						<div class="mbar"></div>
+						<div class="mbar"></div>
+						<div class="mbar"></div>
+					</div>
+					<!--depo :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo-->
+					<keep-alive><depo :descrseen="descrseen" :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
 				</div>
-				<div class="complex_menu_bar">
-					<div class="mbar"></div>
-					<div class="mbar"></div>
-					<div class="mbar"></div>
-					<div class="mbar"></div>
-					<div class="mbar"></div>
-					<div class="mbar"></div>
-				</div>
-				<!--depo :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo-->
-				<keep-alive><depo :descrseen="descrseen" :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
-			</div>
-			<div id="grid">
+				<div id="grid">
 					<div id="grid_content">
 						<div id="grid_title">
 							<h2>{{title}}</h2>
@@ -78,6 +74,13 @@
 					</div>
 				</div>
 			</div>
+			<div id="layout">
+				<div class="layout-container">
+				<!--LAYOUT TEMPLATE-->
+				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" :fullwidth="fullwidth"></childrens-component></div>
+			</div>
+		</div>
+		
 		</div>
 		</div>
 		<!--div id="layout">
