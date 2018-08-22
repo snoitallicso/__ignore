@@ -679,7 +679,7 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 /** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
-	props: ['groups', 'subtitle', 'selectedtabx'],
+	props: ['groups', 'subtitle', 'selectedtabx', 'descrseen'],
   template: templ3,
   mounted: function() {
   	setTimeout(function(){
@@ -765,6 +765,7 @@ var contextWindow = new Vue({
 		//element title above options and under main title
 		subtitle: "Sidebar subtitle",
 		groups: contextTabs,
+		descrseen: false,
 		//selectedTab: null,
 		//default active button and state (further we call component for template binding)
 		currentTab: 'Customization',

@@ -27,11 +27,28 @@ input.error {
   font-weight: bold;
 }
 
+.option-t h3 {
+    float: left;
+}
+
+.option-t {
+    float: left;
+    width: 100%;
+    background: white;
+}
 
 .color-picker.static {
     position: relative;
 }
 
+#descrmang {height: 30px;position: relative;float: right!important;}
+#descrmang > * {
+    float: right;
+    margin: 8px;
+}
+#descrmang input {
+    margin: 11px 5px 10px;
+}
 
 /*colorpicker*/
 .sp-palette-container {
@@ -127,14 +144,16 @@ ul{
 	position: fixed;
 	z-index: 999;
 }
-.sidebar_content {	
+.sidebar_content {
 	float: left;
+	width: 254px;
 }
 .sidebar_title h1  {
 	margin: 0;
 }
-.sidebar_title, .sidebar_tabs{
-	width: 250px;
+.sidebar_title, .sidebar_tabs, #descrmang{
+	float: left;
+	width: 100%;
 }
 .side_tab {
 	float: left;

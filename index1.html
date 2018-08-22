@@ -26,7 +26,7 @@
 					<div class="mbar"></div>
 				</div>
 				<!--depo :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo-->
-				<keep-alive><depo :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
+				<keep-alive><depo :descrseen="descrseen" :selectedtabx="selectedtabx" :subtitle="subtitle" :groups="groups" v-bind:is="currentTabComponent"></depo></keep-alive>
 			</div>
 			<div id="grid">
 					<div id="grid_content">
@@ -239,6 +239,10 @@
 	        </li>
       	</ul>
       </div>
+      <div id="descrmang">
+      	<input type="checkbox" id="descch" value="Show descriptions" v-model="descrseen">
+      	<label for="descch">Show descriptions</label>
+      </div>
       <div class="content_area">
         <div 
           v-if="selectedtabx"
@@ -250,9 +254,12 @@
         	-->
         	<ul>
         		<li v-for="(option, index) in groups[selectedtabx]">
-        			<div class="odescription">
+        			<div :title="option.description" class="option-t">
         				<h3>{{option.heading}}</h3>
+        			</div>
+        			<div v-if="descrseen" class="odescription">
         				<p>{{option.description}}</p>
+        				{{option}}
         			</div>
         			<div class="omanage">
 	        			<div style="background: lightgreen" >
@@ -302,7 +309,6 @@
         						<input v-for="(dim, index) in option.value" v-model="option.value[index]" type="number">{{dim}}</input>
         					</div>
         				</div>
-        				{{option}}
         			</div>
         		</li>
         	</ul>
