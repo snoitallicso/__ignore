@@ -80,7 +80,7 @@
 				<childrens-component :childrens="childrens" :shortcode="childrens.shortcode" :class="childrens.shortcode" :fullwidth="fullwidth"></childrens-component></div>
 			</div>
 		</div>
-		
+
 		</div>
 		</div>
 		<!--div id="layout">
@@ -236,7 +236,7 @@
 	        <li
 	          v-for="(group, index) in groups"
 	          v-bind:class="['side_tab', { 'active': index === selectedtabx }]"
-	          v-on:click="selectedtabx = index"
+	          v-on:click="[selectedtabx = index, renderPicker()]"
 	        >
 	          {{index}}
 	        </li>
@@ -343,5 +343,6 @@
 		<script src="fusionelements.js"></script>
 		<script src="layobj.js"></script>
 		<script src="editor.js"></script>
+
 	</body>
 </html>

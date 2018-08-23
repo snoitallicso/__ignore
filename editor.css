@@ -157,7 +157,8 @@ ul{
 }
 .sidebar_content {
   float: left;
-  width: 254px;
+  width: 253px;
+  border-right: 2px solid #a8bdce;
 }
 .sidebar_title h1  {
   margin: 0;
@@ -207,6 +208,7 @@ ul{
   position: absolute;
   z-index: -5;
   margin-left: -260px;
+  border-right: gray 2px solid;
 }
 #grid:hover {
   margin-left: 310px;
@@ -295,9 +297,9 @@ body #grid {
 #layout {
     float: left;
     height: 100%;
-    width: 1370px;
+    width: 1338px;
     background: white;
-    margin-left: 310px;
+    margin-left: 341px;
     overflow-x: hidden;
 }
 #layout .builder-container {

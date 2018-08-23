@@ -681,65 +681,34 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 var tab_cust = {
 	props: ['groups', 'subtitle', 'selectedtabx', 'descrseen'],
   template: templ3,
-  mounted: function() {
-  	setTimeout(function(){
-  		var target = document.querySelectorAll('input.spectrum');
+  methods: {
+  	renderPicker: function(){
+  		setTimeout(function(){
+	  		var target = document.querySelectorAll('input.spectrum');
 
-	    // set hooks for each target element
-	    for (var i = 0, len = target.length; i < len; ++i) {
-	    		var p = document.querySelectorAll('p.spectrum')[i];
-	    		var picker = new CP(target[i], false, p);
-	        picker.on("change", function(color) {
-	            this.target.value = '#' + color;
-	            lay.active_dom_el.style.backgroundColor = '#' + color;
-	        });
+		    // set hooks for each target element
+		    for (var i = 0, len = target.length; i < len; ++i) {
+		    		var p = document.querySelectorAll('p.spectrum')[i];
+		    		var picker = new CP(target[i], false, p);
+		        picker.on("change", function(color) {
+		            this.target.value = '#' + color;
+		            lay.active_dom_el.style.backgroundColor = '#' + color;
+		        });
 
-	        // ...
-			    picker.fit = function() { // do nothing ...
-			        this.picker.style.left = this.picker.style.top = "";
-			    };
+		        // ...
+				    picker.fit = function() { // do nothing ...
+				        this.picker.style.left = this.picker.style.top = "";
+				    };
 
-			    // add a `static` class to the color picker panel
-			    picker.picker.classList.add('static');
+				    // add a `static` class to the color picker panel
+				    picker.picker.classList.add('static');
 
-			    // force to show the color picker panel
-			    picker.enter();
+				    // force to show the color picker panel
+				    picker.enter();
 
-	    }
-  	}, 5000)
-
-  	/*var p = document.querySelectorAll('p')[1], // put color picker panel in the second `<p>` element
-        picker = new CP(document.querySelector('input'), false, p);
-
-    picker.on("change", function(color) {
-        this.target.value = '#' + color;
-    });
-
-    // ...
-    picker.fit = function() { // do nothing ...
-        this.picker.style.left = this.picker.style.top = "";
-    };
-
-    // add a `static` class to the color picker panel
-    picker.picker.classList.add('static');
-
-    // force to show the color picker panel
-    picker.enter();*/
-
-  	/*picker_2.on("enter", function() {
-        this._initScrollPosition = {
-            x: this._scrollPane.scrollTop,
-            y: this._scrollPane.scrollLeft
-        };
-        this.picker.style.marginTop = '0px';
-        this.picker.style.marginLeft = '0px';
-    });
-
-    document.querySelector('#pane-2').addEventListener("scroll", function() {
-        if (!picker_2._initScrollPosition) return;
-        picker_2.picker.style.marginTop = picker_2._initScrollPosition.x - this.scrollTop + 'px';
-        picker_2.picker.style.marginLeft = picker_2._initScrollPosition.y - this.scrollLeft + 'px';
-    }, false);*/
+		    }
+	  	}, 1);
+  }
 
 
   }
