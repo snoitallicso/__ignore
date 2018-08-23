@@ -680,7 +680,7 @@ var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
 	props: ['groups', 'subtitle', 'selectedtabx', 'descrseen'],
-  template: templ3,
+  template: templ3/*,
   methods: {
   	renderPicker: function(){
   		setTimeout(function(){
@@ -711,7 +711,7 @@ var tab_cust = {
   }
 
 
-  }
+  }*/
 };
 var tab_pages = {
   template: '<div>Pages component</div>'
