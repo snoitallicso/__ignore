@@ -4,6 +4,8 @@
 		<script src="../src/vue.js"></script>
 		<link rel="stylesheet" href="editor.css"/>
 		<link href="color-picker.min.css" rel="stylesheet">
+		<link rel='stylesheet' href='http://127.0.0.1/wp_avada542/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.4.2' type='text/css' media='all' />
+  <link rel='stylesheet' href='buttons/leftrighicon.css' type='text/css' media='all' />
   	<script src="color-picker.min.js"></script>
 	</head>
 	<body>
@@ -206,9 +208,60 @@
 		<templ ref="ele_ref" :style="stylish(children)" :params="children.params" v-on:click.native.stop="clickedE(children, index)" v-for="(children, index) in childrens" :index="index" :children="children" :key="children.id" :class="{active: children.isActive}" :shortcode="children.shortcode" :title="children.name" :tag="children.shortcode"></templ>
 	</div>
 	<!--BUTTON TEMPLATE-->
-	<div v-else-if="shortcode == `fusion_button`">
-		<button>{{params.groups.General.element_content.heading}}</button>
-	</div>
+	<button
+		:style="faack(params)"
+		:style="{'animation-duration': params.groups.Animation.animation_speed.value +'s'}" 
+		:title="params.groups.General.title.value"
+		:target="params.groups.General.target.default"
+		:id="[params.groups.General.id.value]"
+		:class="[ params.groups.Design.size.default,
+						  {fspan: params.groups.Design.stretch.default == 'Yes'},
+						  {nospan: params.groups.Design.stretch.default == 'No'},
+						  params.groups.General.alignment.default,
+						  {'no-l-v': params.groups.General.hide_on_mobile.default.indexOf('large-visibility') == -1 },
+						  {'no-m-v': params.groups.General.hide_on_mobile.default.indexOf('medium-visibility') == -1 },
+						  {'no-s-v': params.groups.General.hide_on_mobile.default.indexOf('small-visibility') == -1 },
+						  [params.groups.General.class.value],
+						  [params.groups.Design.color.default.replace(' ','').toLowerCase()],
+						  {'b-3d': params.groups.Design.type.default == '3D'},
+						  {'b-flat': params.groups.Design.type.default == 'Flat'},
+						  {'square': params.groups.Design.shape.default == 'Square'},
+						  {'pill': params.groups.Design.shape.default == 'Pill'},
+						  {'round': params.groups.Design.shape.default == 'Round'},
+						  {'licon': params.groups.Design.icon_position.default == 'Left'},
+						  {'divider': params.groups.Design.icon_divider.default == 'Yes'},
+						  params.groups.Design.icon.value + ' fa',
+
+						  {'bounce': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+						  {'bounceinleft': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+						  {'bounceinright': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+						  {'bounceinup': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+						  {'bounceindown': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+
+						  {'flash': params.groups.Animation.animation_type.default == 'Flash'},
+
+						  {'rubberband': params.groups.Animation.animation_type.default == 'Rubberband'},
+
+						  {'shake': params.groups.Animation.animation_type.default == 'Shake'},
+
+						  {'fadein': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+						  {'fadeinleft': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+						  {'fadeinright': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+						  {'fadeinup': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+						  {'fadeindown': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+
+						  {'slideinleft': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+						  {'slideinright': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+						  {'slideinup': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+						  {'slideindown': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+
+						  {'zoomin': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+						  {'zoominleft': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+						  {'zoominright': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+						  {'zoominup': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+						  {'zoomindown': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'}
+						]"
+		v-else-if="shortcode == `fusion_button`">{{params.groups.General.element_content.value}}</button>
 	<!--TITLE TEMPLATE-->
 	<div v-else-if="shortcode == `fusion_title`">
 		<h3 contenteditable="true" v-on:keyup="editle">{{params.groups.General.element_content.value}}</h3>
@@ -268,7 +321,7 @@
 	        			<div style="background: lightgreen" >
 	        				<div v-if="option.type == `textfield`">
 	        					<b style="color:red;">Textfield</b>
-	        					<input v-model="option.heading" type="text" value="option.heading">
+	        					<input v-model="option.value" type="text" value="option.value">
 	        				</div>
 	        			</div>
         				<div v-if="option.type == `radio_button_set`">
@@ -304,6 +357,17 @@
         						<select v-model="option.default">
         							<option v-for="title in option.value">{{title}}</option>
         						</select>
+        					</div>
+        				</div>
+        				<div v-if="option.type == `checkbox_button_set`">
+        					<div style="background: violet" >
+        						<b style="color:red;">Checkbox Buton Set</b>
+        						
+        						<div v-for="(defo, val) in option.default, option.value">
+        							<input :value="val" v-model="option.default" type="checkbox" :id="val">
+      							  <label :for="val">{{defo}}</label>
+        						</div>
+
         					</div>
         				</div>
         				<div v-if="option.type == `dimension`">

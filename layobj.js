@@ -1773,7 +1773,7 @@ layObj = {
                                         "type": "textfield",
                                         "heading": "Button Text",
                                         "param_name": "element_content",
-                                        "value": "Button Text",
+                                        "value": "CLICK ME!",
                                         "description": "Add the text that will display on button."
                                     },
                                     "title": {
@@ -2051,7 +2051,7 @@ layObj = {
                                         "type": "iconpicker",
                                         "heading": "Icon",
                                         "param_name": "icon",
-                                        "value": "",
+                                        "value": "fa-star",
                                         "description": "Click an icon to select, click again to deselect.",
                                         "group": "Design"
                                     },
@@ -2106,7 +2106,7 @@ layObj = {
                                             "slide": "Slide",
                                             "zoom": "Zoom"
                                         },
-                                        "default": "",
+                                        "default": "Slide",
                                         "group": "Animation"
                                     },
                                     "animation_direction": {

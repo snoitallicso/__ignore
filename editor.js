@@ -130,6 +130,10 @@ var lay = new Vue({
 			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth'],
 			name: 'templ',
 			methods: {
+				faack: function (params){
+					console.log("TOASTER", params)
+					return {"color":"purple"}
+				},
 				clickedE: function(children, index){
 					
 					//console.log(this.$refs.ele_ref[index].$el);
@@ -192,6 +196,29 @@ var lay = new Vue({
 							borderTopStyle: children.params.groups.Design.border_style.default,
 							borderBottomStyle: children.params.groups.Design.border_style.default,
 							borderColor: children.params.groups.Design.border_color.value
+						}
+					}
+
+					if(element_type === 'Button'){
+						console.log(children.params.groups.Design.button_gradient_bottom_color.value)
+						var style_object = {
+							backgroundImage: 'linear-gradient( to top, '+children.params.groups.Design.button_gradient_bottom_color.value+', '+ children.params.groups.Design.button_gradient_top_color.value +' )',
+							color: children.params.groups.Design.accent_color.value,
+							borderWidth: children.params.groups.Design.border_width.value
+							/*paddingTop: children.params.groups.Design.padding.value.padding_top,
+							paddingBottom: children.params.groups.Design.padding.value.padding_bottom,
+							paddingLeft: children.params.groups.Design.padding.value.padding_left,
+							paddingRight: children.params.groups.Design.padding.value.padding_right,
+							marginTop: children.params.groups.Design.dimension_margin.value.margin_top,
+							marginBottom: children.params.groups.Design.dimension_margin.value.margin_bottom,
+							marginLeft: children.params.groups.Design.dimension_margin.value.margin_left,
+							marginRight: children.params.groups.Design.dimension_margin.value.margin_right,
+							
+							borderTopWidth: children.params.groups.Design.border_size.value,
+							borderBottomWidth: children.params.groups.Design.border_size.value,
+							borderTopStyle: children.params.groups.Design.border_style.default,
+							borderBottomStyle: children.params.groups.Design.border_style.default,
+							borderColor: children.params.groups.Design.border_color.value*/
 						}
 					} 
 
