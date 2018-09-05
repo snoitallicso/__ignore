@@ -2537,3 +2537,7 @@ padding: 10px;
 .fusion_builder_column {
   background-color: wheat!important;
 }
+
+.imgframe {
+    max-width: 100%;
+}

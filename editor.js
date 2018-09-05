@@ -130,9 +130,110 @@ var lay = new Vue({
 			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth'],
 			name: 'templ',
 			methods: {
-				faack: function (params){
-					console.log("TOASTER", params)
-					return {"color":"purple"}
+				classish: function (params){
+					
+					var classobj = [];
+					
+					//make the round options
+					//DESIGN OPTIONS GROUP
+					if(params.groups.Design){
+						if(params.groups.Animation.stretch){
+							classobj.push(
+								{fspan: params.groups.Design.stretch.default == 'Yes'},
+						  	{nospan: params.groups.Design.stretch.default == 'No'}
+							)
+						}
+						if(params.groups.Animation.color){
+							classobj.push(
+								[params.groups.Design.color.default.replace(' ','').toLowerCase()]
+							)
+						}
+						if(params.groups.Animation.type){
+							classobj.push(
+								{'b-3d': params.groups.Design.type.default == '3D'},
+						  	{'b-flat': params.groups.Design.type.default == 'Flat'}
+							)
+						}
+						if(params.groups.Animation.shape){
+							classobj.push(
+								{'square': params.groups.Design.shape.default == 'Square'},
+							  {'pill': params.groups.Design.shape.default == 'Pill'},
+							  {'round': params.groups.Design.shape.default == 'Round'}
+							)
+						}
+						if(params.groups.Animation.icon_position){
+							classobj.push(
+								{'licon': params.groups.Design.icon_position.default == 'Left'}
+							)
+						}
+						if(params.groups.Animation.icon_divider){
+							classobj.push(
+								{'divider': params.groups.Design.icon_divider.default == 'Yes'}
+							)
+						}
+						if(params.groups.Animation.icon){
+							classobj.push(
+								params.groups.Design.icon.value + ' fa'
+							)
+						}
+					}
+					//ANIMATION OPTIONS GROUP
+					if(params.groups.Animation){
+						//Animation Type
+						if(params.groups.Animation.animation_type){
+							classobj.push(
+								{'bounce': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+							  {'bounceinleft': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+							  {'bounceinright': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+							  {'bounceinup': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+							  {'bounceindown': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+
+							  {'flash': params.groups.Animation.animation_type.default == 'Flash'},
+
+							  {'rubberband': params.groups.Animation.animation_type.default == 'Rubberband'},
+
+							  {'shake': params.groups.Animation.animation_type.default == 'Shake'},
+
+							  {'fadein': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+							  {'fadeinleft': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+							  {'fadeinright': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+							  {'fadeinup': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+							  {'fadeindown': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+
+							  {'slideinleft': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+							  {'slideinright': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+							  {'slideinup': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+							  {'slideindown': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+
+							  {'zoomin': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+							  {'zoominleft': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+							  {'zoominright': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+							  {'zoominup': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+							  {'zoomindown': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'}
+							);
+						}
+					}
+					//GENERAL OPTIONS GROUP
+					if(params.groups.General){	
+						//Alignment
+						if(params.groups.General.alignment){
+							classobj.push(params.groups.General.alignment.default);
+						}
+						//CSS Class
+						if(params.groups.General.class){
+							classobj.push([params.groups.General.class.value]);
+						}
+						//Element Visibility
+						if(params.groups.General.hide_on_mobile){
+								classobj.push(
+									{'no-l-v': params.groups.General.hide_on_mobile.default.indexOf('large-visibility') == -1 },
+							  	{'no-m-v': params.groups.General.hide_on_mobile.default.indexOf('medium-visibility') == -1 },
+							  	{'no-s-v': params.groups.General.hide_on_mobile.default.indexOf('small-visibility') == -1 }
+							  );
+						}
+					}
+					
+					return classobj;
 				},
 				clickedE: function(children, index){
 					

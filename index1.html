@@ -209,62 +209,39 @@
 	</div>
 	<!--BUTTON TEMPLATE-->
 	<button
-		:style="faack(params)"
 		:style="{'animation-duration': params.groups.Animation.animation_speed.value +'s'}" 
 		:title="params.groups.General.title.value"
 		:target="params.groups.General.target.default"
 		:id="[params.groups.General.id.value]"
-		:class="[ params.groups.Design.size.default,
-						  {fspan: params.groups.Design.stretch.default == 'Yes'},
-						  {nospan: params.groups.Design.stretch.default == 'No'},
-						  params.groups.General.alignment.default,
-						  {'no-l-v': params.groups.General.hide_on_mobile.default.indexOf('large-visibility') == -1 },
-						  {'no-m-v': params.groups.General.hide_on_mobile.default.indexOf('medium-visibility') == -1 },
-						  {'no-s-v': params.groups.General.hide_on_mobile.default.indexOf('small-visibility') == -1 },
-						  [params.groups.General.class.value],
-						  [params.groups.Design.color.default.replace(' ','').toLowerCase()],
-						  {'b-3d': params.groups.Design.type.default == '3D'},
-						  {'b-flat': params.groups.Design.type.default == 'Flat'},
-						  {'square': params.groups.Design.shape.default == 'Square'},
-						  {'pill': params.groups.Design.shape.default == 'Pill'},
-						  {'round': params.groups.Design.shape.default == 'Round'},
-						  {'licon': params.groups.Design.icon_position.default == 'Left'},
-						  {'divider': params.groups.Design.icon_divider.default == 'Yes'},
-						  params.groups.Design.icon.value + ' fa',
-
-						  {'bounce': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
-						  {'bounceinleft': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-						  {'bounceinright': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-						  {'bounceinup': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-						  {'bounceindown': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
-
-						  {'flash': params.groups.Animation.animation_type.default == 'Flash'},
-
-						  {'rubberband': params.groups.Animation.animation_type.default == 'Rubberband'},
-
-						  {'shake': params.groups.Animation.animation_type.default == 'Shake'},
-
-						  {'fadein': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
-						  {'fadeinleft': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-						  {'fadeinright': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-						  {'fadeinup': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-						  {'fadeindown': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
-
-						  {'slideinleft': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-						  {'slideinright': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-						  {'slideinup': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-						  {'slideindown': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
-
-						  {'zoomin': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
-						  {'zoominleft': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-						  {'zoominright': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-						  {'zoominup': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-						  {'zoomindown': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'}
-						]"
+		:class="classish(params)"
 		v-else-if="shortcode == `fusion_button`">{{params.groups.General.element_content.value}}</button>
 	<!--TITLE TEMPLATE-->
-	<div v-else-if="shortcode == `fusion_title`">
+	<div 
+		v-else-if="shortcode == `fusion_title`"
+		:class="classish(params)"
+		:id="[params.groups.General.id.value]"
+	>
 		<h3 contenteditable="true" v-on:keyup="editle">{{params.groups.General.element_content.value}}</h3>
+	</div>
+	<!--IMAGE TEMPLATE-->
+	<img
+		v-else-if="shortcode == `fusion_imageframe`"
+		:class="classish(params)"
+		:id="[params.groups.General.id.value]"
+
+		class="imgframe"
+		src="http://127.0.0.1/wp_avada542-2/wp-content/uploads/2018/09/12f226863ba649f5b5a8c9796a997935.png"
+	>
+	</img>
+	<!--YOUTUBE TEMPLATE-->
+	<div
+		v-else-if="shortcode == `fusion_youtube`"
+		:class="classish(params)"
+		:id="[params.groups.General.id.value]"
+
+		class="videoframe"
+	>
+		<iframe src="https://www.youtube.com/embed/UDyNsnB_COA?autoplay=0&enablejsapi=1&wmode=opaque"></iframe>
 	</div>
 	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
 	<div v-else-if="isEl(shortcode)" class="builder-column-element">
