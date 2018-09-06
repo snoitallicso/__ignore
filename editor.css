@@ -53,16 +53,16 @@ button.nospan {
     width: auto;
 }
 
-button {
+.fusion-row  {
     display: inline;
 }
-button.left {
+.fusion-row .left {
     float: left;
 }
-button.right {
+.fusion-row .right {
     float: right;
 }
-button.center {
+.fusion-row .center {
     display: block;
     margin: 0 auto;
 }
@@ -2540,4 +2540,64 @@ padding: 10px;
 
 .imgframe {
     max-width: 100%;
+}
+.imgframe.center {
+    text-align: center;
+}
+.imgframe.left {
+    width: calc(100% - (25px));
+    margin-right: 25px;
+    float: left;
+}
+.imgframe.right {
+    width: calc(100% - (25px));
+    margin-left: 25px;
+    float: right;
+}
+
+
+.videoframe iframe {
+    width: 100%;
+}
+
+.zoomin {
+    opacity: 1;
+    -webkit-transition: opacity 1s,-webkit-transform 1s;
+    transition: opacity 1s,-webkit-transform 1s;
+    transition: opacity 1s,transform 1s;
+    transition: opacity 1s,transform 1s,-webkit-transform 1s;
+}
+.zoomin:hover {
+    opacity: .9;
+    -webkit-transform: scale3d(1.1,1.1,1);
+    transform: scale3d(1.1,1.1,1);
+}
+.zoomout {
+    opacity: 1;
+    -webkit-transform: scale(1.12);
+    -ms-transform: scale(1.12);
+    transform: scale(1.12);
+    -webkit-transition: opacity 1s,-webkit-transform 1s;
+    transition: opacity 1s,-webkit-transform 1s;
+    transition: opacity 1s,transform 1s;
+    transition: opacity 1s,transform 1s,-webkit-transform 1s;
+}
+.zoomout:hover {
+    opacity: .9;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+.liftup {
+    opacity: 1;
+    -webkit-transform: perspective(1000px) scale(1);
+    transform: perspective(1000px) scale(1);
+    -webkit-transition: -webkit-transform .35s;
+    transition: -webkit-transform .35s;
+    transition: transform .35s;
+    transition: transform .35s,-webkit-transform .35s;
+}
+.liftup:hover {
+    -webkit-transform: perspective(1000px) scale(1.03);
+    transform: perspective(1000px) scale(1.03);
 }

@@ -228,6 +228,7 @@
 		v-else-if="shortcode == `fusion_imageframe`"
 		:class="classish(params)"
 		:id="[params.groups.General.id.value]"
+		:alt="params.groups.General.alt.value"
 
 		class="imgframe"
 		src="http://127.0.0.1/wp_avada542-2/wp-content/uploads/2018/09/12f226863ba649f5b5a8c9796a997935.png"
@@ -237,11 +238,10 @@
 	<div
 		v-else-if="shortcode == `fusion_youtube`"
 		:class="classish(params)"
-		:id="[params.groups.General.id.value]"
 
 		class="videoframe"
 	>
-		<iframe src="https://www.youtube.com/embed/UDyNsnB_COA?autoplay=0&enablejsapi=1&wmode=opaque"></iframe>
+		<iframe :src="['https://www.youtube.com/embed/' + params.groups.General.id.value + '?autoplay=' + params.groups.General.autoplay.default + params.groups.General.api_params.value]"></iframe>
 	</div>
 	<!--maybe here need to strict checking by including in array of all elements shortcodes OR SOMETHING MORE EFFICIENT-->
 	<div v-else-if="isEl(shortcode)" class="builder-column-element">

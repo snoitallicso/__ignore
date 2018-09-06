@@ -214,7 +214,7 @@ var lay = new Vue({
 						}
 					}
 					//GENERAL OPTIONS GROUP
-					if(params.groups.General){	
+					if(params.groups.General){
 						//Alignment
 						if(params.groups.General.alignment){
 							classobj.push(params.groups.General.alignment.default);
@@ -231,27 +231,29 @@ var lay = new Vue({
 							  	{'no-s-v': params.groups.General.hide_on_mobile.default.indexOf('small-visibility') == -1 }
 							  );
 						}
+						//Hover Type
+						if(params.groups.General.hover_type){
+							classobj.push(
+								{'zoomin': params.groups.General.hover_type.default == 'Zoom In' },
+						  	{'zoomout': params.groups.General.hover_type.default == 'Zoom Out' },
+						  	{'liftup': params.groups.General.hover_type.default == 'Lift Up' }
+							)
+						}
+						if(params.groups.General.align){
+							classobj.push(
+								{'left': params.groups.General.align.default == 'Left' },
+						  	{'right': params.groups.General.align.default == 'Right' },
+						  	{'center': params.groups.General.align.default == 'Center' }
+							)
+						}
+						/*if(params.groups.General.one){
+							classobj.push(
+
+							)
+						}*/
 					}
 					
 					return classobj;
-				},
-				clickedE: function(children, index){
-					
-					//console.log(this.$refs.ele_ref[index].$el);
-					//THIS IS REF TO ELEMENT IN DOM
-					lay.active_dom_el = this.$refs.ele_ref[index].$el;
-					
-					if(lay.activeItem != undefined){
-						lay.activeItem.isActive = false;
-					}
-						
-					lay.activeItem = children;
-					
-					children.isActive = true
-					lay.children = children
-
-					//(CONTEXT OF LAYOUT ELEMENT BY CLICK) SET REF TO __ELEMENT__
-					contextWindow.$data.groups = lay.children.params.groups;
 				},
 				stylish: function(children, sto){
 					reka= children
@@ -321,7 +323,31 @@ var lay = new Vue({
 							borderBottomStyle: children.params.groups.Design.border_style.default,
 							borderColor: children.params.groups.Design.border_color.value*/
 						}
-					} 
+					}
+					if(element_type === 'Youtube'){
+						var style_object = {
+							maxWidth: children.params.groups.General.dimensions.value.width,
+							maxHeight: children.params.groups.General.dimensions.value.height
+						};
+					}
+					if(element_type === 'Image'){
+						var boxShadowValue;
+						if(children.params.groups.General.style_type.default == 'Glow'){
+							boxShadowValue = '0 0 3px';
+						}
+						if(children.params.groups.General.style_type.default == 'Drop Shadow'){
+							boxShadowValue = '2px 3px 7px';
+						}
+						if(children.params.groups.General.style_type.default == 'Bottom Shadow'){
+							boxShadowValue = '0 17px 10px';
+						}
+						var style_object = {
+							boxShadow: boxShadowValue + ' ' + children.params.groups.General.stylecolor.value,
+							borderWidth: children.params.groups.General.bordersize.value,
+							borderColor: children.params.groups.General.bordercolor.value,
+							borderRadius: children.params.groups.General.borderradius.value + 'px'
+						};
+					}
 
 					/*else {
 						var style_object = {
@@ -329,6 +355,24 @@ var lay = new Vue({
 						}
 					}*/
 					return style_object;
+				},
+				clickedE: function(children, index){
+					
+					//console.log(this.$refs.ele_ref[index].$el);
+					//THIS IS REF TO ELEMENT IN DOM
+					lay.active_dom_el = this.$refs.ele_ref[index].$el;
+					
+					if(lay.activeItem != undefined){
+						lay.activeItem.isActive = false;
+					}
+						
+					lay.activeItem = children;
+					
+					children.isActive = true
+					lay.children = children
+
+					//(CONTEXT OF LAYOUT ELEMENT BY CLICK) SET REF TO __ELEMENT__
+					contextWindow.$data.groups = lay.children.params.groups;
 				},
 				isEl: function(shortcode){
 					//list = ["fusion_builder_blank_page","fusion_li_item","fusion_builder_column_inner","fusion_builder_column","fusion_builder_container","fusion_content_box","fusion_counter_box","fusion_counter_circle","fusion_flip_box","fusion_image","fusion_builder_next_page","fusion_builder_row_inner","fusion_builder_row","fusion_slide","fusion_tab","fusion_testimonial","fusion_toggle"];
