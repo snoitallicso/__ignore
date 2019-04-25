@@ -186,13 +186,15 @@
 <div class="side-demos-popup">
 	<div class="sd-modal" v-if="show">
 		<h1>DEMOS</h1>
+		<div class="warn-sel-demo" v-if="demo_selected">
+			<p>Styles and type of element were changed. But you can revert settings up to moment before selecting demo</p>
+			<button v-on:click="undoSettings()">Undo change</button>
+		</div>
 		<div v-for="picurl, title, index in demos_list()">
-			<!--div v-on:click="selectDemo(index)">{{title}} : {{picurl}} : {{index}}</div-->
 			<div
 				v-on:click="selectDemo(index)"
 				class="demo-tile"
 			>
-				<!--img src="http://127.0.0.1/wordpress498/wp-content/uploads/2019/03/Screenshot_2019-03-02-Home-300x236.png" /-->
 				<img v-bind:src="'././demo_imgs/' + picurl + '.png'" />
 				<p>{{title}}</p>
 			</div>

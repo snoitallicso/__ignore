@@ -1035,7 +1035,9 @@ var schemaEditorState = new Vue({
 
 var sideDemos = new Vue({
 	data: {
-		show: false
+		show: false,
+		demo_selected: false,
+		savedSettings: undefined
 	},
 	template: sidedemos,
 	el: '.demo-selector',
@@ -1045,13 +1047,18 @@ var sideDemos = new Vue({
 			return elementsSlot.activeobject.params.groups.General.type.value;
 		},
 		selectDemo: function(index){
+			//open note message that settings were changed
+			this.demo_selected = true;
+			
+			//save settings (but at first time before changing)
+			this.savedSettings = copyObj(elementsSlot.activeobject.params.groups);
+			
 			//changing of one of the available layouts for element
 			elementsSlot.activeobject.params.groups.General.type.default = index;
 			//select style for this demo element from demo style collection
 			
 			var shortcode = elementsSlot.activeobject.shortcode;
 			
-			console.log("index is", index)
 			this.insertDemoStyle(shortcode, index);
 		},
 		insertDemoStyle: function(shortcode, demo_index){
@@ -1060,9 +1067,14 @@ var sideDemos = new Vue({
 			obj1 = elementsSlot.activeobject.params.groups;
 			obj2 = demoStyles[shortcode][demo_index].params.groups;
 			
-			console.log(1063, obj2)
-			
 			MergeRecursive(obj1, obj2);
+		},
+		undoSettings: function(){
+			var currEl = elementsSlot.activeobject.params.groups;
+			MergeRecursive(currEl, this.savedSettings);
+			
+			//clear saved settings because we revert
+			//?
 		}
 	}
 });
