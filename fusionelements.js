@@ -6895,8 +6895,8 @@ var fusionAllElements = {
                         "description": "Select the type of pricing table.",
                         "param_name": "type",
                         "value": {
-                            "1": "Style 1",
-                            "2": "Style 2"
+                            "1": "Classic",
+                            "2": "Minimal"
                         },
                         "default": "1"
                     },
@@ -6907,6 +6907,14 @@ var fusionAllElements = {
                         "param_name": "backgroundcolor",
                         "value": "",
                         "default": "#ffffff"
+                    },
+                    "headingcolor": {
+                        "type": "colorpickeralpha",
+                        "heading": "Price Title Color",
+                        "description": "Set pricing table title color. Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_bg_color\" target=\"_blank\" rel=\"noopener noreferrer\">#ffffff</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-backgroundcolor\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"backgroundcolor\" value=\"\" data-default=\"#ffffff\">Reset to default.</a><span>Using default value.</span></span>",
+                        "param_name": "headingcolor",
+                        "value": "",
+                        "default": "#000000"
                     },
                     "background_color_hover": {
                         "type": "colorpickeralpha",
@@ -6980,7 +6988,66 @@ var fusionAllElements = {
                         "description": "Pricing Table short code content.",
                         "param_name": "element_content",
                         "value": "[fusion_pricing_column title=\"Standard\" standout=\"no\" class=\"\" id=\"\"][fusion_pricing_price currency=\"$\" price=\"15.55\" time=\"monthly\"][/fusion_pricing_price][fusion_pricing_row]Feature 1[/fusion_pricing_row][fusion_pricing_footer][/fusion_pricing_footer][/fusion_pricing_column][fusion_pricing_column title=\"Premium\" standout=\"yes\" class=\"\" id=\"\"][fusion_pricing_price currency=\"$\" price=\"25.55\" time=\"monthly\"][/fusion_pricing_price][fusion_pricing_row]Feature 1[/fusion_pricing_row][fusion_pricing_footer][/fusion_pricing_footer][/fusion_pricing_column]",
-                        "hidden": true
+                        "hidden": true,
+						"gchildrens": [
+							{
+								"shortcode": "fusion_pricing_column",
+								"title": "Standard",
+								"standout": "no",
+								"class": "",
+								"id": "",
+								"gchildrens": [
+									{
+										"shortcode": "fusion_pricing_price",
+										"currency": "$",
+										"price": "15.55",
+										"currency_position": "left",
+										"time": "monthly"
+									},
+									{
+										"shortcode": "fusion_pricing_row",
+										"text": "Feature 1"
+									},
+									{
+										"shortcode": "fusion_pricing_footer",
+										"text": ""
+									}
+								]
+							},
+							{
+								"shortcode": "fusion_pricing_column",
+								"title": "Premium",
+								"standout": "yes",
+								"class": "",
+								"id": "",
+								"gchildrens": [
+									{
+										"shortcode": "fusion_pricing_price",
+										"currency": "$",
+										"price": "25.55",
+										"currency_position": "right",
+										"time": "monthly"
+									},
+									{
+										"shortcode": "fusion_pricing_row",
+										"text": "Feature 1"
+									},
+									{
+										"shortcode": "fusion_pricing_row",
+										"text": "Feature 2!"
+									},
+									{
+										"shortcode": "fusion_pricing_row",
+										"text": "Feature 3!"
+									},
+									{
+										"shortcode": "fusion_pricing_footer",
+										"text": ""
+									}
+									
+								]
+							}
+						]
                     },
                     "hide_on_mobile": {
                         "type": "checkbox_button_set",
@@ -7010,7 +7077,10 @@ var fusionAllElements = {
                         "value": "",
                         "group": "General"
                     }
-                }
+                },
+				"Demos": {
+					
+				}
             }
         },
         "remove_from_atts": []

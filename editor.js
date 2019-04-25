@@ -1,5 +1,6 @@
 //templ0 = document.getElementsByClassName("templ")[0].innerHTML;
-schema_templ = document.getElementsByClassName("schema-templ")[0]
+schema_templ = document.getElementsByClassName("schema-templ")[0];
+sidedemos = document.getElementsByClassName("side-demos-popup")[0];
 elpretempl1 = document.getElementsByClassName("templ")[0] //.children[0];
 li = document.createElement("li");
 li.setAttribute("onclick", "addC([])")
@@ -123,6 +124,10 @@ var page_settings = {
 	fullwidth: true
 };
 
+Vue.directive('demo', function (el, binding) {
+  console.log(binding.value)
+})
+
 var lay = new Vue({
 	el: '.layout-container',
 	//data: layObj.layout,
@@ -131,12 +136,19 @@ var lay = new Vue({
 		styleObject: layObj.styleObject,
 		fullwidth: page_settings.fullwidth,
 		active_dom_el: null,
-		likera: 42
+		likera: 42,
+		message: 'Hello world!',
+
+		/*PERSONE ELEMENT*/
+		elements_list: ['box1', 'box2', 'box3', 'box4'],
+		colorInput: ""
+		/*PERSONE ELEMENT*/
+
 	},
 	props: ['shortcode', 'isfheight'],
 	components: {
 		'childrens-component': {
-			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth', 'cl', 'likes', 'likera'],
+			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth', 'cl', 'likes', 'likera', 'gchildrens'],
 			name: 'templ',
 			methods: {
 				classish: function (params){
@@ -149,7 +161,7 @@ var lay = new Vue({
 						if(params.groups.Animation.stretch){
 							classobj.push(
 								{fspan: params.groups.Design.stretch.default == 'Yes'},
-						  	{nospan: params.groups.Design.stretch.default == 'No'}
+								{nospan: params.groups.Design.stretch.default == 'No'}
 							)
 						}
 						if(params.groups.Animation.color){
@@ -160,14 +172,14 @@ var lay = new Vue({
 						if(params.groups.Animation.type){
 							classobj.push(
 								{'b-3d': params.groups.Design.type.default == '3D'},
-						  	{'b-flat': params.groups.Design.type.default == 'Flat'}
+								{'b-flat': params.groups.Design.type.default == 'Flat'}
 							)
 						}
 						if(params.groups.Animation.shape){
 							classobj.push(
 								{'square': params.groups.Design.shape.default == 'Square'},
-							  {'pill': params.groups.Design.shape.default == 'Pill'},
-							  {'round': params.groups.Design.shape.default == 'Round'}
+								{'pill': params.groups.Design.shape.default == 'Pill'},
+								{'round': params.groups.Design.shape.default == 'Round'}
 							)
 						}
 						if(params.groups.Animation.icon_position){
@@ -192,33 +204,33 @@ var lay = new Vue({
 						if(params.groups.Animation.animation_type){
 							classobj.push(
 								{'bounce': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
-							  {'bounceinleft': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-							  {'bounceinright': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-							  {'bounceinup': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-							  {'bounceindown': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+								{'bounceinleft': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+								{'bounceinright': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+								{'bounceinup': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+								{'bounceindown': params.groups.Animation.animation_type.default == 'Bounce' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
 
-							  {'flash': params.groups.Animation.animation_type.default == 'Flash'},
+								{'flash': params.groups.Animation.animation_type.default == 'Flash'},
 
-							  {'rubberband': params.groups.Animation.animation_type.default == 'Rubberband'},
+								{'rubberband': params.groups.Animation.animation_type.default == 'Rubberband'},
 
-							  {'shake': params.groups.Animation.animation_type.default == 'Shake'},
+								{'shake': params.groups.Animation.animation_type.default == 'Shake'},
 
-							  {'fadein': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
-							  {'fadeinleft': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-							  {'fadeinright': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-							  {'fadeinup': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-							  {'fadeindown': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+								{'fadein': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+								{'fadeinleft': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+								{'fadeinright': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+								{'fadeinup': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+								{'fadeindown': params.groups.Animation.animation_type.default == 'Fade' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
 
-							  {'slideinleft': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-							  {'slideinright': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-							  {'slideinup': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-							  {'slideindown': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
+								{'slideinleft': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+								{'slideinright': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+								{'slideinup': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+								{'slideindown': params.groups.Animation.animation_type.default == 'Slide' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'},
 
-							  {'zoomin': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
-							  {'zoominleft': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
-							  {'zoominright': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
-							  {'zoominup': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
-							  {'zoomindown': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'}
+								{'zoomin': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'static'},
+								{'zoominleft': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'left'},
+								{'zoominright': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'right'},
+								{'zoominup': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'top'},
+								{'zoomindown': params.groups.Animation.animation_type.default == 'Zoom' && params.groups.Animation.animation_direction.default.toLowerCase() == 'bottom'}
 							);
 						}
 					}
@@ -245,9 +257,9 @@ var lay = new Vue({
 						if(params.groups.General.type){
 							classobj.push(
 								/*{'gen': params.groups.General.type.default == 'General' },*/
-						  	{'err': params.groups.General.type.default == 'Error' },
-						  	{'succ': params.groups.General.type.default == 'Success' },
-						  	{'notc': params.groups.General.type.default == 'Notice' }
+								{'err': params.groups.General.type.default == 'Error' },
+								{'succ': params.groups.General.type.default == 'Success' },
+								{'notc': params.groups.General.type.default == 'Notice' }
 							);
 						}
 						//Alignment
@@ -262,16 +274,16 @@ var lay = new Vue({
 						if(params.groups.General.hide_on_mobile){
 								classobj.push(
 									{'no-l-v': params.groups.General.hide_on_mobile.default.indexOf('large-visibility') == -1 },
-							  	{'no-m-v': params.groups.General.hide_on_mobile.default.indexOf('medium-visibility') == -1 },
-							  	{'no-s-v': params.groups.General.hide_on_mobile.default.indexOf('small-visibility') == -1 }
-							  );
+									{'no-m-v': params.groups.General.hide_on_mobile.default.indexOf('medium-visibility') == -1 },
+									{'no-s-v': params.groups.General.hide_on_mobile.default.indexOf('small-visibility') == -1 }
+								);
 						}
 						//Hover Type
 						if(params.groups.General.hover_type){
 							classobj.push(
 								{'izoomin': params.groups.General.hover_type.default == 'Zoom In' },
-						  	{'izoomout': params.groups.General.hover_type.default == 'Zoom Out' },
-						  	{'iliftup': params.groups.General.hover_type.default == 'Lift Up' }
+								{'izoomout': params.groups.General.hover_type.default == 'Zoom Out' },
+								{'iliftup': params.groups.General.hover_type.default == 'Lift Up' }
 							)
 						}
 						if(params.groups.General.pic_style){
@@ -284,8 +296,8 @@ var lay = new Vue({
 						if(params.groups.General.align){
 							classobj.push(
 								{'left': params.groups.General.align.default == 'Left' },
-						  	{'right': params.groups.General.align.default == 'Right' },
-						  	{'center': params.groups.General.align.default == 'Center' }
+								{'right': params.groups.General.align.default == 'Right' },
+								{'center': params.groups.General.align.default == 'Center' }
 							)
 						}
 						if(params.groups.General.content_alignment){
@@ -331,14 +343,14 @@ var lay = new Vue({
 						if(params.groups.General.button_shape){
 							classobj.push(
 								{'b-3d': params.groups.General.button_type.default == '3D'},
-						  	{'b-flat': params.groups.General.button_type.default == 'Flat'}
+								{'b-flat': params.groups.General.button_type.default == 'Flat'}
 							)
 						}
 						if(params.groups.General.button_shape){
 							classobj.push(
-						  	{'square': params.groups.General.button_shape.default == 'Square'},
-							  {'pill': params.groups.General.button_shape.default == 'Pill'},
-							  {'round': params.groups.General.button_shape.default == 'Round'}
+								{'square': params.groups.General.button_shape.default == 'Square'},
+								{'pill': params.groups.General.button_shape.default == 'Pill'},
+								{'round': params.groups.General.button_shape.default == 'Round'}
 							)
 						}
 						if(params.groups.General.buttoncolor){
@@ -410,7 +422,7 @@ var lay = new Vue({
 					}
 
 					if(element_type === 'Button'){
-						console.log(children.params.groups.Design.button_gradient_bottom_color.value)
+						//console.log(children.params.groups.Design.button_gradient_bottom_color.value)
 						var style_object = {
 							backgroundImage: 'linear-gradient( to top, '+children.params.groups.Design.button_gradient_bottom_color.value+', '+ children.params.groups.Design.button_gradient_top_color.value +' )',
 							color: children.params.groups.Design.accent_color.value,
@@ -475,6 +487,11 @@ var lay = new Vue({
 							marginBottom: children.params.groups.General.dimensions.value.margin_bottom
 						}
 					}
+					if(element_type === 'Pricing Table'){
+						var style_object = {
+							//backgroundColor: children.params.groups.General.backgroundcolor.value
+						}
+					}
 
 					/*else {
 						var style_object = {
@@ -527,28 +544,92 @@ var lay = new Vue({
 				}
 			},
 			computed: {
-			    selectedBoxes: function(){
+				selectedBoxes: function(){
+					
+					var els = this.socElements
+					
+					var values = Object.keys(els).map( function(e){ return els[e] } )
 
-			      /*return Object.values(this.elements)
-			        .filter(el => el.value)
-			        .map((el, ndx) => ({value: el.value, color: this.colors[ndx]}))*/
+					var filteredvals = values.filter(function(el){ return el.value }) //filter for with values
+					//.map((el, ndx) => ({value: el.value, backcolor: this.colors[ndx]}))
 
-					var els = this.elements
-					var values = Object.keys(this.elements).map( function(e){ return els[e] } )
-
-					filteredvals = values.filter(function(el){ return el.value }) //filter for with values
-					//.map((el, ndx) => ({value: el.value, color: this.colors[ndx]}))
-
-					color_values = []
-					for(i=0; i<filteredvals.length; i++){
-						color_values.push({value: filteredvals[i].value, color: this.colors[i]})
+					var color_values = []
+					
+					if(this.colors !== undefined || this.bcolors !== undefined){
+						
+						for(i=0; i<filteredvals.length; i++){
+							color_values.push(
+								{
+									value: filteredvals[i].value,
+									title: filteredvals[i].title,
+									cn: filteredvals[i].cn,
+									backcolor: this.bcolors[i],
+									color: this.colors[i]
+								}
+							)
+						}
+					} else {
+						var color_values = filteredvals;
 					}
 
 					return color_values
 
-			    },
-			    colors: function() {
-			    	return this.colorInput.split(',')
+				},
+				colors: function() {
+					//HERE I NEED TO BIND field from editor
+					
+					var result = elementsSlot.activeobject.params.groups.General.social_icon_colors.social_icon_colors;
+					
+					if(result !== undefined){
+						//split color input string on to ['orange', 'pink', 'purple'] …
+						return result.split(',');
+					} else {
+						return ['']
+					}
+				},
+				bcolors: function() {
+					var result = elementsSlot.activeobject.params.groups.General.social_icon_boxed_colors.social_icon_boxed_colors;
+					
+					if(result !== undefined){
+						//split color input string on to ['orange', 'pink', 'purple'] …
+						return result.split(',');
+					} else {
+						return ['']
+					}
+				},
+				socElements: function(){
+					var parent = elementsSlot.activeobject.params.groups.General;
+					
+					return {
+						0: { title: 'Facebook', value: parent.facebook.value, cn: 'tfacebook' },
+						1: { title: 'Blogger', value: parent.blogger.value, cn: 'tblogger' },
+						2: { title: 'Deviantart', value: parent.deviantart.value, cn: 'tdeviantart' },
+						3: { title: 'Digg', value: parent.digg.value, cn: 'tdigg' },
+						4: { title: 'Dribbble', value: parent.dribbble.value, cn: 'tdribbble' },
+						5: { title: 'Dropbox', value: parent.dropbox.value, cn: 'tdropbox' },
+						6: { title: 'Flickr', value: parent.flickr.value, cn: 'tflickr' },
+						7: { title: 'Forrst', value: parent.forrst.value, cn: 'tforrst' },
+						8: { title: 'Google+', value: parent.googleplus.value, cn: 'tgplus' },
+						9: { title: 'Instagram', value: parent.instagram.value, cn: 'tinstagram' },
+						10: { title: 'Linkedin', value: parent.linkedin.value, cn: 'tlinkedin' },
+						11: { title: 'Myspace', value: parent.myspace.value, cn: 'tmyspace' },
+						12: { title: 'Paypal', value: parent.paypal.value, cn: 'tpaypal' },
+						13: { title: 'Pinterest', value: parent.pinterest.value, cn: 'tpinterest' },
+						14: { title: 'Reddit', value: parent.reddit.value, cn: 'treddit' },
+						15: { title: 'RSS', value: parent.rss.value, cn: 'trss' },
+						16: { title: 'Skype', value: parent.skype.value, cn: 'tskype' },
+						17: { title: 'Soundcloud', value: parent.soundcloud.value, cn: 'tsoundcloud' },
+						18: { title: 'Spotify', value: parent.spotify.value, cn: 'tspotify' },
+						19: { title: 'Tumblr', value: parent.tumblr.value, cn: 'ttumblr' },
+						20: { title: 'Twitter', value: parent.twitter.value, cn: 'ttwitter' },
+						21: { title: 'Vimeo', value: parent.vimeo.value, cn: 'tvimeo' },
+						22: { title: 'VK', value: parent.vk.value, cn: 'tvk' },
+						23: { title: 'Xing', value: parent.xing.value, cn: 'txing' },
+						24: { title: 'Yahoo', value: parent.yahoo.value, cn: 'tyahoo' },
+						26: { title: 'Yelp', value: parent.yelp.value, cn: 'tyelp' },
+						27: { title: 'Youtube', value: parent.youtube.value, cn: 'tyoutube' },
+						28: { title: 'Email', value: parent.email.value, cn: 'temail' }
+					}
 				}
 			},
 			template: templ5
@@ -764,11 +845,233 @@ var secondSideContent = new Vue({
 var schemaEditorState = new Vue({
 	data: {
 		activeElHaveSchema: false,
-		pricingTableGrid: false
+		pricingTableGrid: false,
+		maxrows: 0,
+		columns_count: 0,
+		//launch equalizeRowsOnce method once
+		firstCalc: false,
+		firstCalc_MC: false
 	},
+	props: ['gchildrens', 'ch', 'column', 'eq', 'cpr'],
 	el: '.schema-editor',
 	name: 'schemaed',
-	template: schema_templ
+	template: schema_templ,
+	methods: {
+		closeTableEditor: function(){
+			this.activeElHaveSchema = false;
+		},
+		/***************************************/
+		maincalc: function(){
+			//alert()
+			var cols = elementsSlot.activeobject.params.groups.General.element_content.gchildrens;
+			console.log('maincalc!!!')
+			this.columns_count = cols.length;
+				
+			//CREATE LIST OF COUNT
+			var rows_list_count = [];
+				
+			//FOR EVERY COLUMN
+			for(i=0; i< this.columns_count; i++){
+				
+				//COUNT ROWS PER COLUMN
+				rows_per_col = 0;
+				
+				for(ia=0; ia<cols[i].gchildrens.length; ia++){
+					//IGNORE OTHER SUBOBJECTS THAN fusion_pricing_row shortcode
+					if(cols[i].gchildrens[ia].shortcode == 'fusion_pricing_row'){
+						rows_per_col += 1;
+					}
+				}
+				
+				//PUSH NUM OF ROWS INSIDE LIST
+				rows_list_count.push(rows_per_col);
+			}
+			
+			//SORT LIST FROM MIN TO MAX
+			
+			//BECAUSE SORT() IS MUTABLE
+			rows_list_count_orig = copyObj(rows_list_count);
+			rows_list_count.sort();
+			
+			//CHECK 'FLATNESS' OF THE LIST
+			//IF ROWS DISTRIBUTED NOT EQUALLY
+			this.maxrows = rows_list_count[rows_list_count.length - 1]; //3
+		},
+		tcalc: function(){
+			return [
+				this.maxrows,
+				this.columns_count
+			]
+		},
+		/***************************************/
+		
+		
+		//LAUNCH ONCE FOR EQUAL NUM OR ROWS PER EACH COLUMN
+		//INSIDE EDITOR (FOR EDITABLE INPUTS)
+		equalizeRowsOnce: function(gchildrens){
+			if(this.firstCalc == false){
+				this.firstCalc = true;
+				this.etAddRow(gchildrens, true);
+			}
+		},
+		equalizeRowsOnce_MC: function(gchildrens){
+			if(this.firstCalc_MC == false){
+				this.firstCalc_MC = true;
+				this.etAddRow(gchildrens, true);
+			}
+		},
+		etAddCol: function(gchildrens){
+			this.columns_count +=  1;
+			var pcolumn = {"shortcode":"fusion_pricing_column","title":"","standout":"no","class":"","id":"","gchildrens":[{"shortcode":"fusion_pricing_price","currency":"$","price":"","currency_position":"right","time":""},{"shortcode":"fusion_pricing_row","text":"Feature1"},{"shortcode":"fusion_pricing_footer","text":""}]};
+			
+			var gchildren = copyObj(pcolumn);
+			gchildrens.push(gchildren);
+			this.etAddRow(gchildrens, true);
+		},
+		calcCols: function(gchildrens){
+			console.log(gchildrens, gchildrens.length)
+			this.columns_count = gchildrens.length;
+		},
+		etAddRow: function(gchildrens, equalize){
+			console.log('start etAddRow (maxrows):', this.maxrows)
+			//default for equalization rows
+			var plusOneRow = 0;
+			
+			if(!equalize){
+				//value 1 as +1 to rows count if we 'Add row' into table
+				plusOneRow = 1;
+			}
+			//WARNING
+			//THIS CODE IS QUICK UGLY SOLUTION FOR PRICING TABLE ELEMENT
+			//EVERY TIME WHEN NEW FEATURE ROW ADDED WE NEED TO ADD IT FOR EVERY OTHER COLUMN EQUALLY
+			//SO WE INSERT NEW AND EMPTY ROWS FOR OTHER COLUMNS
+			//BUT WE DELETE EMPTY ROWS BEFORE CONVERTING BACK INTO SHORTCODE
+			
+			var rows_list_count, rows_per_col;
+			
+			this.columns_count = gchildrens.length;
+			
+			//CREATE LIST OF COUNT
+			rows_list_count = [];
+				
+			//FOR EVERY COLUMN
+			for(i=0; i<gchildrens.length; i++){
+				
+				//COUNT ROWS PER COLUMN
+				rows_per_col = 0;
+				
+				
+				for(ia=0; ia<gchildrens[i].gchildrens.length; ia++){
+					//IGNORE OTHER SUBOBJECTS THAN fusion_pricing_row shortcode
+					if(gchildrens[i].gchildrens[ia].shortcode == 'fusion_pricing_row'){
+						rows_per_col += 1;
+					}
+				}
+				
+				//PUSH NUM OF ROWS INSIDE LIST
+				rows_list_count.push(rows_per_col);
+			}
+			
+			//SORT LIST FROM MIN TO MAX
+			
+			//BECAUSE SORT() IS MUTABLE
+			rows_list_count_orig = copyObj(rows_list_count);
+			rows_list_count.sort();
+			
+			//CHECK 'FLATNESS' OF THE LIST
+			//IF ROWS DISTRIBUTED NOT EQUALLY
+			var rc = rows_list_count[rows_list_count.length - 1];
+			
+			if(rc == undefined){
+				//undefined + 0 = NaN = Render Error
+				rc = 0;
+			}
+			
+			var maxcount = rc;
+			
+			this.maxrows = rc + plusOneRow; //3
+			
+			//PUSH ROWS PER EVERY COLUMN + 1 NEW ROW FOR ALL
+			for(i=0; i<rows_list_count_orig.length; i++){
+				//MAX - CURRENT + 1 ROW (exception: first equalization)
+				var rowstoadd = maxcount - rows_list_count_orig[i] + plusOneRow;
+				//PUSH
+				for(z=0; z<rowstoadd; z++){
+					//insert before last (fusion_pricing_footer) element
+					gchildrens[i].gchildrens.insert(-1, {"shortcode": "fusion_pricing_row", "text": ""})
+				}
+			}
+			console.log('end etAddRow (maxrows):', this.maxrows);
+		},
+		etDeleteRow: function(gchildrens, row_index){
+			//console.log('row_index:', row_index)
+			this.maxrows -=  1;
+			for(i=0;i<gchildrens.length; i++){
+				//console.log(gchildrens[i].gchildrens[row_index])
+				gchildrens[i].gchildrens.splice(row_index, 1);
+			}
+		},
+		etCopy: function(gchildrens, index){
+			this.columns_count +=  1;
+			var gchildren = copyObj(gchildrens[index]);
+			gchildrens.push(gchildren)
+		},
+		etDelete: function(gchildrens, index){
+			this.columns_count -=  1;
+			gchildrens.splice(index, 1);
+		},
+		etEditRow: function(col_index, row_index){
+			console.log(col_index, row_index)
+			//console.log(this)
+			//console.log(e.target.value)
+			//this.params.groups.General.element_content.value = e.target.innerText;
+		},
+		fuck: function(gchildrens, col_index, row_index){
+			console.log(1013, gchildrens, col_index, row_index)
+			console.log(gchildrens[col_index - 1].gchildrens[row_index].text)
+		}
+	}
+});
+
+var sideDemos = new Vue({
+	data: {
+		show: false
+	},
+	template: sidedemos,
+	el: '.demo-selector',
+	name: 'sidedemos',
+	methods: {
+		demos_list: function(){
+			return elementsSlot.activeobject.params.groups.General.type.value
+		},
+		selectDemo: function(index){
+			//changing of one of the available layouts for element
+			elementsSlot.activeobject.params.groups.General.type.default = index;
+			//select style for this demo element from demo style collection
+			
+			var shortcode = elementsSlot.activeobject.shortcode;
+			
+			this.insertDemoStyle(shortcode, index - 1);
+		},
+		insertDemoStyle: function(shortcode, demo_index){
+			//actual editable object (properties): elementsSlot.activeobject.params.groups
+			
+			obj1 = elementsSlot.activeobject.params.groups;
+			obj2 = demoStyles[shortcode][demo_index].params.groups;
+			
+			console.log(obj1, obj2)
+			
+			//REWRITE TO ES5 (IE9+)
+			
+			/*for(var attname in obj2){
+				console.log(attname)
+				console.log(obj2[attname])
+				obj1[attname] = obj2[attname];
+			}*/
+			
+			MergeRecursive(obj1, obj2);
+		}
+	}
 });
 
 var gridState = new Vue({
@@ -908,10 +1211,23 @@ var gridState = new Vue({
 
 				//BUTTONS OF ELEMENT INSIDE GRID
 				editElement: function(children){
-					console.warn(children);
+//					console.warn(children);
 
 					//(EDIT) SET REF TO __ELEMENT__
+//					console.log(contextWindow.$data.groups, children.params.groups, 960)
 					contextWindow.$data.groups = children.params.groups;
+					if(children.shortcode == "fusion_pricing_table"){
+						//WARNING: THIS CODE DUPLICATE clickor method of elementsSlot
+						schemaEditorState.gchildrens = children.params.groups.General.element_content.gchildrens;
+						
+						//recalc rows (schemaEditorState.maxrows)
+						schemaEditorState.etAddRow(schemaEditorState.gchildrens, true);
+						//recalc cols (schemaEditorState.columns_count)
+						schemaEditorState.calcCols(schemaEditorState.gchildrens);
+						
+						schemaEditorState.activeElHaveSchema = true;
+						schemaEditorState.pricingTableGrid = true;
+					}
 				},
 				cloneElement: function(children, index){
 					var element = copyObj(children);
@@ -971,15 +1287,30 @@ var listElemnts = function(){
 	var obj = [];
 
 	for (var propname in fusionAllElements){
-	  if(!fusionAllElements[propname].hide_from_builder && !fusionAllElements[propname].generator_only){
-	    propvalue = fusionAllElements[propname];
-	    //console.log(propname, propvalue.name);
-	    var el = {title: propvalue.name, label: propname};
-	    obj.push(el);
-	  };
+		if(!fusionAllElements[propname].hide_from_builder && !fusionAllElements[propname].generator_only){
+		  propvalue = fusionAllElements[propname];
+		  //console.log(propname, propvalue.name);
+		  var el = {title: propvalue.name, label: propname};
+		  obj.push(el);
+		};
 	};
 
 	return obj;
+}
+function MergeRecursive(obj1, obj2){
+	for (p in obj2) {
+		try {
+			if (obj2[p].constructor == Object){
+				obj1[p] = MergeRecursive(obj1[p], obj2[p]);
+			} else {
+				obj1[p] = obj2[p];
+			}
+		}
+		catch(e){
+			obj1[p] = obj2[p];	
+		}
+	};
+	return obj1;
 }
 
 listElements = listElemnts();
@@ -993,7 +1324,7 @@ var elementsSlot = new Vue({
 		seen: false,
 		query: '',
 		//compile light list of elements for modal rendering
-		elements: listElements,
+		elements: listElements
 	},
 	computed: {
 		//search inside elements modal
@@ -1010,12 +1341,21 @@ var elementsSlot = new Vue({
 		//THIS FUNCTION RUNS BY CLICK ON ELEMENT FROM WINDOW WITH ELEMENTS TO INSERT
 		//LOOK openElementsModal AND grid-content-modal_insert INSIDE INDEX.HTML
 		clickor: function(tag, title){
+			
 			//CLOSE ELEMENTS MODAL
 			this.seen = false;
 
 			elobj = copyObj(fusionAllElements[tag]);
 			elobj.name = title;
-			//elobj.isActive = false;
+			elobj.isActive = false;
+			
+			//If we add Person element we insert parsed element inside
+			//Just for work
+			if(title === "Pricing Table"){
+				//we need calc max rows and equalize num of rows for first time before render
+				schemaEditorState.firstCalc_MC = false;
+				schemaEditorState.gchildrens = elobj.params.groups.General.element_content.gchildrens;
+			}
 
 			//here we insert element into column
 			this.activecolumn.push(elobj);
@@ -1041,41 +1381,65 @@ var elementsSlot = new Vue({
 	}
 })
 
+
+
 //CENTRALIZED STATE FOR CONTEXT OF SELECTED ELEMENT
-var contextTabs = copyObj(fusionAllElements.fusion_button.params.groups);
+var contextTabs = copyObj(fusionAllElements.fusion_alert.params.groups);
 
 /** vvv CONTEXT OF WINDOW  <keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive> vvv **/
 //OBJs DATA OF COMPONENTS 'tab-customization', 'tab-pages', 'tab-options'
 var tab_cust = {
 	props: ['groups', 'subtitle', 'selectedtabx', 'descrseen'],
-  template: templ3/*,
+	template: templ3,
+	methods: {
+		custTabClick: function(selectedtabx, index){
+			this.selectedtabx = index;
+			if(index == "Demos"){
+				//pin grid while select
+				//direct dirty DOM way because conflict between components
+				document.getElementById("grid").className = 'pin-grid';
+				
+				//open demo sidebar
+				sideDemos.show = true;
+			}
+		},
+		isSocNetOption: function(param_name){
+			//TOO MUCH CHECKINGS FOR OPTION LISTS! We no need to run this method
+			//for elements except 'Person' and another with soc net icons
+			//CASE 1
+//			console.log('computation')
+			var nets = ['facebook','blogger', 'deviantart', 'digg', 'dribbble', 'dropbox',  'flickr', 'forrst', 'googleplus', 'instagram', 'linkedin', 'myspace', 'paypal', 'pinterest', 'reddit', 'rss', 'skype', 'soundcloud', 'spotify', 'tumblr', 'twitter', 'vimeo', 'vk', 'xing', 'yahoo', 'yelp', 'youtube', 'email'];
+			return nets.indexOf(param_name) !== -1;
+		}
+	}
+  /*,
   methods: {
   	renderPicker: function(){
   		setTimeout(function(){
-	  		var target = document.querySelectorAll('input.spectrum');
+				var target = document.querySelectorAll('input.spectrum');
 
-		    // set hooks for each target element
-		    for (var i = 0, len = target.length; i < len; ++i) {
-		    		var p = document.querySelectorAll('p.spectrum')[i];
-		    		var picker = new CP(target[i], false, p);
-		        picker.on("change", function(color) {
-		            this.target.value = '#' + color;
-		            lay.active_dom_el.style.backgroundColor = '#' + color;
-		        });
+			  // set hooks for each target element
+			  for (var i = 0, len = target.length; i < len; ++i) {
+			  		var p = document.querySelectorAll('p.spectrum')[i];
+			  		var picker = new CP(target[i], false, p);
+			      picker.on("change", function(color) {
+			          this.target.value = '#' + color;
+			          lay.active_dom_el.style.backgroundColor = '#' + color;
+			      });
 
-		        // ...
-				    picker.fit = function() { // do nothing ...
-				        this.picker.style.left = this.picker.style.top = "";
-				    };
+			      // ...
+					  picker.fit = function() { // do nothing ...
+					      this.picker.style.left = this.picker.style.top = "";
+					  };
 
-				    // add a `static` class to the color picker panel
-				    picker.picker.classList.add('static');
+					  // add a `static` class to the color picker panel
+					  picker.picker.classList.add('static');
 
-				    // force to show the color picker panel
-				    picker.enter();
+					  // force to show the color picker panel
+					  picker.enter();
 
-		    }
-	  	}, 1);
+			  }
+			}, 1);
   }
 
 
@@ -1106,6 +1470,7 @@ var contextWindow = new Vue({
 		//selectedTab: null,
 		//default active button and state (further we call component for template binding)
 		currentTab: 'Customization',
+		currentTab: 'Customization',
 		//list of buttons of menu
 		tabs: ['Customization', 'Pages', 'Options']
 	},
@@ -1113,7 +1478,7 @@ var contextWindow = new Vue({
 		currentTabComponent: function () {
 			//create name of component 'tab-' + 'pages' = 'tab-pages' for calling bind component
 			//<keep-alive><depo v-bind:is="currentTabComponent"></depo></keep-alive>
-		  return 'tab-' + this.currentTab.toLowerCase();
+			return 'tab-' + this.currentTab.toLowerCase();
 		}
 	}
 });

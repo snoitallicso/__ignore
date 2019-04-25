@@ -811,9 +811,209 @@ layObj = {
                         }
                     },
                     "remove_from_atts": ["padding", "dimension_margin"],
-                    "childrens": [{
+                    "childrens": [
+						{
+						"isActive": false,
+						"name": "Pricing Table",
+						"shortcode": "fusion_pricing_table",
+						"icon": "fusiona-dollar",
+						"preview": "C:/xamppp/htdocs/wp_avada542/wp-content/plugins/fusion-builder/inc/templates/previews/fusion-pricing-table-preview.php",
+						"preview_id": "fusion-builder-block-module-pricing-table-preview-template",
+						"custom_settings_view_name": "ModuleSettingsTableView",
+						"custom_settings_view_js": "http://127.0.0.1/wp_avada542/wp-content/plugins/fusion-builder/inc/templates/custom/js/fusion-pricing-table-settings.js",
+						"custom_settings_template_file": "C:/xamppp/htdocs/wp_avada542/wp-content/plugins/fusion-builder/inc/templates/custom/fusion-pricing-table-settings.php",
+						"on_save": "pricingTableShortcodeFilter",
+						"admin_enqueue_js": "http://127.0.0.1/wp_avada542/wp-content/plugins/fusion-builder/shortcodes/js/fusion-pricing-table.js",
+						"params": {
+							"groups": {
+								"General": {
+									"type": {
+										"type": "radio_button_set",
+										"heading": "Type",
+										"description": "Select the type of pricing table.",
+										"param_name": "type",
+										"value": {
+											"1": "Classic",
+											"2": "Minimal"
+										},
+										"default": "2"
+									},
+									"backgroundcolor": {
+										"type": "colorpickeralpha",
+										"heading": "Background Color",
+										"description": "Set pricing table background color.   Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_bg_color\" target=\"_blank\" rel=\"noopener noreferrer\">#ffffff</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-backgroundcolor\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"backgroundcolor\" value=\"\" data-default=\"#ffffff\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "backgroundcolor",
+										"value": "",
+										"default": "#ffffff"
+									},
+									"headingcolor": {
+										"type": "colorpickeralpha",
+										"heading": "Price Title Color",
+										"description": "Set pricing table title color. Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_bg_color\" target=\"_blank\" rel=\"noopener noreferrer\">#ffffff</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-backgroundcolor\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"backgroundcolor\" value=\"\" data-default=\"#ffffff\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "headingcolor",
+										"value": "",
+										"default": "#000000"
+									},
+									"background_color_hover": {
+										"type": "colorpickeralpha",
+										"heading": "Background Hover Color",
+										"description": "Set pricing table background hover color.   Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_background_color_hover\" target=\"_blank\" rel=\"noopener noreferrer\">#f8f8f8</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-background_color_hover\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"background_color_hover\" value=\"\" data-default=\"#f8f8f8\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "background_color_hover",
+										"value": "",
+										"default": "#f8f8f8"
+									},
+									"bordercolor": {
+										"type": "colorpickeralpha",
+										"heading": "Border Color",
+										"description": "Set pricing table border color.  Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_border_color\" target=\"_blank\" rel=\"noopener noreferrer\">#f8f8f8</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-bordercolor\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"bordercolor\" value=\"\" data-default=\"#f8f8f8\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "bordercolor",
+										"value": "",
+										"default": "#f8f8f8"
+									},
+									"dividercolor": {
+										"type": "colorpickeralpha",
+										"heading": "Divider Color",
+										"description": "Set pricing table divider color.  Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_divider_color\" target=\"_blank\" rel=\"noopener noreferrer\">#ededed</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-dividercolor\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"dividercolor\" value=\"\" data-default=\"#ededed\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "dividercolor",
+										"value": "",
+										"default": "#ededed"
+									},
+									"heading_color_style_1": {
+										"type": "colorpicker",
+										"heading": "Heading Color",
+										"description": "Set pricing table headings color.  Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#full_boxed_pricing_box_heading_color\" target=\"_blank\" rel=\"noopener noreferrer\">#333333</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-heading_color_style_1\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"heading_color_style_1\" value=\"\" data-default=\"#333333\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "heading_color_style_1",
+										"value": "",
+										"default": "#333333",
+										"dependency": [{
+											"element": "type",
+											"value": "1",
+											"operator": "=="
+										}]
+									},
+									"heading_color_style_2": {
+										"type": "colorpicker",
+										"heading": "Heading Color",
+										"description": "Set pricing table headings color.  Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#sep_pricing_box_heading_color\" target=\"_blank\" rel=\"noopener noreferrer\">#333333</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-heading_color_style_2\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"heading_color_style_2\" value=\"\" data-default=\"#333333\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "heading_color_style_2",
+										"value": "",
+										"default": "#333333",
+										"dependency": [{
+											"element": "type",
+											"value": "2",
+											"operator": "=="
+										}]
+									},
+									"pricing_color": {
+										"type": "colorpicker",
+										"heading": "Pricing Text Color",
+										"description": "Set pricing table price text color.  Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#pricing_box_color\" target=\"_blank\" rel=\"noopener noreferrer\">#a0ce4e</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-pricing_color\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"pricing_color\" value=\"\" data-default=\"#a0ce4e\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "pricing_color",
+										"value": "",
+										"default": "#a0ce4e"
+									},
+									"body_text_color": {
+										"type": "colorpicker",
+										"heading": "Body Text Color",
+										"description": "Set pricing table body text color  Leave empty for default value of <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#body_typography\" target=\"_blank\" rel=\"noopener noreferrer\">#747474</a>.  <span class=\"fusion-builder-default-reset\"><a href=\"#\" id=\"default-body_text_color\" class=\"fusion-range-default fusion-hide-from-atts\" type=\"radio\" name=\"body_text_color\" value=\"\" data-default=\"#747474\">Reset to default.</a><span>Using default value.</span></span>",
+										"param_name": "body_text_color",
+										"value": "",
+										"default": "#747474"
+									},
+									"element_content": {
+										"type": "textarea",
+										"heading": "Short Code",
+										"description": "Pricing Table short code content.",
+										"param_name": "element_content",
+										"value": "[fusion_pricing_column title=\"Standard\" standout=\"no\" class=\"\" id=\"\"][fusion_pricing_price currency=\"$\" price=\"15.55\" time=\"monthly\"][/fusion_pricing_price][fusion_pricing_row]Feature 1[/fusion_pricing_row][fusion_pricing_footer][/fusion_pricing_footer][/fusion_pricing_column][fusion_pricing_column title=\"Premium\" standout=\"yes\" class=\"\" id=\"\"][fusion_pricing_price currency=\"$\" price=\"25.55\" time=\"monthly\"][/fusion_pricing_price][fusion_pricing_row]Feature 1[/fusion_pricing_row][fusion_pricing_footer][/fusion_pricing_footer][/fusion_pricing_column]",
+										"hidden": true,
+										"gchildrens": [
+											{
+												"shortcode": "fusion_pricing_column",
+												"title": "Standard",
+												"standout": "no",
+												"class": "",
+												"id": "",
+												"gchildrens": [
+													{
+														"shortcode": "fusion_pricing_price",
+														"currency": "$",
+														"currency_position": "right",
+														"price": "15",
+														"time": "monthly"
+													},
+													{
+														"shortcode": "fusion_pricing_row",
+														"text": "Feature 1" /*v-if?*/
+													},
+													{
+														"shortcode": "fusion_pricing_footer"
+													}
+													
+												]
+											},
+											{
+												"shortcode": "fusion_pricing_column",
+												"title": "Premium",
+												"standout": "yes",
+												"class": "",
+												"id": "",
+												"gchildrens": [
+													{
+														"shortcode": "fusion_pricing_price",
+														"currency": "$",
+														"currency_position": "left",
+														"price": "25.55",
+														"time": "monthly"
+													},
+													{
+														"shortcode": "fusion_pricing_row",
+														"text": "Feature 1" /*v-if?*/
+													},
+													{
+														"shortcode": "fusion_pricing_footer"
+													}
+													
+												]
+											}
+										]
+									},
+									"hide_on_mobile": {
+										"type": "checkbox_button_set",
+										"heading": "Element Visibility",
+										"param_name": "hide_on_mobile",
+										"value": {
+											"small-visibility": "Small Screen",
+											"medium-visibility": "Medium Screen",
+											"large-visibility": "Large Screen"
+										},
+										"default": ["small-visibility", "medium-visibility", "large-visibility"],
+										"description": "Choose to show or hide the element on small, medium or large screens. You can choose more than one at a time.  Each of the 3 sizes has a custom width setting on the Fusion Builder Elements tab in the <a href=\"http://127.0.0.1/wp_avada542/wp-admin/admin.php?page=fusion-element-options&lang=en#visibility_small\" target=\"_blank\" rel=\"noopener noreferrer\">Element Options</a>."
+									},
+									"class": {
+										"type": "textfield",
+										"heading": "CSS Class",
+										"description": "Add a class to the wrapping HTML element.",
+										"param_name": "class",
+										"value": "",
+										"group": "General"
+									},
+									"id": {
+										"type": "textfield",
+										"heading": "CSS ID",
+										"description": "Add an ID to the wrapping HTML element.",
+										"param_name": "id",
+										"value": "",
+										"group": "General"
+									}
+								}
+							}
+						},
+						"remove_from_atts": []
+					},
+					{
                         "isActive": false,
-            "name": "Alert",
+						"name": "Alert",
                         "shortcode": "fusion_alert",
                         "icon": "fa fa-lg fa-exclamation-triangle",
                         "preview": "C:/xamppp/htdocs/wp_avada542/wp-content/plugins/fusion-builder/inc/templates/previews/fusion-alert-preview.php",
@@ -1754,7 +1954,7 @@ layObj = {
                     "remove_from_atts": ["padding", "dimension_margin"],
                     "childrens": [{
                         "isActive": false,
-            "name": "Button",
+						"name": "Button",
                         "shortcode": "fusion_button",
                         "icon": "fusiona-check-empty",
                         "preview": "C:/xamppp/htdocs/wp_avada542/wp-content/plugins/fusion-builder/inc/templates/previews/fusion-button-preview.php",
