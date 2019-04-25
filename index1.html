@@ -186,8 +186,16 @@
 <div class="side-demos-popup">
 	<div class="sd-modal" v-if="show">
 		<h1>DEMOS</h1>
-		<div v-for="a, index in demos_list()">
-			<div v-on:click="selectDemo(index)">{{a}} : {{index}}</div>
+		<div v-for="picurl, title, index in demos_list()">
+			<!--div v-on:click="selectDemo(index)">{{title}} : {{picurl}} : {{index}}</div-->
+			<div
+				v-on:click="selectDemo(index)"
+				class="demo-tile"
+			>
+				<!--img src="http://127.0.0.1/wordpress498/wp-content/uploads/2019/03/Screenshot_2019-03-02-Home-300x236.png" /-->
+				<img v-bind:src="'././demo_imgs/' + picurl + '.png'" />
+				<p>{{title}}</p>
+			</div>
 		</div>
 	</div>
 </div>
@@ -337,7 +345,7 @@
 	>
 		<!-- Template 1 -->
 		<div 
-			v-if="params.groups.General.type.default == 1"
+			v-if="params.groups.General.type.default == 0"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
 			<div v-for="column in params.groups.General.element_content.gchildrens" :columns="column" :pricerow="column.gchildrens[0]" class="codename-column">
@@ -359,7 +367,7 @@
 		</div>
 		<!-- Template 2 -->
 		<div 
-			v-if="params.groups.General.type.default == 2"
+			v-if="params.groups.General.type.default == 1"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
 			<div v-for="column in params.groups.General.element_content.gchildrens" :columns="column" :pricerow="column.gchildrens[0]" class="codename-column"

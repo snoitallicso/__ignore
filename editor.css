@@ -2406,7 +2406,19 @@ body #grid {
     height: 100%;
     width: 100%;
     top: 0;
-    background-color: wheat;
+    background-color: white;
+}
+.demo-tile {
+    border: 1px solid gray;
+    margin: 20px;
+    text-align: center;
+    padding-top: 10px;
+    color: black;
+    font-size: 15px;
+	cursor: pointer;
+}
+.demo-tile:hover {
+    border-color: #1b9aff;
 }
 .sch-lay {
     background: #cdefff;

@@ -1042,7 +1042,7 @@ var sideDemos = new Vue({
 	name: 'sidedemos',
 	methods: {
 		demos_list: function(){
-			return elementsSlot.activeobject.params.groups.General.type.value
+			return elementsSlot.activeobject.params.groups.General.type.value;
 		},
 		selectDemo: function(index){
 			//changing of one of the available layouts for element
@@ -1051,7 +1051,8 @@ var sideDemos = new Vue({
 			
 			var shortcode = elementsSlot.activeobject.shortcode;
 			
-			this.insertDemoStyle(shortcode, index - 1);
+			console.log("index is", index)
+			this.insertDemoStyle(shortcode, index);
 		},
 		insertDemoStyle: function(shortcode, demo_index){
 			//actual editable object (properties): elementsSlot.activeobject.params.groups
@@ -1059,15 +1060,7 @@ var sideDemos = new Vue({
 			obj1 = elementsSlot.activeobject.params.groups;
 			obj2 = demoStyles[shortcode][demo_index].params.groups;
 			
-			console.log(obj1, obj2)
-			
-			//REWRITE TO ES5 (IE9+)
-			
-			/*for(var attname in obj2){
-				console.log(attname)
-				console.log(obj2[attname])
-				obj1[attname] = obj2[attname];
-			}*/
+			console.log(1063, obj2)
 			
 			MergeRecursive(obj1, obj2);
 		}

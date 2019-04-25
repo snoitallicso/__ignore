@@ -833,10 +833,10 @@ layObj = {
 										"description": "Select the type of pricing table.",
 										"param_name": "type",
 										"value": {
-											"1": "Classic",
-											"2": "Minimal"
+											"Classic": "pt_0", //name: image
+											"Minimal": "pt_1"
 										},
-										"default": "2"
+										"default": "Classic"
 									},
 									"backgroundcolor": {
 										"type": "colorpickeralpha",
