@@ -78,6 +78,91 @@ input.error {
     font-size: 18px;
 }
 
+.codename-button {
+	padding: 11px 20px;
+	background: #1873ff;
+	color: white;
+}
+.codename-button {
+	text-decoration: none;
+	display: inline-block;
+}
+
+
+.codename-pricing-table.mini-lite .codename-button {
+    background-color: white;
+    color: #232323;
+    display: block;
+    border-radius: 20px;
+}
+.codename-pricing-table.mini-lite .codename-button:hover {
+    background-color: #21cff3;
+    color: #ffffff;
+}
+
+.codename-pricing-table.mini-lite .codename-column .box-wrap {
+    background-color: rgb(112, 230, 213);
+    margin-right: 10px;
+    position: relative;
+    border: 1px solid transparent;
+}
+.price-ribbon {
+    position: absolute;
+    transform: rotate(270deg);
+    margin-left: 10px;
+}
+
+.mini-lite .price-period {
+    background: white;
+    text-align: right;
+    transform: rotate(270deg);
+    writing-mode: vertical-rl;
+    padding: 6px 3px 10px 5px;
+    font-size: 15px;
+    margin-right: -6px;
+}
+.mini-lite .price-period:after {
+    content: "";
+    position: absolute;
+    top: -15px;
+    right: 0px;
+    border-top: 15px solid transparent;
+    border-bottom: 0;
+    border-right: 13px solid white;
+    border-left: 13px solid white;
+}
+.codename-pricing-table.mini-lite .codename-column:last-child .box-wrap {
+    margin-right: 0;
+}
+
+.codename-pricing-table.mini-lite .pricing-price-row, .pricing-col-heading {
+    color: white;
+}
+.codename-pricing-table.mini-lite .pricing-c, .pricing-cost-a, .pricing-cost-b {
+    font-style: italic;
+    font-weight: 700;
+    font-family: Lora, serif;
+    color: #655e65;
+    line-height: 1;
+}
+.codename-pricing-table.mini-lite .pricing-c {
+    font-size: 40px;
+    vertical-align: top;
+}
+.codename-pricing-table.mini-lite .pricing-cost-a {
+    font-size: 150px;
+}
+.codename-pricing-table.mini-lite  .pricing-col-heading, .pricing-price-row, .pricing-footer-row {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.codename-pricing-table.mini-lite  .pricing-col-heading {
+    padding-top: 20px;
+}
+.codename-pricing-table.mini-lite  .pricing-footer-row:last-child {
+    padding-bottom: 20px;
+}
+
 
 button.fspan {
     width: 100%;
@@ -2184,8 +2269,8 @@ button.round, .tagline.round .btn {
     padding: 10px;
 }
 
-.pricing-price-row {
-    padding: 10px;
+.pricing-footer-row {
+    padding-top: 20px;
 }
 span.psupdot {
     display: none;
@@ -2208,6 +2293,21 @@ span.psupdot {
 }
 span.price-period {
     font-size: 11px;
+}
+.mini-lite span.price-period {
+    -webkit-transform: rotate(270deg);
+    -moz-transform: rotate(270deg);
+    transform: rotate(270deg);
+    -webkit-transform-origin: 50% 0%;
+    -moz-transform-origin: 50% 0%;
+    transform-origin: 50% 0%;
+    position: absolute;
+    top: 0;
+    padding: 6px 22px;
+    background-color: white;
+    left: -35px;
+    font-size: 14px;
+    margin-top: 45px;
 }
 .pricing-col-heading {
     padding: 10px;
@@ -2466,11 +2566,9 @@ body #grid {
 	float: left;
 }
 .codename-column {
-    border: 1px solid black;
     box-sizing: border-box;
     margin-right: -1px;
     margin-bottom: 20px;
-    padding: 20px;
 }
 
 .codename-column {
@@ -2532,11 +2630,11 @@ input.bold {
 }
 .codename-column input {
 	border: 0;
-    box-shadow: none;
-    width: 100%;
-    max-width: 100%;
-    background: transparent;
-    text-align: center;
+	/* box-shadow: none; */
+	/* width: 100%; */
+	/* max-width: 100%; */
+	/* background: transparent; */
+	/* text-align: center; */
 }
 .codename-column input.currency {
     width: 40px;
