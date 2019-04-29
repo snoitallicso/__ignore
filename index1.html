@@ -686,16 +686,11 @@
         					</div>
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
-        				<div v-if="option.type == `colorpickeralpha`">
-        					<div style="background: blue" >
-        						<b style="color:hotpink;">Color Picker Alpha</b>
-        						<!--input type="text" v-model="option.value"></div-->
+        				<div v-if="option.type == `colorpickeralpha` && option.heading == 'Divider Color' && groups['General'].type.default !== 'pt_1'">
+        					<div style="background: #30d5ff" >
+        						<b style="color:#ff3454;">Color Picker Alpha</b>
         						<input type='text' v-model="option.value" class="spectrum" />
-								<div v-if="option.heading == 'Divider Color'" style="background-color: red">
-									<h3 v-if="groups['General'].type.default == 'pt_1'">{{ groups["General"].type.default }}</h3>
-								</div>
-								<h3 v-if="option.type.default == 'pt_1'" style="background-color: green">PT 1</h3>
-        						<p class="spectrum"></p>
+        						<!--p class="spectrum"></p-->
 	        				</div>
         				</div>
 						

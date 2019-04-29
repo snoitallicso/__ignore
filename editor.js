@@ -783,7 +783,7 @@ var gridContentLibrary = new Vue({
 				isActive: false,
 				title: "Saved Elements",
 				info: "Manage your saved elements. Elements cannot be inserted from the library window and they must always go inside a column. The globe icon indicates the element is a <a href='https://theme-fusion.com/fb-doc/fusion-builder-global-elements/' target='_blank'>global element</a>."
-			},
+			}
 		]
 	}
 });
