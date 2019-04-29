@@ -591,7 +591,9 @@
         	<ul>
         		<li v-for="(option, index) in groups[selectedtabx]">
         			<div :title="option.description" class="option-t">
-        				<h3>{{option.heading}}</h3>
+        				<div v-if="!(option.heading == 'Divider Color' && groups['General'].type.default == 'pt_1')">
+							<h3>{{option.heading}}</h3>
+						</div>
         			</div>
         			<div v-if="descrseen" class="odescription">
         				<p>{{option.description}}</p>
