@@ -1415,6 +1415,22 @@ var tab_cust = {
 //			console.log('computation')
 			var nets = ['facebook','blogger', 'deviantart', 'digg', 'dribbble', 'dropbox',  'flickr', 'forrst', 'googleplus', 'instagram', 'linkedin', 'myspace', 'paypal', 'pinterest', 'reddit', 'rss', 'skype', 'soundcloud', 'spotify', 'tumblr', 'twitter', 'vimeo', 'vk', 'xing', 'yahoo', 'yelp', 'youtube', 'email'];
 			return nets.indexOf(param_name) !== -1;
+		},
+		showOption: function (heading, groups) {
+			//this method checks might or not be showed option inside sidebar
+			//as example relate to type of element or closed option of color picker if color is none
+
+			//show by default
+			var show = true;
+
+			if (heading === "Divider Color"){
+				//close Divider Color option if type of pricing element is 2 (pt_1)
+				if(groups['General'].type.default == 'pt_1'){
+					show = false;
+				}
+			}
+
+			return show;
 		}
 	}
   /*,
@@ -1462,10 +1478,10 @@ var tab_options = {
 var contextWindow = new Vue({
 	el: "#contextside",
 	components: {
-    'tab-customization': tab_cust,
-    'tab-pages': tab_pages,
-    'tab-options': tab_options
-  },
+		'tab-customization': tab_cust,
+		'tab-pages': tab_pages,
+		'tab-options': tab_options
+	},
 	data: {
 		selectedtabx: "General",
 		//element title above options and under main title

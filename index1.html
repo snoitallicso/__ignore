@@ -591,7 +591,8 @@
         	<ul>
         		<li v-for="(option, index) in groups[selectedtabx]">
         			<div :title="option.description" class="option-t">
-        				<div v-if="!(option.heading == 'Divider Color' && groups['General'].type.default == 'pt_1')">
+        				<!--<div v-if="!(option.heading == 'Divider Color' && groups['General'].type.default == 'pt_1')">-->
+        				<div v-if="showOption(option.heading, groups)">
 							<h3>{{option.heading}}</h3>
 						</div>
         			</div>
@@ -688,7 +689,8 @@
         					</div>
         				</div>
         				<!--:value="option.value" conflicts with v-model on the same element because the latter already expands to a value binding internally-->
-        				<div v-if="option.type == `colorpickeralpha` && option.heading == 'Divider Color' && groups['General'].type.default !== 'pt_1'">
+        				<!--div v-if="option.type == `colorpickeralpha` && option.heading == 'Divider Color' && groups['General'].type.default !== 'pt_1'"-->
+        				<div v-if="option.type == `colorpickeralpha` && showOption(option.heading, groups)">
         					<div style="background: #30d5ff" >
         						<b style="color:#ff3454;">Color Picker Alpha</b>
         						<input type='text' v-model="option.value" class="spectrum" />
