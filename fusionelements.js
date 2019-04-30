@@ -6895,10 +6895,10 @@ var fusionAllElements = {
                         "description": "Select the type of pricing table.",
                         "param_name": "type",
                         "value": {
-							"Classic": "pt_0", //name: image
-							"Minimal": "pt_1"
+							"Classic": "0", //"pt_0", //name: image
+							"Minimal": "1" //"pt_1"
 						},
-                        "default": "1"
+                        "default": "0"
                     },
                     "backgroundcolor": {
                         "type": "colorpickeralpha",

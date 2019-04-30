@@ -1424,8 +1424,8 @@ var tab_cust = {
 			var show = true;
 
 			if (heading === "Divider Color"){
-				//close Divider Color option if type of pricing element is 2 (pt_1)
-				if(groups['General'].type.default == 'pt_1'){
+				//close Divider Color option if type of pricing element is 2 (1 index from 0)
+				if(groups['General'].type.default == '1'){
 					show = false;
 				}
 			}

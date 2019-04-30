@@ -836,7 +836,7 @@ layObj = {
 											"Classic": "pt_0", //name: image
 											"Minimal": "pt_1"
 										},
-										"default": "Classic"
+										"default": "0"
 									},
 									"backgroundcolor": {
 										"type": "colorpickeralpha",

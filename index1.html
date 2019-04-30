@@ -347,7 +347,7 @@
 	>
 		<!-- Template 1 -->
 		<div 
-			v-if="params.groups.General.type.default == 0"
+			v-if="params.groups.General.type.default == '0'"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
 			<div v-for="column in params.groups.General.element_content.gchildrens" :columns="column" :pricerow="column.gchildrens[0]" class="codename-column">
@@ -369,7 +369,7 @@
 		</div>
 		<!-- Template 2 -->
 		<div 
-			v-if="params.groups.General.type.default == 1"
+			v-if="params.groups.General.type.default == '1'"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
 			<div v-for="column in params.groups.General.element_content.gchildrens"
