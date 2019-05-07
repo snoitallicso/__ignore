@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="pricing_table.css">
+    <link rel="stylesheet" href="../boilerplate.css">
+    <style>
+        ._genblock {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- DIV BLOCK WITH TWO TEMPLATES (inside ._g element each) -->
+    <div class="_genblock">
+        <!-- genProps[0] -->
+        <div class="_g">
+            <div class="codename-pricing-table">
+                <div class="codename-table-columns-3">
+                    <div class="codename-column">
+                        <div class="box-wrap">
+                            <div class="pricing-col-heading">
+                                <h3>Standard</h3>
+                            </div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-c">$</span>
+                                <span class="pricing-cost-a">15</span>
+                                <sup>
+                                    <span class="psupdot">.</span>
+                                    55
+                                </sup>
+                                <span class="price-period">monthly</span>
+                            </div>
+                            <ul class="pricing-col-list">
+                                <li>Feature 1</li>
+                            </ul>
+                            <div class="pricing-footer-row">
+                                <a href="#" class="codename-button">
+                                    <span>Button Text</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="codename-column">
+                        <div class="box-wrap">
+                            <div class="pricing-col-heading">
+                                <h3>Premium</h3>
+                            </div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-c">$</span>
+                                <span class="pricing-cost-a">25</span>
+                                <sup>
+                                    <span class="psupdot">.</span>
+                                    55
+                                </sup>
+                                <span class="price-period">monthly</span>
+                            </div>
+                            <ul class="pricing-col-list">
+                                <li>Feature 1</li>
+                                <li>Feature 2!</li>
+                                <li>Feature 3!</li>
+                            </ul>
+                            <div class="pricing-footer-row">
+                                <a href="#" class="codename-button">
+                                    <span>Button Text</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="codename-column">
+                        <div class="box-wrap">
+                            <div class="pricing-col-heading">
+                                <h3>Standard</h3></div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-c">$</span>
+                                <span class="pricing-cost-a">15</span>
+                                <sup><span class="psupdot">.</span>55</sup>
+                                <span class="price-period">monthly</span>
+                            </div> <ul class="pricing-col-list">
+                            <li>Feature 1</li>
+                        </ul>
+                            <div class="pricing-footer-row">
+                                <a href="#" class="codename-button">
+                                    <span>Button Text</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- genProps[1] -->
+        <div class="_g">
+            <div class="codename-pricing-table d-mini-lite">
+                <div class="codename-table-columns-3">
+                    <div class="codename-column">
+                        <div class="box-wrap">
+                            <div class="price-ribbon">
+                                <div class="price-period">monthly</div>
+                            </div>
+                            <div class="pricing-col-heading">
+                                <h3>Standard</h3></div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-c">$</span>
+                                <span class="pricing-cost-a">15</span>
+                                <sup class="pricing-cost-b">
+                                    <span class="psupdot">.</span>
+                                    55
+                                </sup>
+                            </div>
+                            <div class="pricing-footer-row">
+                                <a href="#" class="codename-button">
+                                    <span>Button Text</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="codename-column">
+                        <div class="box-wrap">
+                            <div class="price-ribbon">
+                                <div class="price-period">monthly</div>
+                            </div>
+                            <div class="pricing-col-heading">
+                                <h3>Premium</h3>
+                            </div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-c">$</span>
+                                <span class="pricing-cost-a">25</span>
+                                <sup class="pricing-cost-b">
+                                    <span class="psupdot">.</span>
+                                </sup>
+                            </div>
+                            <div class="pricing-footer-row">
+                                <a href="#" class="codename-button">
+                                    <span>Button Text</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="codename-column">
+                        <div class="box-wrap">
+                            <div class="price-ribbon">
+                                <div class="price-period">monthly</div>
+                            </div>
+                            <div class="pricing-col-heading">
+                                <h3>Standard</h3>
+                            </div>
+                            <div class="pricing-price-row">
+                                <span class="pricing-c">$</span>
+                                <span class="pricing-cost-a">15</span>
+                                <sup class="pricing-cost-b">
+                                    <span class="psupdot">.</span>
+                                    55
+                                </sup>
+                            </div>
+                            <div class="pricing-footer-row">
+                                <a href="#" class="codename-button">
+                                    <span>Button Text</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="generator"></div>
+
+    <script>
+        /*var templates = document.getElementsByClassName("_g");
+        var generator_el = document.getElementById("generator");
+        concatHtmlElementsBlock = '';
+        //block;
+
+        genProps = {
+            //TEMPLATE INDEX
+            0: {
+                classnames: ['d_table', 'd_partdown']
+            },
+            1: {
+                //n_classnames: ['d-mini-lite'],
+                classnames: ['d_table', 'd_partdown']
+            }
+        };
+
+        for(i in genProps){
+            variations = genProps[i].classnames.length * genProps[i].classnames.length;
+
+            for(v = -1; v < variations; v++) {
+                block = templates[i];
+
+                if(v >= 0){
+                    clname = genProps[i].classnames[v];
+                    console.log(clname);
+
+                    console.log(block.children[0].className);
+                }
+
+                concatHtmlElementsBlock += block.innerHTML;
+            }
+        }
+        generator_el.innerHTML = concatHtmlElementsBlock;*/
+        function permutation(array){
+            var conc_ = "";
+            var conc_2 = "";
+            var arr_len = array.length;
+
+            for (var index=0; index < arr_len; index++){
+                var to_end;
+                to_end = arr_len - index;
+                //to_end = arr_len - 1 - index;
+
+                console.log(index);
+
+                for (var p=0; p < to_end; p++){
+                    conc_ += array[p + index];
+                    conc_2 += array[index];
+                    console.log("index:", index, "to_end:", to_end, "conc_:", conc_, "conc_2:", conc_2);
+                }
+                conc_ = "";
+                conc_2 = "";
+            }
+        }
+        permutation([1,2,3,4])
+    </script>
+</body>
+</html>

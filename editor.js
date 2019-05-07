@@ -538,9 +538,11 @@ var lay = new Vue({
 					return list.indexOf(shortcode) !== -1;
 				},
 				editle: function(e){
-					//todo: perf (input rerendering redundancy after native rendering by typing)
-					//maybe <keep-alive> ?
-					this.params.groups.General.element_content.value = e.target.innerText;
+                     /*
+                     todo: perf (input rerendering redundancy after native rendering by typing)
+                     maybe <keep-alive> ?
+                     */
+                    this.params.groups.General.element_content.value = e.target.innerText;
 				}
 			},
 			computed: {

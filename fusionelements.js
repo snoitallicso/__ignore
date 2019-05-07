@@ -6900,6 +6900,28 @@ var fusionAllElements = {
 						},
                         "default": "0"
                     },
+                    "style": {
+                        "type": "radio_button_set",
+                        "heading": "Style",
+                        "description": "Select the style of pricing table.",
+                        "param_name": "box_style",
+                        "value": {
+                            "box": "Box", //name: image
+                            "table": "Table"
+                        },
+                        "default": "box"
+                    },
+                    "decimal_pos":{
+                        "type": "radio_button_set",
+                        "heading": "Decimal Currency Position",
+                        "description": "Cents of price will be showed in up or down position",
+                        "param_name": "decimal_pos",
+                        "value": {
+                            "up": "Up", //name: image
+                            "down": "Down"
+                        },
+                        "default": "up"
+                    },
                     "backgroundcolor": {
                         "type": "colorpickeralpha",
                         "heading": "Background Color",

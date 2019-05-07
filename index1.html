@@ -4,8 +4,10 @@
 		<script src="../src/vue.js"></script>
 		<link rel="stylesheet" href="editor.css"/>
 
-<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-main.css">
-<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-icons.css">
+		<link rel="stylesheet" href="boilerplate.css">
+		<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-main.css">
+		<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-icons.css">
+		<link rel="stylesheet" type="text/css" href="EL_TESTER/pricing_table.css">
 
 		<link href="color-picker.min.css" rel="stylesheet">
 		<link rel='stylesheet' href='http://127.0.0.1/wp_avada542/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.4.2' type='text/css' media='all' />
@@ -342,7 +344,7 @@
 		v-else-if="shortcode == `fusion_pricing_table`"
 		:class="classish(params)"
 		:id="[params.groups.General.id.value]"
-		class="codename-pricing-table partdown mini-lite"
+		class="codename-pricing-table partdown"
 		
 	>
 		<!-- Template 1 -->
@@ -350,21 +352,41 @@
 			v-if="params.groups.General.type.default == '0'"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
-			<div v-for="column in params.groups.General.element_content.gchildrens" :columns="column" :pricerow="column.gchildrens[0]" class="codename-column">
-				<div class="pricing-col-heading">
-					<h3>{{column.title}}</h3>
-				</div>
-				
-				<div class="pricing-price-row">
-					<span>{{column.gchildrens[0].currency}}</span>
-					<span>{{column.gchildrens[0].price.split('.')[0]}}</span>
-					<sup v-if="column.gchildrens[0].price.split('.')[1]"><span class="psupdot">.</span>{{column.gchildrens[0].price.split('.')[1]}}</sup>
-					<span class="price-period">{{column.gchildrens[0].time}}</span>
-				</div>
-				
-				<ul class="pricing-col-list">
-					<li v-for="row in column.gchildrens" v-if="row.shortcode == `fusion_pricing_row` && row.text">{{row.text}}</li>
-				</ul>
+			<div v-for="column in params.groups.General.element_content.gchildrens"
+                 :columns="column"
+                 :pricerow="column.gchildrens[0]"
+                 class="codename-column"
+            >
+                <div :class="{'table': params.groups.General.style.default == 'Table'}" class="box-wrap"
+                     :style="[
+						{'backgroundColor': params.groups.General.backgroundcolor.value },
+						{'borderColor': params.groups.General.bordercolor.value }
+					]"
+                >
+                    <div class="pricing-col-heading">
+                        <h3>{{column.title}}</h3>
+                    </div>
+
+                    <div class="pricing-price-row">
+                        <span class="pricing-c">{{column.gchildrens[0].currency}}</span>
+                        <span class="pricing-cost-a">{{column.gchildrens[0].price.split('.')[0]}}</span>
+                        <sup v-if="column.gchildrens[0].price.split('.')[1]">
+                            <span class="psupdot">.</span>
+                            {{column.gchildrens[0].price.split('.')[1]}}
+                        </sup>
+                        <span class="price-period">{{column.gchildrens[0].time}}</span>
+                    </div>
+
+                    <ul class="pricing-col-list">
+                        <li v-for="row in column.gchildrens" v-if="row.shortcode == `fusion_pricing_row` && row.text">{{row.text}}</li>
+                    </ul>
+
+                    <div class="pricing-footer-row">
+                        <a class="codename-button" href="#">
+                            <span>Button Text</span>
+                        </a>
+                    </div>
+                </div>
 			</div>
 		</div>
 		<!-- Template 2 -->
@@ -376,9 +398,8 @@
 				:columns="column"
 				:pricerow="column.gchildrens[0]"
 				class="codename-column"
-				
 			>
-				<div class="box-wrap quan"
+				<div :class="{'d-table': params.groups.General.style.default == 'Table'}" class="box-wrap.d-mini-lite"
 					:style="[
 						{'backgroundColor': params.groups.General.backgroundcolor.value },
 						{'borderColor': params.groups.General.bordercolor.value }
