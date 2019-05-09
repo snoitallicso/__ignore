@@ -168,7 +168,7 @@
     <div id="generator"></div>
 
     <script>
-        /*var templates = document.getElementsByClassName("_g");
+        var templates = document.getElementsByClassName("_g");
         var generator_el = document.getElementById("generator");
         concatHtmlElementsBlock = '';
         //block;
@@ -176,32 +176,44 @@
         genProps = {
             //TEMPLATE INDEX
             0: {
-                classnames: ['d_table', 'd_partdown']
+                classnames: ['d-table', 'd-partdown']
             },
             1: {
                 //n_classnames: ['d-mini-lite'],
-                classnames: ['d_table', 'd_partdown']
+                classnames: ['d-table', 'd-partdown']
             }
         };
 
-        for(i in genProps){
-            variations = genProps[i].classnames.length * genProps[i].classnames.length;
+        //for each genProp object
+        for(var i in genProps){
 
-            for(v = -1; v < variations; v++) {
-                block = templates[i];
+            var array = genProps[i].classnames;
+            var conc_ = "";
+            var arr_len = array.length;
 
-                if(v >= 0){
-                    clname = genProps[i].classnames[v];
-                    console.log(clname);
+            //for each classname of classnames array of genProp object (0,1,…)
+            for (var index = 0; index < arr_len; index++ ){
 
-                    console.log(block.children[0].className);
+                var to_end;
+                to_end = arr_len - index;
+
+                for (var p=0; p < to_end; p++){
+                    var block = templates[i].cloneNode(true);
+
+                    conc_ += " " + array[p + index];
+
+                    block.children[0].className += conc_;
+                    concatHtmlElementsBlock += block.innerHTML;
+                    //conc_ = "";
                 }
 
-                concatHtmlElementsBlock += block.innerHTML;
+                conc_ = "";
             }
         }
-        generator_el.innerHTML = concatHtmlElementsBlock;*/
-        function permutation(array){
+        generator_el.innerHTML = concatHtmlElementsBlock;
+
+
+        /*function permutation(array){
             var conc_ = "";
             var conc_2 = "";
             var arr_len = array.length;
@@ -209,20 +221,18 @@
             for (var index=0; index < arr_len; index++){
                 var to_end;
                 to_end = arr_len - index;
-                //to_end = arr_len - 1 - index;
 
                 console.log(index);
 
                 for (var p=0; p < to_end; p++){
                     conc_ += array[p + index];
-                    conc_2 += array[index];
-                    console.log("index:", index, "to_end:", to_end, "conc_:", conc_, "conc_2:", conc_2);
+                    console.log("index:", index, "to_end:", to_end, "conc_:", conc_);
                 }
                 conc_ = "";
-                conc_2 = "";
             }
         }
-        permutation([1,2,3,4])
+        permutation([1,2,3,4])*/
+
     </script>
 </body>
 </html>
