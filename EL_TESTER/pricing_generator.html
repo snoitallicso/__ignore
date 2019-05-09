@@ -6,6 +6,17 @@
     <link rel="stylesheet" href="pricing_table.css">
     <link rel="stylesheet" href="../boilerplate.css">
     <style>
+        .element-description {
+            float: left;
+            min-width: 1000px;
+            margin: 20px;
+            background-color: #fffacf;
+        }
+        .doc_ li {
+            font-family: Courier New;
+        }
+
+
         ._genblock {
             display: none;
         }
@@ -168,7 +179,8 @@
     <div id="generator"></div>
 
     <script>
-        var templates = document.getElementsByClassName("_g");
+        //for IE8
+        var templates = document.querySelectorAll("._g");
         var generator_el = document.getElementById("generator");
         concatHtmlElementsBlock = '';
         //block;
@@ -203,6 +215,8 @@
                     conc_ += " " + array[p + index];
 
                     block.children[0].className += conc_;
+                    //1 template, classnames: d-table d-partdown
+                    concatHtmlElementsBlock += "<h3 class='element-description'>"+i+" template, classnames: "+conc_+"</h3>";
                     concatHtmlElementsBlock += block.innerHTML;
                     //conc_ = "";
                 }
