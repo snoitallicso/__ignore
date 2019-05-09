@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="pricing_table.css">
     <link rel="stylesheet" href="../boilerplate.css">
     <style>
+        body {
+            background-color: #f7f7f7;
+        }
         .element-description {
             float: left;
             min-width: 1000px;
@@ -15,7 +18,24 @@
         .doc_ li {
             font-family: Courier New;
         }
-
+        #w-opts {
+            position: fixed;
+            background: white;
+            width: 100%;
+            z-index: 1;
+            padding: 5px 0px;
+            border-bottom: 1px solid gray;
+        }
+        #wr {
+            text-align: center;
+        }
+        #generator {
+            padding-top: 50px;
+            margin: 0 auto;
+            border-left: 1px solid #e0e0e0;
+            border-right: 1px solid #e0e0e0;
+            background: white;
+        }
 
         ._genblock {
             display: none;
@@ -179,9 +199,31 @@
             </div>
         </div>
     </div>
+    <div id="w-opts">
+        <div id="wr">
+            <input type="button" onclick="setWidth(300)" value="300px">
+            <input type="button" onclick="setWidth(500)" value="500px">
+            <input type="button" onclick="setWidth(700)" value="700px">
+            <input type="button" onclick="setWidth(800)" value="800px">
+            <input type="button" onclick="setWidth(900)" value="900px">
+            <input type="button" onclick="setWidth(1350)" value="1350px">
+            <input type="button" onclick="setWidth(1500)" value="1500px">
+            <input type="button" onclick="setWidth(false)" value="Default">
+        </div>
+    </div>
     <div id="generator"></div>
 
     <script>
+        setWidth = function (width) {
+            var wrapper = document.getElementById("generator");
+            if(width == false){
+                width = "";
+            } else {
+                width = width + 'px';
+            }
+            wrapper.style.width = width;
+        };
+
         //for IE8
         var templates = document.querySelectorAll("._g");
         var generator_el = document.getElementById("generator");
