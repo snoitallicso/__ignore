@@ -1,0 +1,150 @@
+.column {
+    width: 1000px;
+    background: #f7f7f7;
+    height: 800px;
+}
+
+.e-person .image {
+    text-align: center;
+    margin-top: 25px;
+}
+.e-person .info {
+  padding-top: 25px;
+}
+.e-person .image, .e-person .info {
+    float: left;
+    width: 100%;
+}
+
+.e-person .info * {
+  float: left;
+}
+.e-person .author {
+  background: pink;
+}
+.e-person .content {
+  background: #c7ff55;
+  width: 100%;
+}
+.e-person .socnets {
+  background: yellow;
+  float: right;
+  display: table-header-group;
+  text-align: right;
+  max-width: 50%;
+}
+.e-person .author,
+.e-person .content,
+.e-person .socnets {
+   min-width: 50%;
+}
+.e-person .author,
+.e-person .socnets {
+   max-width: 50%;
+}
+
+.e-person.bottom .socnets {
+    display: table-footer-group;
+    float: none;
+    text-align: left;
+}
+.e-person.bottom .content {
+    display: table-header-group;
+    float: none;
+}
+.e-person.bottom.right .content {
+    display: table-footer-group;
+}
+.e-person.bottom .info {
+    display: table;
+}
+.e-person.bottom .author {
+    display: table-header-group;
+    float: none;
+}
+
+.e-person.right .socnets * {
+    float: right;
+}
+.e-person.right  .author {
+    float: right;
+    width: 50%;
+}
+.e-person.right.bottom .author {
+  float: none;
+}
+
+
+.e-person {
+    text-align: left;
+}
+.e-person .author span {
+    width: 100%;
+    float: left;
+}
+
+.e-person.right .info {
+    text-align: right;
+}
+.e-person.center .info {
+    text-align: center;
+}
+
+
+/**/
+.e-person .socnets a, .e-person.right.bottom .socnets a {
+    float: right;
+}
+.e-person.right .socnets a, .e-person.bottom .socnets a {
+    float: left;
+}
+.e-person.center .socnets a {
+    float: none;
+}
+/**/
+
+
+.e-person.center  .socnets {
+  text-align: center;
+  float: none;
+}
+
+.e-person.right .infowrapper {
+    float: right;
+}
+
+.e-person.right .socnets {
+    text-align: left;
+    display: table-header-group;
+}
+.e-person.right.bottom  .socnets {
+    display: table-footer-group;
+    text-align: right;
+}
+
+.e-person.center .info {
+    position: relative;
+    display: table;
+}
+
+.e-person.bottom .infowrapper,
+.e-person.bottom .e-person .socnets,
+.e-person.center .infowrapper,
+.e-person.center .e-person .socnets {
+    width: 100%;
+}
+
+.center .info * {
+    float: none;
+}
+
+.e-person.center .content {
+  display: table-footer-group;
+}
+.e-person.center .author {
+    display: table-header-group;
+}
+
+.e-person .image img {
+    border: 0px solid;
+}

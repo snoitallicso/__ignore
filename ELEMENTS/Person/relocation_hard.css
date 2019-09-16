@@ -1,0 +1,74 @@
+.column {
+    width: 1000px;
+    background: #f7f7f7;
+    height: 800px;
+}
+.infowrapper {
+  background: hotpink;
+  float: left;
+  display: table-footer-group;
+  min-width: 50%;
+}
+.e {
+  float: left;
+  /*height: 20px;*/
+}
+.one {
+  background: pink;
+  width: 100%;
+}
+.two {
+  background: #c7ff55;
+  width: 100%;
+}
+.three {
+  background: yellow;
+  float: right;
+  display: table-header-group;
+  min-width: 50%;
+}
+
+
+
+.element {
+    text-align: left;
+}
+
+.element.right {
+    text-align: right;
+}
+.element.center {
+    text-align: center;
+}
+
+.element.center .two {
+  margin-top: 20px;
+}
+.element.center.bottom .two {
+  margin-top: 0;
+}
+
+.element.center .three {
+    position: absolute;
+    top: 20px;
+}
+.element.center.bottom .three {
+    position: relative;
+    top: 0;
+}
+
+.element.right .infowrapper {
+    float: right;
+}
+
+.element.right .three {
+    float: left;
+}
+
+.element.center {
+    position: relative;
+}
+
+.element.bottom .infowrapper, .element.bottom .three, .element.center .infowrapper, .element.center .three {
+    width: 100%;
+}

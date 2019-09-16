@@ -129,6 +129,7 @@ Vue.directive('demo', function (el, binding) {
 })
 
 var lay = new Vue({
+	//LAYOUT TEMPLATE
 	el: '.layout-container',
 	//data: layObj.layout,
 	data: {
@@ -147,6 +148,7 @@ var lay = new Vue({
 	},
 	props: ['shortcode', 'isfheight'],
 	components: {
+		//COMPONENT INSIDE LAYOUT TEMPLATE DIV
 		'childrens-component': {
 			props: ['childrens', 'shortcode', 'params', 'sto', 'title', 'dim','styleObject', 'isfheight', 'isfullwcontainer', 'fullwidth', 'cl', 'likes', 'likera', 'gchildrens'],
 			name: 'templ',
@@ -864,7 +866,6 @@ var schemaEditorState = new Vue({
 		},
 		/***************************************/
 		maincalc: function(){
-			//alert()
 			var cols = elementsSlot.activeobject.params.groups.General.element_content.gchildrens;
 			console.log('maincalc!!!')
 			this.columns_count = cols.length;
@@ -1127,6 +1128,7 @@ var gridState = new Vue({
 
 			//HERE WE INSERT OBJECTS TO CREATED LINK IN PREVIOUS
 			var indx = gridState.actIndexChildren+1;
+			console.log(1132, "gridState.activeModelChildrens", gridState.activeModelChildrens)
 			gridState.activeModelChildrens.insert(indx, this.constrctr('container', array));
 
 			//HERE WE CLOSE INSERT MODAL
@@ -1188,6 +1190,7 @@ var gridState = new Vue({
 					gridState.actIndexChildren = index;
 
 					//HERE WE CREATE LINK TO INSERT OBJECTS
+					console.log(1194, "gridState.activeModelChildrens", gridState.activeModelChildrens)
 					gridState.activeModelChildrens = this.$parent.$parent.childrens;
 
 					//HERE WE OPEN MODAL
@@ -1206,9 +1209,6 @@ var gridState = new Vue({
 					//console.log(this.$props.childrens);
 					//console.info(this)
 				},
-				alert: function(){
-					console.log("ALEET!")
-				},
 				isEl: function(shortcode){
 					//list = ["fusion_builder_blank_page","fusion_li_item","fusion_builder_column_inner","fusion_builder_column","fusion_builder_container","fusion_content_box","fusion_counter_box","fusion_counter_circle","fusion_flip_box","fusion_image","fusion_builder_next_page","fusion_builder_row_inner","fusion_builder_row","fusion_slide","fusion_tab","fusion_testimonial","fusion_toggle"];
 					list = elsList;
@@ -1224,7 +1224,7 @@ var gridState = new Vue({
 //					console.log(contextWindow.$data.groups, children.params.groups, 960)
 					contextWindow.$data.groups = children.params.groups;
 					if(children.shortcode == "fusion_pricing_table"){
-						//WARNING: THIS CODE DUPLICATE clickor method of elementsSlot
+						//WARNING: THIS CODE DUPLICATE insertElement method of elementsSlot
 						schemaEditorState.gchildrens = children.params.groups.General.element_content.gchildrens;
 						
 						//recalc rows (schemaEditorState.maxrows)
@@ -1322,6 +1322,7 @@ function MergeRecursive(obj1, obj2){
 
 listElements = listElemnts();
 
+//elementsSlot is 
 var elementsSlot = new Vue({
 	el: "#elements_pseudoslot",
 	data: {
@@ -1343,11 +1344,12 @@ var elementsSlot = new Vue({
 		}
 	},
 	methods: {
-		//this click pushed elements into column
+		//insertElement is the method of grid editor, we have window modal and rendered elements list, we click element and insert it inside model
+		//:click=insertElement() pushed elements inside column
 		//(only elements: because click method inside modal of elements)
 		//THIS FUNCTION RUNS BY CLICK ON ELEMENT FROM WINDOW WITH ELEMENTS TO INSERT
-		//LOOK openElementsModal AND grid-content-modal_insert INSIDE INDEX.HTML
-		clickor: function(tag, title){
+		//LOOK openElementsModal INSIDE _EDITOR.JS_ AND grid-content-modal_insert INSIDE _INDEX1.HTML_
+		insertElement: function(tag, title){
 			
 			//CLOSE ELEMENTS MODAL
 			this.seen = false;

@@ -1,0 +1,41 @@
+.codename-pricing-table.d-mini-lite .box-wrap.d-featured {
+    background-color: #0feacb;
+}
+.codename-pricing-table.d-mini-lite .box-wrap {
+    background-color: rgb(107, 239, 220);
+    position: relative;
+    border: 1px solid transparent;
+}
+.codename-pricing-table .d-featured {
+    margin: -10px -12px;
+    z-index: 1;
+}
+.codename-pricing-table .box-wrap {
+    padding-bottom: 20px;
+    border: 1px solid #6e6aff;
+    margin: 8px;
+    background-color: white;
+}
+user agent stylesheet
+div {
+    display: block;
+}
+Inherited from div.codename-column
+.codename-column {
+    box-sizing: border-box;
+    margin-right: -1px;
+    margin-bottom: 20px;
+    text-align: center;
+    float: left;
+}
+Inherited from body
+body, .socnets a span {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+body {
+    margin: 0 auto;
+    color: #444;
+    font-size: 13px;
+    line-height: 1.4em;
+    min-width: 600px;
+}

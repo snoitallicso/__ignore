@@ -1,16 +1,23 @@
+<!DOCTYPE HTML>
 <html>
 	<head>
-		<title>VUE</title>
-		<script src="../src/vue.js"></script>
+		<meta charset="utf-8">
+		<title>Explode Project</title>
+		<script src="vue.js" defer></script>
+		<script src="fusionelements.js" defer></script>
+		<script src="layobj.js" defer></script>
+		<script src="demo-elements.js" defer></script>
+		<script src="editor.js" defer></script>
+		
 		<link rel="stylesheet" href="editor.css"/>
 
 		<link rel="stylesheet" href="boilerplate.css">
-		<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-main.css">
-		<link rel="stylesheet" type="text/css" href="ELEMENTS/Person_c/person-icons.css">
-		<link rel="stylesheet" type="text/css" href="EL_TESTER/pricing_table.css">
+		<link rel="stylesheet" href="ELEMENTS/Person_c/person-main.css">
+		<link rel="stylesheet" href="ELEMENTS/Person_c/person-icons.css">
+		<link rel="stylesheet" href="EL_TESTER/pricing_table.css">
 
 		<link href="color-picker.min.css" rel="stylesheet">
-		<link rel='stylesheet' href='http://127.0.0.1/wp_avada542/wp-content/themes/Avada/includes/lib/assets/fonts/fontawesome/font-awesome.css?ver=5.4.2' type='text/css' media='all' />
+		<link rel='stylesheet' href='font-awesome.css' type='text/css' media='all' />
   <link rel='stylesheet' href='buttons/leftrighicon.css' type='text/css' media='all' />
   	<script src="color-picker.min.js"></script>
 	</head>
@@ -69,10 +76,12 @@
 								<h3>{{title}}</h3>
 								{{content}}
 							</div>
+							<!-- THIS IS MODAL WINDOW OF GRID EDITOR WHERE WE SHOW ELEMENTS FOR INSERTING BY CLICK -->
 							<div v-if="seen" id="elements_pseudoslot" class="grid-content-modal_insert">
 								<input v-model="query">
+								<!-- THIS IS LIST OF ELEMENTS TO CLICK FOR INSERT INTO GRID (INSIDE ACTIVE COLUMN OF CONTAINER) -->
 								<ul>
-									<li v-on:click="clickor(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
+									<li v-on:click="insertElement(element.label, element.title)" v-for="element in computedList"><h3>{{element.title}}</h3></li>
 								</ul>
 							</div>
 							<div v-if="seen" class="grid_content_area_grider">
@@ -302,7 +311,7 @@
 	</div>
 	<div v-else class="builder-common-container">
 		<!--THIS TEMPLATE INSIDE COMMON CONTAINER IS FOR CONTAINERS-->
-		<templ v-on:click.native.stop="[clickedE(children), clickor(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
+		<templ v-on:click.native.stop="[clickedE(children), insertElement(index)]" v-for="(children, index) in childrens" :index="index" :children="children" :childrens="children.childrens" :key="children.id" :class="{active: children.isActive}" :ind="index" :shortcode="children.shortcode"></templ>
 	</div>
 </div>
 
@@ -780,11 +789,6 @@
 		</div>
 	</div>
 </div-->
-
-		<script src="fusionelements.js"></script>
-		<script src="layobj.js"></script>
-		<script src="demo-elements.js"></script>
-		<script src="editor.js"></script>
 
 	</body>
 </html>

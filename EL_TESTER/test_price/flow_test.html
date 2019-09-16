@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <!--NEVER SET .currency classname for this root node!-->
+  <!--NEVER COMPOUND .currency-right and .currency-righttop and alike classnames (for this root node)-->
+  <!--
+    .decimal-normal            //decimal is always right
+    .decimal-top
+    .decimal-center
+    .decimal-bottom
+
+                               //currency is left by default
+
+    .currency-left          |    .currency-right
+    .currency-lefttop       |    .currency-righttop
+    .currency-leftcenter    |    .currency-rigthcenter
+    .currency-leftright     |    .currency-rightbottom
+
+
+    //MUST HAVE ONE SIZE (40px as example)
+    .integer-part {                .currency span {
+      margin-left: 40px;    AND     font-size: 40px;
+    }                              }
+  -->
+  
+  <div class="wrap currency-left decimal-center dec-sep-dot">
+    <div class="integer-part">2999</div>
+    <div class="wrap_sub">
+      <div class="decimal-part">
+        <span>99</span>
+      </div>
+      <div class="currency">
+        <span>￥</span>
+      </div>
+    </div>
+  </div>
+  <style>
+    .wrap {
+      margin-top: 300px;
+      margin-left: 300px;
+    }
+
+
+
+
+    .currency-right.currency-after-decimal .currency {
+      position: initial !important;
+      float: left;
+    }
+    .integer-part, .currency {
+      float: left;
+    }
+    .integer-part {
+      margin-left: 40px; /*set up this size for font-size of the currency symbol*/
+    }
+
+    .integer-part, .currency, .decimal-part {
+      font-size: 55px;
+    }
+    .currency span, .decimal-part span {
+      font-size: 18px;
+    }
+
+    .currency {
+      position: absolute;
+      float: right;
+    }
+    .decimal-part {
+      float: left;
+    }
+
+    /*****/
+    .currency-leftdown .currency {
+      height: 52px;
+    }
+
+    .currency {
+      vertical-align: initial;
+    }
+    .currency-after-decimal .currency {
+      right: 0 !important;
+    }
+
+    .currency-lefttop .currency span {
+      vertical-align: top;
+    }
+    .currency-right .currency, .currency-righttop .currency, .currency-rightcenter .currency, .currency-rightbottom .currency {
+      position: relative;
+      float: left;
+      right: 18px;
+    }
+
+    .currency-right {
+      vertical-align: 0;
+    }
+    .currency-righttop .currency span {
+      vertical-align: top;
+    }
+    .currency-rightcenter .currency span {
+      vertical-align: middle;
+    }    
+    .currency-rightbottom .currency span {
+      vertical-align: bottom;
+    }
+
+    .currency-leftcenter .currency span {
+      vertical-align: middle;
+    }
+    .currency-leftbottom .currency span {
+      vertical-align: bottom;
+    }
+
+    .decimal-part span { /*default*/
+      vertical-align: initial;
+    }
+    .decimal-top .decimal-part span {
+      vertical-align: top;
+    }    
+    .decimal-center .decimal-part span {
+      vertical-align: middle;
+    }
+    .decimal-bottom .decimal-part span {
+      vertical-align: bottom;
+    }
+
+
+    .currency span {
+      font-size: 40px;
+    }
+
+
+
+
+    .dec-sep-slash .decimal-part span::before {
+      content: "/";
+    }
+    .dec-sep-dot .decimal-part span::before {
+      content: ".";
+    }
+  </style>
+</body>
+</html>

@@ -1,0 +1,18 @@
+body {
+    background-color: #ff505f;
+}
+.d-mini-lite.codename-pricing-table .price-period {
+    /*transform: rotate(270deg);*/
+    position: relative;
+    margin-top: 50%;
+    left: -50%;
+    margin-left: 20px;
+    margin-right: -30px;
+}
+.d-mini-lite.codename-pricing-table .price-period:after {
+    border: 0;
+}
+.price-ribbon {
+    /*position: absolute!important;*/
+    top: -14px;
+}

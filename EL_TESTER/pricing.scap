@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<ScappleDocument ID="9117BEB1-D3D1-4722-AC0E-061848768D4D" Version="1.1">
+   <Notes>
+      <Note Width="71.0449" FontSize="12" ID="0" Position="541.4,230.5">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <Border Weight="0" Style="Rounded"/>
+         </Appearance>
+         <String>d-partequal</String>
+         <ConnectedNoteIDs>4-5</ConnectedNoteIDs>
+      </Note>
+      <Note Width="70.3491" FontSize="12" ID="1" Position="540.6,268.0">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <Border Weight="0" Style="Rounded"/>
+         </Appearance>
+         <String>d-partdown</String>
+         <ConnectedNoteIDs>4-5</ConnectedNoteIDs>
+      </Note>
+      <Note Width="45.874" FontSize="12" ID="2" Position="508.6,170.3">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <Border Weight="0" Style="Rounded"/>
+         </Appearance>
+         <String>d-table</String>
+         <ConnectedNoteIDs>4-5</ConnectedNoteIDs>
+      </Note>
+      <Note Width="63.9648" FontSize="12" ID="3" Position="507.0,325.8">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <TextColor>0.215686 0.435294 0.0</TextColor>
+            <Border Weight="1" Style="Rounded">0.0 0.666667 0.0</Border>
+         </Appearance>
+         <String>d-featured</String>
+         <ConnectedNoteIDs>4-5</ConnectedNoteIDs>
+      </Note>
+      <Note Width="70.0806" FontSize="12" ID="4" Position="386.7,267.2">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <Border Weight="0" Style="Rounded"/>
+         </Appearance>
+         <Formatting>
+            <FormatRange Bold="Yes">0,11</FormatRange>
+         </Formatting>
+         <String>d-mini-lite</String>
+         <ConnectedNoteIDs>0-3, 6</ConnectedNoteIDs>
+      </Note>
+      <Note Width="45.1782" FontSize="12" ID="5" Position="387.5,215.6">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <Border Weight="0" Style="Rounded"/>
+         </Appearance>
+         <String>default</String>
+         <ConnectedNoteIDs>0-3, 6</ConnectedNoteIDs>
+      </Note>
+      <Note Width="37.5" FontSize="12" ID="6" Position="290.6,238.3">
+         <Appearance>
+            <Alignment>Left</Alignment>
+            <Border Weight="0" Style="Rounded"/>
+         </Appearance>
+         <String>types</String>
+         <ConnectedNoteIDs>4-5</ConnectedNoteIDs>
+      </Note>
+   </Notes>
+   <BackgroundShapes/>
+   <NoteStyles>
+      <Style AffectFontStyle="No" AffectAlignment="No" Name="Brown Bubble" ID="7C8F211D-051B-4F29-B8B9-2780F60B0FA0" AffectTextColor="No" AffectNoteBody="Yes" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <BorderThickness>1</BorderThickness>
+         <BorderColor>0.269490 0.164034 0.186694</BorderColor>
+         <FillColor>0.934157 0.888319 0.785290</FillColor>
+      </Style>
+      <Style AffectFontStyle="No" AffectAlignment="No" Name="Yellow Bubble" ID="BBB2E3D6-B61C-4817-A323-CB5BC50C9054" AffectTextColor="No" AffectNoteBody="Yes" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <BorderThickness>1</BorderThickness>
+         <BorderColor>0.769436 0.762219 0.390143</BorderColor>
+         <FillColor>0.912963 0.894118 0.644541</FillColor>
+      </Style>
+      <Style AffectFontStyle="No" AffectAlignment="No" Name="Red Text" ID="5C0BA1BD-8736-44E2-86AA-D741B1A72183" AffectTextColor="Yes" AffectNoteBody="No" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <TextColor>1.0 0.0 0.0</TextColor>
+      </Style>
+      <Style AffectFontStyle="Yes" AffectAlignment="Yes" Name="Title Text" ID="161077F7-679B-4FAB-BEF5-F742F0F3BB0E" AffectTextColor="No" AffectNoteBody="No" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <IsBold>Yes</IsBold>
+         <FontSize>12.0</FontSize>
+      </Style>
+      <Style AffectFontStyle="No" AffectAlignment="No" Name="Blue Bubble" ID="CBBA4126-73F4-44A5-AA8E-86843C7290DA" AffectTextColor="No" AffectNoteBody="Yes" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <BorderThickness>1</BorderThickness>
+         <BorderColor>0.485893 0.568933 0.756207</BorderColor>
+         <FillColor>0.844068 0.869596 0.923064</FillColor>
+      </Style>
+      <Style AffectFontStyle="No" AffectAlignment="No" Name="Pink Bubble" ID="D03232B0-FD09-43E0-BE04-18416F4A1D1F" AffectTextColor="No" AffectNoteBody="Yes" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <BorderThickness>1</BorderThickness>
+         <BorderColor>0.690303 0.407263 0.550912</BorderColor>
+         <FillColor>0.898329 0.817472 0.865339</FillColor>
+      </Style>
+      <Style AffectFontStyle="No" AffectAlignment="No" Name="Green Bubble" ID="83C3C737-86A1-41AB-9405-8B87233958DC" AffectTextColor="No" AffectNoteBody="Yes" AffectSticky="No" AffectSize="No" AffectFade="No">
+         <BorderThickness>1</BorderThickness>
+         <BorderColor>0.399100 0.583322 0.354864</BorderColor>
+         <FillColor>0.808835 0.872419 0.801343</FillColor>
+      </Style>
+   </NoteStyles>
+   <UISettings>
+      <BackgroundColor>1.0 0.988006 0.945006</BackgroundColor>
+      <DefaultFont>Helvetica</DefaultFont>
+      <DefaultTextColor>0.0 0.0 0.0</DefaultTextColor>
+   </UISettings>
+   <PrintSettings VerticalPagination="Auto" HorizontalPagination="Clip" Orientation="Portrait" RightMargin="12.000000" BottomMargin="12.000000" HorizontallyCentered="Yes" ScaleFactor="1.000000" PagesAcross="1" PaperType="na-letter" PagesDown="1" TopMargin="12.000000" Collates="Yes" PaperSize="-1.000000,-1.000000" LeftMargin="12.000000" VerticallyCentered="Yes"/>
+</ScappleDocument>

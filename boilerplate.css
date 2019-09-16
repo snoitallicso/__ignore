@@ -17,6 +17,9 @@ ol{list-style:decimal}
 .il {
     display: inline-block;
 }
+.codename-pricing-table, .alrt, .ebutton {
+    clear: both;
+}
 
 @font-face {
     font-family: ;

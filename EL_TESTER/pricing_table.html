@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Elements > Pricing Table</title>
+	<link rel="stylesheet" href="pricing_table.css">
+	<link rel="stylesheet" href="../boilerplate.css">
+	<style>
+		.element-description {
+			float: left;
+			min-width: 1000px;
+			margin: 20px;
+			background-color: #fffacf;
+		}
+		.doc_ li {
+			font-family: Courier New;
+		}
+	</style>
+</head>
+<body>
+	<section class="doc_">
+		<ol>
+			<li>Read before <a href="README.txt">README.txt</a></li>
+			<li>Here is 2 templates (different html layouts)</li>
+			<li>Don't touch element .psupdot - cents can be absent with visible dot like there is an error (in javascript this will be hidden by statements)</li>
+			<li>Prefix ".d-" inside classname mean dynamic classnames that change other children styles</li>
+			<li>.d-table: Pricing is boxed by default, but by set this classname pricing appear like "tabled"</li>
+			<li>.d-mini-lite: Only for 2 template. Sets default styles for 2 template (for rewriting styles from 1 template), stylized left-horizontalpricing ribbon</li>
+			<li>.d-partdown: By default cents inside price value placed at top on the rigth of unit, setting this classname cents go to down with added dot before</li>
+			<li>.d-partequal: By default cents are small sized. This class change it make equal</li>
+		</ol>
+	</section>
+	<h3 class="element-description">1 template</h3>
+	<div class="codename-pricing-table">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup>
+							<span class="psupdot">.</span>
+							55
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup>
+							<span class="psupdot">.</span>
+							55
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+						<li>Feature 2!</li>
+						<li>Feature 3!</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup><span class="psupdot">.</span>55</sup>
+						<span class="price-period">monthly</span>
+					</div> <ul class="pricing-col-list">
+					<li>Feature 1</li>
+				</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h3 class="element-description">1 template .d-table</h3>
+	<div class="codename-pricing-table d-table">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup>
+							<span class="psupdot">.</span>
+							55
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup>
+							<span class="psupdot">.</span>
+							55
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+						<li>Feature 2!</li>
+						<li>Feature 3!</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup><span class="psupdot">.</span>55</sup>
+						<span class="price-period">monthly</span>
+					</div> <ul class="pricing-col-list">
+					<li>Feature 1</li>
+				</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h3 class="element-description">1 template .d-partdown</h3>
+	<div class="codename-pricing-table d-partdown">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup>
+							<span class="psupdot">.</span>
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup>
+							<span class="psupdot">.</span>
+							55
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+						<li>Feature 2!</li>
+						<li>Feature 3!</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup><span class="psupdot">.</span>55</sup>
+						<span class="price-period">monthly</span>
+					</div> <ul class="pricing-col-list">
+					<li>Feature 1</li>
+				</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h3 class="element-description">1 template .d-table.d-partdown</h3>
+	<div class="codename-pricing-table d-partdown d-table">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup>
+							<span class="psupdot">.</span>
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup>
+							<span class="psupdot">.</span>
+							55
+						</sup>
+						<span class="price-period">monthly</span>
+					</div>
+					<ul class="pricing-col-list">
+						<li>Feature 1</li>
+						<li>Feature 2!</li>
+						<li>Feature 3!</li>
+					</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup><span class="psupdot">.</span>55</sup>
+						<span class="price-period">monthly</span>
+					</div> <ul class="pricing-col-list">
+					<li>Feature 1</li>
+				</ul>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<h3 class="element-description">2 template .d-mini-lite</h3>
+	<div class="codename-pricing-table d-mini-lite">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h3 class="element-description">2 template .d-mini-lite.d-table</h3>
+	<div class="codename-pricing-table d-mini-lite d-table">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h3 class="element-description">2 template .d-mini-lite.d-partdown</h3>
+	<div class="codename-pricing-table d-mini-lite d-partdown">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h3 class="element-description">2 template .d-mini-lite.d-table.d-partdown</h3>
+	<div class="codename-pricing-table d-mini-lite d-table d-partdown">
+		<div class="codename-table-columns-3">
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3></div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Premium</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">25</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+			<div class="codename-column">
+				<div class="box-wrap">
+					<div class="price-ribbon">
+						<div class="price-period">monthly</div>
+					</div>
+					<div class="pricing-col-heading">
+						<h3>Standard</h3>
+					</div>
+					<div class="pricing-price-row">
+						<span class="pricing-c">$</span>
+						<span class="pricing-cost-a">15</span>
+						<sup class="pricing-cost-b">
+							<span class="psupdot">.</span>
+							55
+						</sup>
+					</div>
+					<div class="pricing-footer-row">
+						<a href="#" class="codename-button">
+							<span>Button Text</span>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

@@ -2209,6 +2209,7 @@ ul{
     float: left;
     width: 253px;
     border-right: 2px solid #a8bdce;
+    height: 100%;
 }
 .sidebar_title h1  {
     margin: 0;
@@ -2309,6 +2310,7 @@ li.side_tab.demos-tab {
     float: left;
     background-color: white;
     z-index: -1000;
+    height: 100%;
 }
 
 /*

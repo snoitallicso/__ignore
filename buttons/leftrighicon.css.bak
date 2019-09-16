@@ -1,0 +1,100 @@
+#layout button {
+    color: #2ea3f2;
+    position: relative;
+    padding: 0.3em 1em;
+    border: 2px solid;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.7em !important;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+}
+
+#layout button:hover, #layout button.showicon {
+    background: rgb(236, 236, 236);
+    padding: 0.3em 2em 0.3em 1em;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+#layout button:before {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    right: 2em;
+}
+
+#layout button:hover:before, #layout button.showicon:before {
+    opacity: 1;
+    right: 0.5em;
+}
+#layout button.showicon {
+    background: transparent !important;
+    border-color: #2ea3f2 !important;
+}
+#layout button.showicon:hover {
+    background: rgb(236, 236, 236) !important;
+    border-color: transparent !important;
+}
+
+/** Left icon **/
+#layout button.licon:hover, #layout button.licon.showicon {
+    background: rgb(236, 236, 236);
+    padding: 0.3em 1em 0.3em 2em;
+    border: 2px solid transparent;
+    text-decoration: none;
+}
+
+#layout button.licon:before {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s;
+    left: 2em;
+    right: initial;
+}
+
+#layout button.licon:hover:before, #layout button.licon.showicon:before {
+    opacity: 1;
+    left: 0.5em;
+}
+#layout button.showicon:before {
+    opacity: 1;
+}
+
+#layout button.divider:before {
+    border-left: 2px solid #2ea3f2;
+    padding-left: 0.5em;
+}
+
+#layout button.divider {
+    padding-right: 3em !important;
+}
+#layout button.divider:before {
+    /*divider settings*/
+    height: 100%;
+    top: 0;
+    line-height: 2.35em;
+}
+#layout button.licon.divider:before {
+    border-right: 2px solid #2ea3f2;
+    border-left: none;
+    padding-left: 0;
+    padding-right: 0.5em;
+}
+#layout button.licon.divider:hover:before {
+    border-color: transparent;
+}
+
+#layout button.licon.divider {
+    padding-left: 3em !important;
+    padding-right: 1em !important;
+}

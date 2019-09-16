@@ -1,0 +1,50 @@
+isActive
+    inside layobj.js of (!) each element (how about dynamically setup? because by click true or null by default...) ut empty inside fusionelements.js
+    inside templ for elements (columns, rows and containers)  of index1.html   :class="{active: children.isActive}"
+
+active_dom_el
+    //THIS IS REF TO ELEMENT IN DOM
+	lay.active_dom_el = this.$refs.ele_ref[index].$el;
+        ele_ref ---- inside element (+ cols, containers) --->  <templ  v-bind:likes="likera" ref="ele_ref" ...
+
+activeItem
+    only with lay
+        lay.activeItem
+        lay is layout component including layout template  ---> var lay = new Vue({
+        i dont see any other using! like depricated
+
+activeModelChildrens
+    //HERE WE CREATE LINK TO INSERT OBJECTS
+	gridState.activeModelChildrens = this.$parent.$parent.childrens;
+
+    inside data of gridState ---> activeModelChildrens: null,
+
+    //HERE WE INSERT OBJECTS TO CREATED LINK IN PREVIOUS
+    var indx = gridState.actIndexChildren+1;
+    gridState.activeModelChildrens.insert(indx, this.constrctr('container', array));
+        //there lives GRID editor (.grid_content_area_grider.builder-common-container)
+
+activecolumn
+    inside data of elementsSlot --->
+        //REFERENCE of column model for pushing objects (of elements like button etc)
+		activeobject: null,
+		activecolumn: null,
+
+            inside method of elementsSlot.insertElement() by click push elements into column
+                //here we insert element into column
+                this.activecolumn.push(elobj);
+            
+            inside component's 'child-component' of gridState method openModalAddElmnt() (opens window with available elements to insert)
+                sets ref for data's "activecolumn"
+                    //just set refer to column for pushing element
+					elementsSlot.activecolumn = this.$props.childrens;
+
+activeobject
+    inside data of elementsSlot --->
+        //REFERENCE of column model for pushing objects (of elements like button etc)
+		activeobject: null,
+
+activeElHaveSchema
+    is for ELEMENTS WITH RICH EDITABLE STRUCTURE (Table, Pricing Table) - for own subeditor
+
+activeModelChildrens
