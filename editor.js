@@ -856,7 +856,7 @@ var schemaEditorState = new Vue({
 		firstCalc: false,
 		firstCalc_MC: false
 	},
-	props: ['gchildrens', 'ch', 'column', 'eq', 'cpr'],
+	props: ['super_title', 'super_subtitle', 'gchildrens', 'ch', 'column', 'eq', 'cpr'],
 	el: '.schema-editor',
 	name: 'schemaed',
 	template: schema_templ,
@@ -1364,6 +1364,8 @@ var elementsSlot = new Vue({
 				//we need calc max rows and equalize num of rows for first time before render
 				schemaEditorState.firstCalc_MC = false;
 				schemaEditorState.gchildrens = elobj.params.groups.General.element_content.gchildrens;
+				schemaEditorState.super_title = elobj.params.groups.General.element_content.super_title;
+				schemaEditorState.super_subtitle = elobj.params.groups.General.element_content.super_subtitle;
 			}
 
 			//here we insert element into column
