@@ -1,0 +1,59 @@
+.omanage > *, .omanage div div {
+    background: white;
+}
+
+.dynamic-component-demo-post, .dynamic-component-demo-post * {
+    background-color: white !important;
+}
+
+.dynamic-component-demo-post b {
+    display: none;
+}
+
+.dynamic-component-demo-post h3 {
+    margin-bottom: 8px;
+}
+
+div#admin_bar {
+  background-color: #e6e6e6;
+}
+
+button.abar_a {
+  background-color: #cacaca;
+}
+
+.complex_menu_bar {
+  background-color: #efefef;
+}
+
+.builder-container {
+  background-color: #efefef;
+}
+
+.builder-column {
+  background-color: #cae8ff;
+}
+
+.builder-column-controls li {
+  background-color: aliceblue;
+}
+
+.builder-container-header {
+  background-color: antiquewhite;
+}
+
+input.container-name {
+  background-color: bisque;
+}
+
+div#grid_main_tabs {
+  background-color: #d8d8d8;
+}
+
+li.grid_tab.active {
+  background-color: #c8cece !important;
+}
+
+.builder-column-element {
+  background-color: #e8f5ff;
+}

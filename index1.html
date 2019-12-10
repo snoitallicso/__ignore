@@ -15,6 +15,8 @@
 		<link rel="stylesheet" href="ELEMENTS/Person_c/person-main.css">
 		<link rel="stylesheet" href="ELEMENTS/Person_c/person-icons.css">
 		<link rel="stylesheet" href="EL_TESTER/pricing_table.css">
+		<link rel="stylesheet" href="price-new.css">
+		<link rel="stylesheet" href="disable-debug-editor-styles.css">
 
 		<link href="color-picker.min.css" rel="stylesheet">
 		<link rel='stylesheet' href='font-awesome.css' type='text/css' media='all' />
@@ -349,15 +351,15 @@
 		<h3 contenteditable="true" v-on:keyup="editle">{{params.groups.General.element_content.value}}</h3>
 	</div>
 	<!--PRICING_TABLE TEMPLATE-->
-	<div 
+	<!-- <div 
 		v-else-if="shortcode == `fusion_pricing_table`"
 		:class="classish(params)"
 		:id="[params.groups.General.id.value]"
 		class="codename-pricing-table partdown"
 		
-	>
+	> -->
 		<!-- Template 1 -->
-		<div 
+		<!-- <div 
 			v-if="params.groups.General.type.default == '0'"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
@@ -397,9 +399,9 @@
                     </div>
                 </div>
 			</div>
-		</div>
+		</div> -->
 		<!-- Template 2 -->
-		<div 
+		<!-- <div 
 			v-if="params.groups.General.type.default == '1'"
 			:class="`codename-table-columns-`+ params.groups.General.element_content.gchildrens.length"
 		>
@@ -434,11 +436,78 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> -->
 		<!-- Template 3 -->
-		<div v-else-if="params.groups.General.type.default == 3"><h1>FUCK OFF!</h1></div>
-	</div>
+		<!-- <div v-else-if="params.groups.General.type.default == 3"><h1>FUCK OFF!</h1></div>
+	</div> -->
 	
+	
+	<!--PRICING_TABLE TEMPLATE-->
+	<div 
+		v-else-if="shortcode == `fusion_pricing_table`"
+		:class="classish(params)"
+		:id="[params.groups.General.id.value]"
+		class="price-main"
+	>
+    <div class="price-superheading">
+      <h3 class="supertitle-row">Super Title</h3>
+      <span class="supersubtitle-row">Super Subtitle Centered</span>
+    </div>
+  
+    <div class="price-wrap">
+      <!-- First column -->
+			<div 
+				v-for="column in params.groups.General.element_content.gchildrens"
+				:columns="column"
+				:pricerow="column.gchildrens[0]"
+				class="price-block card-designn /*d-mini-lite*/"
+			>
+        <div class="price-ribbon">
+            <div class="price-period">{{column.gchildrens[0].time}}</div>
+        </div>
+        <div class="bg-row">
+        </div>
+        <div class="price-heading">
+          <h3 class="title-row">{{column.title}}</h3>
+          <span class="subtitle-row">Pricing Subtitle</span>
+        </div>
+        <div class="price-pricing wrap currency-leftbottom decimal-bottom dec-sep-dot  period-under">
+          <div class="wrap-price-currency">
+            <div class="wrap-price">
+              <div class="integer-part">{{column.gchildrens[0].price.split('.')[0]}}</div>
+              <div class="xds">
+								<div 
+									v-if="column.gchildrens[0].price.split('.')[1]"
+									class="decimal-part"
+								>
+                  <span>{{column.gchildrens[0].price.split('.')[1]}}</span>
+                </div>
+                <div class="currency">
+                  <span>{{column.gchildrens[0].currency}}</span>
+                </div>
+              </div>
+            </div>
+            <div class="period"><span>{{column.gchildrens[0].time}}</span></div>
+          </div>
+          <div class="separator"><i class="tear"></i></span></div>
+        </div>
+        <div class="price-content">
+          <ul>
+							<li v-for="row in column.gchildrens" v-if="row.shortcode == `fusion_pricing_row` && row.text">{{row.text}}</li>
+          </ul>
+        </div>
+        <div class="pricing-footer">
+            <a target="_self" href="https://duckduckgo.com"><span>Duck!</span></a>
+        </div>
+      </div>
+      <div class="separator-line"></div>
+			<!-- Second column -->
+			<!-- … -->
+    </div>
+  </div>
+
+
+
 	<!--TITLE TEMPLATE-->
 	<div 
 		v-else-if="shortcode == `fusion_alert`"

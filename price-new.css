@@ -1,0 +1,330 @@
+.price-wrap {
+      width: 100%;
+      display: table;
+    }
+
+
+
+    .currency-right.currency-after-decimal .currency {
+      position: initial !important;
+      float: left;
+    }
+    .integer-part, .currency {
+      float: left;
+    }
+    .integer-part {
+      margin-left: 40px; /*set up this size for font-size of the currency symbol*/
+    }
+
+    .integer-part, .currency, .decimal-part {
+      font-size: 55px;
+    }
+    .currency span, .decimal-part span {
+      font-size: 18px;
+    }
+
+    .currency {
+      position: absolute;
+      float: right;
+    }
+    .decimal-part {
+      float: left;
+    }
+
+    /*****/
+    .currency-leftdown .currency {
+      height: 52px;
+    }
+
+    .currency {
+      vertical-align: initial;
+    }
+    .currency-after-decimal .currency {
+      right: 0 !important;
+    }
+
+    .currency-lefttop .currency span {
+      vertical-align: top;
+    }
+    .currency-right .currency, .currency-righttop .currency, .currency-rightcenter .currency, .currency-rightbottom .currency {
+      position: relative;
+      float: left;
+      /* right: 18px; */
+    }
+
+    .currency-right .integer-part,
+    .currency-righttop .integer-part,
+    .currency-rightbottom .integer-part,
+    .currency-rightcenter .integer-part {
+      margin-left: 0 !important;
+    }
+
+    .currency-right {
+      vertical-align: 0;
+    }
+    .currency-righttop .currency span {
+      vertical-align: top;
+    }
+    .currency-rightcenter .currency span {
+      vertical-align: middle;
+    }    
+    .currency-rightbottom .currency span {
+      vertical-align: bottom;
+    }
+
+    .currency-leftcenter .currency span {
+      vertical-align: middle;
+    }
+    .currency-leftbottom .currency span {
+      vertical-align: bottom;
+    }
+
+    .decimal-part span { /*default*/
+      vertical-align: initial;
+    }
+    .decimal-top .decimal-part span
+      vertical-align: top;
+    }    
+    .decimal-center .decimal-part span {
+      vertical-align: middle;
+    }
+    .decimal-bottom .decimal-part span {
+      vertical-align: bottom;
+    }
+
+
+    .currency span {
+      font-size: 40px;
+    }
+
+
+
+
+    .dec-sep-slash .decimal-part span::before {
+      content: "/";
+    }
+    .dec-sep-dot .decimal-part span::before {
+      content: ".";
+    }
+
+
+
+
+
+
+    .wrap .period {
+      float: left;
+      vertical-align: top;
+      font-size: 55px;
+      margin-left: 10px;
+    }
+    .wrap .period span {
+      font-size: 20px;
+      vertical-align: initial; /*default: period at same line with price*/
+    }
+    .wrap.period-top .period span {
+      font-size: 20px;
+      vertical-align: top; /*period right top from price and cents*/
+    }
+    .wrap/*.period-under*/ .wrap-price { /*under price*/
+      /*width: 100%;
+      float: left;*/
+      position: relative;
+      display: table;
+      margin: 0 auto;
+      background: #d4ff82;
+    }
+    .wrap.period-under .period {
+      width: 100%;
+      text-align: center;
+      margin-left: 0;
+      vertical-align: initial;
+      font-size: 0
+    }
+
+    /*.wrap.period-under .wrap-price {
+      position: relative;
+    }*/
+
+    .wrap/*.period-under*/.currency-lefttop .currency,
+    .wrap/*.period-under*/.currency-leftcenter .currency,
+    .wrap/*.period-under*/.currency-leftbottom .currency,
+    .wrap/*.period-under*/.currency-left .currency {
+      position: absolute;
+      left: 0;
+    }
+    .wrap/*.period-under*/ .xds {
+      float: left;
+    }
+    .wrap-price-currency {
+      display: table;
+      margin: 0 auto;
+    }
+    .wrap.align-left .wrap-price-currency {
+      margin: 0;
+    }
+    .wrap-price, .period {
+      float: left;
+      background-color: #fff7ad;
+    }
+    .wrap.wrap.period-under .wrap-price, 
+    .wrap.wrap.period-under .period {
+      float: none;
+      background-color: #fff7ad;
+    }
+
+    .wrap .separator {
+      text-align: center;
+    }
+    .wrap.align-left .separator {
+      text-align: left;
+    }
+    .wrap .separator .tear::before {
+      content: "-----"
+    }
+
+    .equal-price .currency span {
+      /* background: red; */
+      font-size: 55px;
+      vertical-align: initial;
+      line-height: 55px;
+    }
+    .equal-price .integer-part {
+      margin-left: 50px;
+    }
+
+    .price-block {
+      display: table-cell;
+    }
+    .separator-line {
+      display: table-cell;
+      background: black;
+      width: 1px;
+    }
+    .separator-line:last-child {
+      display: none;
+    }
+    .price-block, .price-block > div
+    /* and all sub divs */
+    /*.price-heading,
+    .price-pricing,
+    .price-content,
+    .price-footer*/
+    {
+      position: relative;
+      text-align: center;
+    }
+    .bg-row {
+      position: absolute !important;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      border-radius: inherit;
+
+      opacity: 0.3;
+      background-image: url(http://127.0.0.1/WP/wordpress494_theark/wp-content/themes/ark/builder/placeholders/building2.jpg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-position: center center;
+    }
+
+
+    .price-content {
+      background-color: aquamarine;
+    }
+    .price-content li {
+      list-style: none;
+    }
+    /* attempt to create card left-right design */
+    .card-design .price-block {
+      display: table;
+      width: 100%;
+    }
+    .card-design .price-content {
+      display: table-caption;
+      float: right;
+      right: 0;
+      top: 0;
+      position: absolute !important;
+    }
+    /*.card-design .price-block,*/ .card-design.price-block > div {
+      width: 50%;
+      text-align: left;
+    }
+    .card-design .wrap-price-currency {
+      margin: 0;
+    }
+    .card-design .bg-row {
+      width: 100% !important;
+    }
+
+    
+
+    .price-superheading {
+      text-align: center;
+    }
+    .price-main {
+      width: 700px;
+    }
+    .price-main, .price-wrap {
+      background-color: #ffef5d;
+    }
+
+
+
+    .price-ribbon {
+      position: absolute !important;
+      transform: rotate(270deg);
+      -ms-transform: rotate(0deg);
+      margin-left: 10px;
+      z-index: 999999999;
+    }
+    .price-block.d-mini-lite .price-period {
+      background: white;
+      text-align: right;
+      transform: rotate(270deg);
+      writing-mode: vertical-rl;
+      padding: 6px 3px 10px 5px;
+      font-size: 18px;
+      margin-right: -6px;
+    }
+    .price-block.d-mini-lite .price-period:after {
+      content: "";
+      position: absolute;
+      top: -15px;
+      right: 0px;
+      border-top: 15px solid transparent;
+      border-bottom: 0;
+      border-right: 13px solid white;
+      border-left: 13px solid white;
+    }
+    .price-block.d-mini-lite .price-content,
+    .price-block.d-mini-lite .subtitle-row,
+    .price-block.d-mini-lite .period,
+    .price-block.d-mini-lite .separator
+    {
+      display: none;
+    }
+
+    .d-mini-lite .decimal-part span,
+    .d-mini-lite .currency span
+    {
+      vertical-align: top !important;
+    }
+
+    .d-mini-lite .integer-part, .currency, .decimal-part {
+      font-size: 90px;
+    }
+    .d-mini-lite .integer-part {
+      margin-left: 45px;
+    }
+    .d-mini-lite .currency span,
+    .d-mini-lite .decimal-part span
+     {
+      font-size: 45px;
+    }
