@@ -7013,8 +7013,10 @@ var fusionAllElements = {
                         "hidden": true,
 						"gchildrens": [
 							{
-								"shortcode": "fusion_pricing_column",
+                                //ADD: supertitle, subprice etc
+                                "shortcode": "fusion_pricing_column",
 								"title": "Standard",
+								"subtitle": "Pricing Subtitle",
 								"standout": "no",
 								"class": "",
 								"id": "",
@@ -7038,7 +7040,8 @@ var fusionAllElements = {
 							},
 							{
 								"shortcode": "fusion_pricing_column",
-								"title": "Premium",
+                                "title": "Premium",
+                                "subtitle": "Pricing Subtitle",
 								"standout": "yes",
 								"class": "",
 								"id": "",

@@ -152,6 +152,7 @@
 									</div>
 								</div>
 								<div class="te-title"><input class="bold" placeholder="Head Title" v-model="gchildren.title" /></div>
+								<div class="te-subtitle"><input class="bold" placeholder="Head Sub Title" v-model="gchildren.subtitle" /></div>
 							</th>
 						</tr>
 					</thead>
@@ -469,7 +470,7 @@
         </div>
         <div class="price-heading">
           <h3 class="title-row">{{column.title}}</h3>
-          <span class="subtitle-row">Pricing Subtitle</span>
+          <span class="subtitle-row">{{column.subtitle}}</span>
         </div>
         <div class="price-pricing wrap currency-leftbottom decimal-bottom dec-sep-dot  period-under">
           <div class="wrap-price-currency">

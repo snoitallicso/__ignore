@@ -952,7 +952,8 @@ layObj = {
 										"gchildrens": [
 											{
 												"shortcode": "fusion_pricing_column",
-												"title": "Standard",
+                                                "title": "Standard",
+                                                "subtitle": "Pricing Subtitle",
 												"standout": "no",
 												"class": "",
 												"id": "",
@@ -976,7 +977,8 @@ layObj = {
 											},
 											{
 												"shortcode": "fusion_pricing_column",
-												"title": "Premium",
+                                                "title": "Premium",
+                                                "subtitle": "Pricing Subtitle",
 												"standout": "yes",
 												"class": "",
 												"id": "",
