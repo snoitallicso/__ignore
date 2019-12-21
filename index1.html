@@ -126,14 +126,18 @@
 				<button class="closew" v-on:click="closeTableEditor()">X</button>
 			</div>
 			<h1>INTENSIVE, SHORT</h1>
-			{{super_title}}
-			{{super_subtitle}}
+
 			<div>
 				<button v-on:click="etAddCol(gchildrens)">ADD COLUMN</button>
 				<button v-on:click="etAddRow(gchildrens)">ADD ROW</button>
 			</div>
-			
+
 			<div class="te">
+				<div class="st">
+					<input class="bold" placeholder="Enter Super Title" v-model="overtitles.super_title" />
+					<input class="bold" placeholder="Enter Super Sub Title" v-model="overtitles.super_subtitle" />
+				</div>
+
 				<div class="ts">
 				<table>
 					<thead>
@@ -453,8 +457,8 @@
 		class="price-main"
 	>
     <div class="price-superheading">
-      <h3 class="supertitle-row">Super Title</h3>
-      <span class="supersubtitle-row">Super Subtitle Centered</span>
+      <h3 class="supertitle-row">{{params.groups.General.element_content.overtitles.super_title}}</h3>
+			<span class="supersubtitle-row">{{params.groups.General.element_content.overtitles.super_subtitle}}</span>
     </div>
   
     <div class="price-wrap">

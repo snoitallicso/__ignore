@@ -2413,7 +2413,10 @@ input.bold {
     width: 100%;
     height: 100%;
 }
-.ts {
+.st {
+    text-align: center;
+}
+.ts, .st {
     padding: 50px 10px 0 30px;
 }
 .te tr > th, td {

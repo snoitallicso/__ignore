@@ -925,7 +925,7 @@ var schemaEditorState = new Vue({
 		},
 		etAddCol: function(gchildrens){
 			this.columns_count +=  1;
-			var pcolumn = {"shortcode":"fusion_pricing_column","title":"","standout":"no","class":"","id":"","gchildrens":[{"shortcode":"fusion_pricing_price","currency":"$","price":"","currency_position":"right","time":""},{"shortcode":"fusion_pricing_row","text":"Feature1"},{"shortcode":"fusion_pricing_footer","text":""}]};
+			var pcolumn = {"shortcode":"fusion_pricing_column","title":"","standout":"no","class":"","id":"","overtitles": {"super_title": "1111ololo111Super Title","super_subtitle": "1111ololo111Super Subtitle Centered"},"gchildrens":[{"shortcode":"fusion_pricing_price","currency":"$","price":"","currency_position":"right","time":""},{"shortcode":"fusion_pricing_row","text":"Feature1"},{"shortcode":"fusion_pricing_footer","text":""}]};
 			
 			var gchildren = copyObj(pcolumn);
 			gchildrens.push(gchildren);
@@ -1364,8 +1364,7 @@ var elementsSlot = new Vue({
 				//we need calc max rows and equalize num of rows for first time before render
 				schemaEditorState.firstCalc_MC = false;
 				schemaEditorState.gchildrens = elobj.params.groups.General.element_content.gchildrens;
-				schemaEditorState.super_title = elobj.params.groups.General.element_content.super_title;
-				schemaEditorState.super_subtitle = elobj.params.groups.General.element_content.super_subtitle;
+				schemaEditorState.overtitles = elobj.params.groups.General.element_content.overtitles;
 			}
 
 			//here we insert element into column
