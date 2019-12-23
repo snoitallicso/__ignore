@@ -856,7 +856,7 @@ var schemaEditorState = new Vue({
 		firstCalc: false,
 		firstCalc_MC: false
 	},
-	props: ['super_title', 'super_subtitle', 'gchildrens', 'ch', 'column', 'eq', 'cpr'],
+	props: ['super_title', 'super_subtitle', 'gchildrens', 'ch', 'column', 'eq', 'cpr', 'overtitles'],
 	el: '.schema-editor',
 	name: 'schemaed',
 	template: schema_templ,
@@ -1226,6 +1226,7 @@ var gridState = new Vue({
 					if(children.shortcode == "fusion_pricing_table"){
 						//WARNING: THIS CODE DUPLICATE insertElement method of elementsSlot
 						schemaEditorState.gchildrens = children.params.groups.General.element_content.gchildrens;
+						schemaEditorState.overtitles = children.params.groups.General.element_content.overtitles;
 						
 						//recalc rows (schemaEditorState.maxrows)
 						schemaEditorState.etAddRow(schemaEditorState.gchildrens, true);
