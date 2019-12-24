@@ -372,6 +372,12 @@ var lay = new Vue({
 
 							)
 						}*/
+						if(params.groups.General.type){
+							classobj.push(
+								{'d-mini-lite': params.groups.General.type.default == 1},
+								{'card-design': params.groups.General.type.default == 2}
+							)
+						}
 					}
 					
 					return classobj;
