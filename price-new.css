@@ -3,6 +3,38 @@
       display: table;
     }
 
+.card-design .integer-part, .currency, .decimal-part {
+  font-size: 40px;
+}
+.card-design .price-block {
+  padding-left: 2%;
+  width: 98%;
+}
+.price-superheading {
+  padding: 10px 0 20px 0;
+}
+.price-block {
+  padding: 20px 0 20px;
+}
+
+
+.sale-ribbon span {
+  position: absolute;
+  right: 0px;
+  width: max-content;
+  padding: 4px;
+  background: white;
+}
+
+
+
+
+.sale-ribbon {
+  display: none;
+}
+.on-sale .sale-ribbon {
+  display: block;
+}
 
 
     .currency-right.currency-after-decimal .currency {
@@ -82,7 +114,7 @@
     .decimal-part span { /*default*/
       vertical-align: initial;
     }
-    .decimal-top .decimal-part span
+    .decimal-top .decimal-part span {
       vertical-align: top;
     }    
     .decimal-center .decimal-part span {
@@ -243,7 +275,7 @@
     /* attempt to create card left-right design */
     .card-design .price-block {
       display: table;
-      width: 100%;
+      /*width: 100%;*/
     }
     .card-design .price-content {
       display: table-caption;
@@ -252,7 +284,7 @@
       top: 0;
       position: absolute !important;
     }
-    /*.card-design .price-block,*/ .card-design.price-block > div {
+    /*.card-design .price-block,*/ .card-design .price-block > div {
       width: 50%;
       text-align: left;
     }
@@ -277,13 +309,20 @@
 
 
 
-    .price-ribbon {
+    .sale-ribbon {
       position: absolute !important;
       transform: rotate(270deg);
       -ms-transform: rotate(0deg);
       margin-left: 10px;
       z-index: 999999999;
     }
+
+    /*.d-mini-lite .price-content,
+    .d-mini-lite .period {
+      
+      display: none;
+    }
+
     .price-block.d-mini-lite .price-period {
       background: white;
       text-align: right;
@@ -327,4 +366,4 @@
     .d-mini-lite .decimal-part span
      {
       font-size: 45px;
-    }
+    }*/

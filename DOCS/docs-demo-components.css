@@ -1,0 +1,21 @@
+.gap {
+    background: #e8e8e8;
+}
+.gap h1 {
+    text-align: center;
+}
+.demo-doc .builder-column {border: 1px solid #801d00;box-sizing: border-box;}
+.builder-container.demo-doc1 {
+    background-color:#2196F3;
+    height: 8rem;
+}
+.builder-container.demo-doc2 {
+    background-color:#2196F3;
+}
+.builder-container.demo-doc2 .builder-column {
+    height: 8rem;
+}
+/*.builder-container.demo-doc1 .builder-column {
+	background-color:pink;
+    height: 8rem;
+}*/

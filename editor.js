@@ -264,10 +264,6 @@ var lay = new Vue({
 								{'notc': params.groups.General.type.default == 'Notice' }
 							);
 						}
-						//Alignment
-						if(params.groups.General.alignment){
-							classobj.push(params.groups.General.alignment.default);
-						}
 						//CSS Class
 						if(params.groups.General.class){
 							classobj.push([params.groups.General.class.value]);
@@ -295,11 +291,19 @@ var lay = new Vue({
 								{'bshdw': params.groups.General.pic_style.default == 'Bottom Shadow' }
 							)
 						}
-						if(params.groups.General.align){
+						/*
+						//Alignment
+						//why without classnames to push?
+						//test this code by test elements before removing
+						if(params.groups.General.alignment){
+							classobj.push(params.groups.General.alignment.default);
+						}*/
+						if(params.groups.General.alignment){
+							//alert("params.groups.General.alignment")
 							classobj.push(
-								{'left': params.groups.General.align.default == 'Left' },
-								{'right': params.groups.General.align.default == 'Right' },
-								{'center': params.groups.General.align.default == 'Center' }
+								{'alignleft': params.groups.General.alignment.default == 'Left' },
+								{'alignright': params.groups.General.alignment.default == 'Right' },
+								{'aligncenter': params.groups.General.alignment.default == 'Center' }
 							)
 						}
 						if(params.groups.General.content_alignment){
@@ -374,8 +378,7 @@ var lay = new Vue({
 						}*/
 						if(params.groups.General.type){
 							classobj.push(
-								{'d-mini-lite': params.groups.General.type.default == 1},
-								{'card-design': params.groups.General.type.default == 2}
+								{'card-design': params.groups.General.type.default == 1}
 							)
 						}
 					}
@@ -458,8 +461,20 @@ var lay = new Vue({
 					}
 					if(element_type === 'Youtube'){
 						var style_object = {
-							maxWidth: children.params.groups.General.dimensions.value.width,
-							maxHeight: children.params.groups.General.dimensions.value.height
+							maxWidth: children.params.groups.General.dimensions.value.width + 'px',
+							maxHeight: children.params.groups.General.dimensions.value.height + 'px'
+						};
+					}
+					if(element_type === 'Vimeo'){
+						var style_object = {
+							maxWidth: children.params.groups.General.dimensions.value.width + 'px',
+							maxHeight: children.params.groups.General.dimensions.value.height + 'px'
+						};
+					}
+					if(element_type === 'Soundcloud'){
+						var style_object = {
+							/*width: children.params.groups.General.dimensions.value.width,
+							height: children.params.groups.General.dimensions.value.height*/
 						};
 					}
 					if(element_type === 'Image'){

@@ -8805,10 +8805,10 @@ var fusionAllElements = {
                         "description": "Choose the layout of the soundcloud embed.",
                         "param_name": "layout",
                         "value": {
-                            "classic": "Classic",
-                            "visual": "Visual"
+                            "Classic": "false",
+                            "Visual": "true"
                         },
-                        "default": "classic"
+                        "default": "false"
                     },
                     "comments": {
                         "type": "radio_button_set",
@@ -8816,10 +8816,10 @@ var fusionAllElements = {
                         "description": "Choose to display comments.",
                         "param_name": "comments",
                         "value": {
-                            "yes": "Yes",
-                            "no": "No"
+                            "Yes": "true",
+                            "No": "false"
                         },
-                        "default": "yes"
+                        "default": "true"
                     },
                     "show_related": {
                         "type": "radio_button_set",
@@ -8827,10 +8827,21 @@ var fusionAllElements = {
                         "description": "Choose to display related items.",
                         "param_name": "show_related",
                         "value": {
-                            "yes": "Yes",
-                            "no": "No"
+                            "Yes": "false",
+                            "No": "true"
                         },
-                        "default": "no"
+                        "default": "false"
+                    },
+                    "show_reposts": {
+                        "type": "radio_button_set",
+                        "heading": "Show Reposts",
+                        "description": "Choose to display reposting.",
+                        "param_name": "show_reposts",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "false"
                     },
                     "show_user": {
                         "type": "radio_button_set",
@@ -8838,10 +8849,10 @@ var fusionAllElements = {
                         "description": "Choose to display the user who posted the item.",
                         "param_name": "show_user",
                         "value": {
-                            "yes": "Yes",
-                            "no": "No"
+                            "Yes": "true",
+                            "No": "false"
                         },
-                        "default": "yes"
+                        "default": "true"
                     },
                     "auto_play": {
                         "type": "radio_button_set",
@@ -8849,10 +8860,10 @@ var fusionAllElements = {
                         "description": "Choose to autoplay the track.",
                         "param_name": "auto_play",
                         "value": {
-                            "yes": "Yes",
-                            "no": "No"
+                            "Yes": "true",
+                            "No": "false"
                         },
-                        "default": "no"
+                        "default": "false"
                     },
                     "color": {
                         "type": "colorpicker",
@@ -8869,8 +8880,92 @@ var fusionAllElements = {
                         "param_name": "dimensions",
                         "value": {
                             "width": "100%",
-                            "height": "150px"
+                            "height": "160px"
                         }
+                    },
+		    "show_artwork": {
+                        "type": "radio_button_set",
+                        "heading": "Show Artwork",
+                        "description": "Show/Hide the item’s artwork",
+                        "param_name": "show_artwork",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "true"
+                    },
+		    "show_playcount": {
+                        "type": "radio_button_set",
+                        "heading": "Show Playcount",
+                        "description": "Show/Hide number of track plays",
+                        "param_name": "show_playcount",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "true"
+                    },
+		    "liking": {
+                        "type": "radio_button_set",
+                        "heading": "Show Like Button",
+                        "description": "Show/Hide Like button",
+                        "param_name": "liking",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "true"
+                    },
+		    "buying": {
+                        "type": "radio_button_set",
+                        "heading": "Show Buy Buttons",
+                        "description": "Show/Hide buy buttons",
+                        "param_name": "buying",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "false"
+                    },
+		    "sharing": {
+                        "type": "radio_button_set",
+                        "heading": "Show Share Buttons",
+                        "description": "Show/Hide share buttons",
+                        "param_name": "sharing",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "true"
+                    },
+		    "download": {
+                        "type": "radio_button_set",
+                        "heading": "Show Download Buttons",
+                        "description": "Show/Hide download buttons",
+                        "param_name": "download",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "false"
+                    },
+		    "following": {
+                        "type": "radio_button_set",
+                        "heading": "Show Follow Buttons",
+                        "description": "Show/Hide follow button when mouseover artwork",
+                        "param_name": "following",
+                        "value": {
+                            "Yes": "true",
+                            "No": "false"
+                        },
+                        "default": "true"
+                    },
+                    "start_track": {
+                        "type": "textfield",
+                        "heading": "Start From Track",
+                        "description": "A number from 0 to the playlist length which reselects the track in a playlist",
+                        "param_name": "start_track",
+                        "value": "0"
                     },
                     "hide_on_mobile": {
                         "type": "checkbox_button_set",
@@ -10604,10 +10699,10 @@ var fusionAllElements = {
                         "description": "Set to yes to make video autoplaying.",
                         "param_name": "autoplay",
                         "value": {
-                            "false": "No",
-                            "true": "Yes"
+                            "No": "0",
+                            "Yes": "1"
                         },
-                        "default": "false"
+                        "default": "No"
                     },
                     "api_params": {
                         "type": "textfield",

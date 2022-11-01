@@ -1,8 +1,10 @@
 body {
     background-color: #ff505f;
 }
+
+/*
 .d-mini-lite.codename-pricing-table .price-period {
-    /*transform: rotate(270deg);*/
+    //transform: rotate(270deg);
     position: relative;
     margin-top: 50%;
     left: -50%;
@@ -11,8 +13,9 @@ body {
 }
 .d-mini-lite.codename-pricing-table .price-period:after {
     border: 0;
-}
-.price-ribbon {
+}*/
+
+.sale-ribbon {
     /*position: absolute!important;*/
     top: -14px;
 }

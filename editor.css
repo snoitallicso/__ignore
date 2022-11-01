@@ -36,20 +36,26 @@ button.nospan {
     width: auto;
 }
 
-.fusion-row  {
+.alignleft {
     display: inline;
-}
-
-/*BUG IF .fusion-row .left {} BECAUSE ELEMENTS LOST THEIR OWN LEFT RIGHT CENTER INTERNAL LOCATIONS*/
-.fusion-row.left {
     float: left;
+    margin-right: 15px;
+    
+    width: 100%;
 }
-.fusion-row.right {
-    float: right;
-}
-.fusion-row.center {
+.aligncenter {
+    clear: both;
     display: block;
-    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.alignright {
+    display: inline;
+    float: right;
+    margin-left: 15px;
+
+    width: 100%;
 }
 
 @media screen and (max-width: 640px) {
@@ -2115,17 +2121,15 @@ button.round, .tagline.round .btn {
     overflow: hidden;
     height: 100vh;
 }
-.builder-container .fusion-row {
-    max-width: 1170px;
-}
 
-.builder-container.fullw .fusion-row {
-    max-width: none!important;
-}
 
 #layout .active, #grid_content_area .active {
-    border: 2px solid #FF5722;
+    border: 2px solid #6ca1ff !important;
 }
+.builder-column:hover, .builder-column > *:hover {
+    border: 1px solid #1172c1 !important;
+}
+
 .alrt, .ebutton {
     clear: both;
 }
@@ -2550,15 +2554,7 @@ input.bold {
     margin-left: 341px;
     overflow-x: hidden;
 }
-#layout .builder-container {
-    background-color: transparent;
-}
-.builder-container {
-    background-color: #2196F3;
-    width: 100%;
-    float: left;
-    padding-bottom: 10px;
-}
+
 .builder-container-header {
     background-color: #9824ad;
     height: 35px;
@@ -2580,13 +2576,26 @@ input.bold {
 .builder-container-content {
     /* background-color: yellow; */
     width: 100%;
+    float: left;
 }
-#layout .builder-column {
-    z-index: 1;
-    border: 1px solid lightgray;
-    background-color: transparent;
+
+.grid_content_area_grider .builder-column {
+    padding-top: 50px;
+    cursor: move;
+    margin: 0.5%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 7px 0.74%;
 }
-.builder-column {
+
+.grid_content_area_grider .builder-column {
+    background-color: #cae8ff;
+}
+.grid_content_area_grider .column-1_2 {
+    width: 47%;
+}
+.grid_content_area_grider .builder-column {
     /* float: left; */
     background-color: #FFEB3B;
     margin: 0.5%;
@@ -2598,6 +2607,8 @@ input.bold {
     vertical-align: top;
     margin: 7px 0.74%;
 }
+
+
 .builder-column-controls {
 
     position: absolute;
@@ -2696,19 +2707,7 @@ input.bold {
 
 
 
-/*///// 1_2, 1_4... /////*/
-.column-1_1 {width: 100%;}
-.column-1_2 {width: 47%;}
-.column-1_3 {width: 31.333%}
-.column-1_4 {width: 22%;}
-.column-1_6 {width: 13.666%;}
-.column-2_3 {width: 64.666%;}
-.column-2_5 {width: 38%;}
-.column-3_5 {width: 58%;}
-.column-3_4 {width: 73%;}
-.column-4_5 {width: 78%;}
-.column-5_6 {width: 81.333%;}
-/*///// 1_2, 1_4... /////*/
+
 
 
 /*--------------------------------------*/

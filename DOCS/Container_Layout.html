@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../sep_style_for_container.css">
+    <link rel="stylesheet" href="../sep_style_for_columns.css">
+    <link rel="stylesheet" href="docs-demo-components.css">
+
+	<link rel="stylesheet" href="https://prismjs.com/themes/prism.css" data-noprefix />
+</head>
+<body class="demo-doc">
+	<h1>Container</h1>
+	<p>Every container consist from div with .builder-container classname and its children .fusion-row</p>
+    <div class="builder-container demo-doc1">
+    	Container
+        <div class="fusion-row">Row</div>
+    </div>
+    <code class="language-html">
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;builder-container&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div&nbsp;class=&quot;fusion-row&quot;&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;!--div&nbsp;class=&quot;gap&quot;&gt;&lt;h1&gt;Pseudo&nbsp;Element&lt;/h1&gt;&lt;/div--&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br/>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;
+    </code>
+    <h3>Super wrapper</h3>
+    <p>Despite wrappers inside containers (rows) there is super container for all children containers</p>
+
+    <h1>?????????</h1>
+
+    <h1>Columns</h1>
+    <p>Every column consist from div with .builder-container classname and its children .fusion-row</p>
+    <p>Every column has .builder-column classname and its width class .column-*</p>
+    <ul>
+		<li>.column-1_1</li>
+		<li>.column-1_2</li>
+		<li>.column-1_3</li>
+		<li>.column-1_4</li>
+		<li>.column-1_6</li>
+		<li>.column-2_3</li>
+		<li>.column-2_5</li>
+		<li>.column-3_5</li>
+		<li>.column-3_4</li>
+		<li>.column-4_5</li>
+		<li>.column-5_6</li>
+	</ul>
+    <div class="builder-container demo-doc2">
+        <div class="fusion-row">
+            <div class="builder-column column-1_2">1 of 2</div>
+            <div class="builder-column column-1_2">1 of 2</div>
+        </div>
+    </div>
+
+    <code class="language-html">
+	      &lt;div class=&quot;builder-container&quot;&gt;
+        &lt;div class=&quot;fusion-row&quot;&gt;
+            &lt;div class=&quot;builder-column column-1_2&quot;&gt;1 of 2&lt;/div&gt;
+            &lt;div class=&quot;builder-column column-1_2&quot;&gt;1 of 2&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    </code>
+
+    <div class="builder-container demo-doc2">
+        <div class="fusion-row">
+            <div class="builder-column column-1_4">1 of 4</div>
+            <div class="builder-column column-3_4">3 of 4</div>
+        </div>
+    </div>
+
+    <div class="builder-container demo-doc2">
+        <div class="fusion-row">
+            <div class="builder-column column-1_4">1 of 4</div>
+            <div class="builder-column column-1_4">1 of 4</div>
+            <div class="builder-column column-1_4">1 of 4</div>
+            <div class="builder-column column-1_4">1 of 4</div>
+        </div>
+    </div>
+
+    <h1>Nested Columns</h1>
+    <p>Like usual columns nested columns have parent row (wrapper) with classname .fusion-builder-row-<u>inner</u></p>
+    <p>And each nested column have .fusion-builder-<u>nested</u>-column classnamw</p>
+    <p>Nested (.fusion-builder-nested-column) classname (like .fusion-builder-row-inner) is almost useless because all works perfectly with standard columns classnames but another nested structure</p>
+
+    <div class="builder-container demo-doc2">
+        <div class="fusion-row">
+            <div class="builder-column column-1_2">1 of 2</div>
+            <div class="builder-column column-1_2">
+            	<div class="fusion-row">
+            		<div class="builder-column column-1_2 fusion-builder-nested-column">1 of 2 *nested</div>
+            		<div class="builder-column column-1_2 fusion-builder-nested-column">1 of 2 *nested</div>
+            	</div>
+            </div>
+        </div>
+    </div>
+
+<script src="prism.js"></script>
+</body>
+</html>

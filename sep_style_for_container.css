@@ -1,0 +1,36 @@
+#layout .builder-container {
+    background-color: transparent;
+}
+.builder-container {
+    /* background-color: #2196F3; */
+    width: 100%;
+    float: left;
+    padding-bottom: 10px;
+}
+
+
+
+.fusion-row  {
+    display: inline;
+}
+
+/*BUG IF .fusion-row .left {} BECAUSE ELEMENTS LOST THEIR OWN LEFT RIGHT CENTER INTERNAL LOCATIONS*/
+.fusion-row.left {
+    float: left;
+}
+.fusion-row.right {
+    float: right;
+}
+.fusion-row.center {
+    display: block;
+    margin: 0 auto;
+}
+
+
+.builder-container .fusion-row {
+    max-width: 1170px;
+}
+
+.builder-container.fullw .fusion-row {
+    max-width: none!important;
+}

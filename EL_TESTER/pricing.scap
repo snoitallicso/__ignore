@@ -42,7 +42,7 @@
          <Formatting>
             <FormatRange Bold="Yes">0,11</FormatRange>
          </Formatting>
-         <String>d-mini-lite</String>
+         <String>d-mini-lite (DEPRICATED!)</String>
          <ConnectedNoteIDs>0-3, 6</ConnectedNoteIDs>
       </Note>
       <Note Width="45.1782" FontSize="12" ID="5" Position="387.5,215.6">
