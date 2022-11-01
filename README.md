@@ -1,7 +1,7 @@
 ### all rights are reserved and it is not Open Source or Free
 
 - **This project is an attempt** to create a visual website editor like Wix, but for Wordpress.
-- Start from MAIN.html
+- Run MAIN.html
 - Vue for high performance. (React and Angular are poorly proven).
 - The design is designed with the convenience of accessing many options without making unnecessary mouse movements.
 - No project builders are used.
